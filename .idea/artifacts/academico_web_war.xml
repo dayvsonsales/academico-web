@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="academico-web:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="academico-web-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="academico-web:war exploded" />
+    </root>
+  </artifact>
+</component>
