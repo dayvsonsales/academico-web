@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:jsf="http://xmlns.jcp.org/jsf"
 	  xmlns:h="http://xmlns.jcp.org/jsf/html"
 	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" >
 <h:head>
@@ -22,10 +23,10 @@
 	<div class="wrapper">
 		<header class="main-header">
 			<a href="/" class="logo">
-				<span class="logo-mini"> <h:graphicImage value="resources/img/logo-ic-mini.png" styleClass="logo-img" /> </span>
+				<span class="logo-mini"> <h:graphicImage library="img" name="logo-ic-mini.png" styleClass="logo-img" /> </span>
 
 				<span class="logo-lg">Sistema Acadêmico
-					<h:graphicImage value="resources/img/logo-ic-mini.png" styleClass="logo-img" />
+					<h:graphicImage library="img" name="logo-ic-mini.png" styleClass="logo-img" />
 				</span>
 			</a>
 
@@ -38,7 +39,7 @@
 					<ul class="nav navbar-nav">
 						<li class="dropdown user user-menu">
 							<a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
-								<span class="hidden-xs">Nome do Usuário</span>
+								<span class="hidden-xs"> Nome do Usuário</span>
 							</a>
 							<ul class="dropdown-menu">
 								<li class="user-footer">
@@ -58,20 +59,11 @@
 
 		<aside class="main-sidebar">
 			<section class="sidebar">
-				<form action="#" method="get" class="sidebar-form">
-					<div class="input-group">
-						<input type="text" name="q" class="form-control" placeholder="Search..." />
-						<span class="input-group-btn">
-							<button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-							</button>
-						</span>
-					</div>
-				</form>
-
 				<ul class="sidebar-menu">
 					<li class="header">Módulos</li>
-					<li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-					<li><a href="javascript:void(0)"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+
+					<li class="active"><a jsf:outcome="/empregados/index"><i class="fa fa-link"></i> <span>Empregados</span></a></li>
+
 					<li class="treeview">
 						<a href="javascript:void(0)"><i class="fa fa-link"></i> <span>Multilevel</span>
 							<span class="pull-right-container">
@@ -96,7 +88,7 @@
 
 				<ol class="breadcrumb">
 					<li><a href="/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-					<li class="active"><ui:insert name="breadcrumb-atual" /></li>
+					<ui:insert name="breadcrumb-atual" />
 				</ol>
 			</section>
 

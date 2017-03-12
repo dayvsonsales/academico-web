@@ -6,13 +6,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-@ManagedBean(name = "userData", eager = true)
+@ManagedBean
 @SessionScoped
 public class EmpregadoController implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private static final ArrayList<Empregado> empregados
-            = new ArrayList<Empregado>(Arrays.asList(
+    private Empregado empregado;
+
+    private  ArrayList<Empregado> empregados = new ArrayList<Empregado>(Arrays.asList(
             new Empregado("João", "Marketing", 30),
             new Empregado("Roberto", "Marketing", 25),
             new Empregado("Marcos", "Vendas", 25),
@@ -21,7 +22,30 @@ public class EmpregadoController implements Serializable {
     ));
 
 
-    public ArrayList<Empregado> getEmployees() {
+    public ArrayList<Empregado> getEmpregados() {
         return empregados;
+    }
+
+    public Empregado getEmpregado() {
+        return empregado;
+    }
+
+    public void setEmpregado(Empregado empregado) {
+        this.empregado = empregado;
+    }
+
+    public void novoEmpregado() {
+    this.empregado = new Empregado();
+    }
+
+    public String salvarEmpregado() {
+        empregados.add(empregado);
+        empregado = new Empregado();
+
+        return "/empregados/index?faces-redirect=true";
+    }
+
+    public void removerEmpregado(Empregado empregado) {
+        empregados.remove(empregado);
     }
 }

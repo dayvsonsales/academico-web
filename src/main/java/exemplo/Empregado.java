@@ -5,6 +5,8 @@ public class Empregado {
     private String departmento;
     private int idade;
 
+    public Empregado() {}
+
     public Empregado(String nome, String departmento, int age) {
         this.nome = nome;
         this.departmento = departmento;
