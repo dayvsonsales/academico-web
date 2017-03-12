@@ -1,0 +1,12 @@
+.main-header .logo-img {
+    width: 45px;
+}
+
+.main-header .logo .logo-lg {
+    text-align: left;
+    font-size: 17px;
+}
+
+.box-header {
+    padding: 10px 10px 0px 10px;
+}
