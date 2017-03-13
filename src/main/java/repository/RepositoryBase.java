@@ -3,6 +3,8 @@ package repository;
 import util.JpaUtil;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 /**
  * Created by anderson on 11/03/17.
@@ -46,6 +48,16 @@ public class RepositoryBase<E> {
         } finally {
             manager.close();
         }
+    }
+
+    public List<E> all(){
+        String classe = entityClass.toString();
+        String table = classe.substring(classe.lastIndexOf(".")+1);
+        System.out.println(table);
+        TypedQuery<E> query = manager.createQuery("from " + table, entityClass);
+        List<E> result = query.getResultList();
+        manager.close();
+        return result;
     }
 
     public E find(Integer id) {
