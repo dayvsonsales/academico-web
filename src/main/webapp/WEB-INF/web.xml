@@ -7,7 +7,7 @@
     <display-name>Sistema Acadêmico do IC</display-name>
 
     <welcome-file-list>
-        <welcome-file>index.xhtml</welcome-file>
+        <welcome-file>login.xhtml</welcome-file>
     </welcome-file-list>
 
     <context-param>
@@ -29,5 +29,10 @@
     <listener>
         <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
     </listener>
+
+    <context-param>
+        <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+        <param-value>client</param-value>
+    </context-param>
 
 </web-app>

@@ -1,3 +1,7 @@
 .table-header:last-child {
     width: 100px;
 }
+
+.vertical-offset-100{
+    padding-top:100px;
+}
