@@ -28,6 +28,7 @@ public class AutenticacaoFilter implements Filter {
         Usuario usuario = SessionUtils.getUsuario();
         if (usuario != null
                 || requestURI.indexOf("/login.xhtml") >= 0
+                || requestURI.indexOf("/usuarios/new.xhtml") >= 0
                 || requestURI.contains("javax.faces.resource")) {
             chain.doFilter(req, resp);
         } else {

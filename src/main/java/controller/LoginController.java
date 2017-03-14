@@ -21,29 +21,29 @@ public class LoginController {
     private String senha;
     private Usuario usuario;
 
-    private UsuarioRepository repo;
+    private UsuarioRepository usuarioRepo;
 
     public LoginController() {
-        this.repo = new UsuarioRepository();
+        this.usuarioRepo = new UsuarioRepository();
 
         if (getUsuario() == null)
             this.usuario = SessionUtils.getUsuario();
     }
 
     public String login() {
-        Usuario result = repo.validarEmailSenha(email, senha);
+        Usuario result = usuarioRepo.validarEmailSenha(email, senha);
 
         if (result == null) {
             FacesContext context = FacesContext.getCurrentInstance();
             FacesMessage messagem = new FacesMessage(FacesMessage.SEVERITY_WARN, null, "Email ou senha incorretos!");
             context.addMessage("loginForm", messagem);
 
-            return "login";
+            return "/login";
         } else {
             this.usuario = result;
             SessionUtils.setUsuario(result);
 
-            return "dashboard";
+            return "/dashboard";
         }
     }
 
@@ -53,7 +53,7 @@ public class LoginController {
         if (session != null)
             session.invalidate();
 
-        return "login";
+        return "/login?faces-redirect=true";
     }
 
     public String getEmail() {
@@ -76,7 +76,4 @@ public class LoginController {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
 }

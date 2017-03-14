@@ -47,7 +47,9 @@
 										<a href="javascript:void(0)" class="btn btn-default btn-flat">Configurações</a>
 									</div>
 									<div class="pull-right">
-										<a jsf:outcome="#{loginController.logout}" class="btn btn-default btn-flat">Sair</a>
+										<h:form>
+											<a jsf:action="#{loginController.logout}" class="btn btn-default btn-flat">Sair</a>
+										</h:form>
 									</div>
 								</li>
 							</ul>
