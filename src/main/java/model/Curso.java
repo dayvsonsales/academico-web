@@ -6,12 +6,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * Created by Dayvson on 12/03/2017.
+ * Created by Dayvson on 13/03/2017.
  */
 @Entity
-public class Disciplina {
+public class Curso {
 
     private Integer id;
+    private String codigo;
     private String nome;
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,12 +25,27 @@ public class Disciplina {
         this.id = id;
     }
 
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
     public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String toString() {
+        if (this.id != 0)
+            return this.id + "-" + this.nome;
+        else
+            return this.nome;
     }
 
 }

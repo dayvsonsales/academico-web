@@ -1,0 +1,61 @@
+<ui:composition template="../templates/layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <f:metadata>
+        <f:viewParam name="id" value="#{convidadoController.convidadoId}"/>
+        <f:viewAction action="#{convidadoController.init}"/>
+    </f:metadata>
+
+    <ui:define name="titulo">#{convidadoController.titulo}</ui:define>
+    <ui:define name="breadcrumb-atual">
+        <li><a jsf:outcome="/convidado/index"> onvidados</a></li>
+        <li class="active">#{convidadoController.titulo}</li>
+    </ui:define>
+
+    <ui:define name="conteudo">
+        <div class="row">
+            <div class="col-lg-8 col-md-offset-2">
+                <h:form styleClass="form-horizontal">
+
+
+                    <div class="form-group">
+                        <label for="inputNome" class="col-lg-2 control-label">Nome</label>
+                        <div class="col-sm-10">
+                            <input required="" type="text" class="form-control"
+                                   jsf:value="#{convidadoController.convidado.nome}" id="inputNome"
+                                   jsf:maxlength="128"/>
+                        </div>
+                        <label for="inputCpf" class="col-lg-2 control-label">CPF</label>
+                        <div class="col-sm-10">
+                            <input required="" type="text" class="form-control"
+                                   jsf:value="#{convidadoController.convidado.cpf}" id="inputCpf" jsf:maxlength="13"/>
+                        </div>
+                        <label for="inputDescricao" class="col-lg-2 control-label">Descrição</label>
+                        <div class="col-sm-10">
+                            <input required="" type="text" class="form-control"
+                                   jsf:value="#{convidadoController.convidado.descricao}" id="inputDescricao"
+                                   jsf:maxlength="128"/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <a class="btn btn-link" jsf:outcome="/convidado/index">Cancelar</a>
+                            <button type="submit" jsf:action="#{convidadoController.salvar}"
+                                    class="btn btn-success">Salvar
+                            </button>
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+        <h:outputScript target="body">
+            $("#inputCpf").mask("###.###.###-##");
+        </h:outputScript>
+    </ui:define>
+
+</ui:composition>

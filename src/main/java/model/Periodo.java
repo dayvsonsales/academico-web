@@ -1,19 +1,18 @@
 package model;
 
-import javax.persistence.*;
-
 import javax.persistence.Entity;
-import java.io.Serializable;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
- * Created by Dayvson on 11/03/2017.
+ * Created by Dayvson on 13/03/2017.
  */
 @Entity
-public class Bloco implements Serializable {
+public class Periodo {
 
     private Integer id;
     private String nome;
-    private String numero;
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -33,16 +32,8 @@ public class Bloco implements Serializable {
         this.nome = nome;
     }
 
-    public String getNumero() {
-        return numero;
-    }
-
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
-
+    @Override
     public String toString() {
-        return this.nome + " " + this.numero;
+        return nome;
     }
-
 }

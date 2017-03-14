@@ -14,7 +14,7 @@ public class Monitor {
 
     private List<Monitoria> monitorias;
 
-    @ManyToMany(mappedBy="monitores")
+    @ManyToMany(mappedBy = "monitores")
     public List<Monitoria> getMonitorias() {
         return monitorias;
     }
@@ -23,7 +23,7 @@ public class Monitor {
         this.monitorias = monitorias;
     }
 
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     public Integer getId() {
         return id;
