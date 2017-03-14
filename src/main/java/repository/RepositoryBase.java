@@ -11,42 +11,49 @@ import java.util.List;
  */
 public class RepositoryBase<E> {
 
-    protected EntityManager manager;
+    private EntityManager _manager;
     private Class<E> entityClass;
 
     public RepositoryBase(Class entityClass) {
-        this.manager = JpaUtil.getEntityManager();
+        this._manager = JpaUtil.getEntityManager();
         this.entityClass = entityClass;
+    }
+
+    public EntityManager manager() {
+        if (!_manager.isOpen())
+            this._manager = JpaUtil.getEntityManager();
+
+        return _manager;
     }
 
     public E save(E entity) {
         try {
-            manager.getTransaction().begin();
-            manager.merge(entity);
-            manager.getTransaction().commit();
+            manager().getTransaction().begin();
+            manager().merge(entity);
+            manager().getTransaction().commit();
 
             return entity;
         } catch (Exception e) {
             e.printStackTrace();
-            manager.getTransaction().rollback();
+            manager().getTransaction().rollback();
 
             return null;
         } finally {
-            manager.close();
+            manager().close();
         }
     }
 
     public void destroy(E entity) {
         try {
-            manager.getTransaction().begin();
-            entity = manager.merge(entity);
-            manager.remove(entity);
-            manager.getTransaction().commit();
+            manager().getTransaction().begin();
+            entity = manager().merge(entity);
+            manager().remove(entity);
+            manager().getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
-            manager.getTransaction().rollback();
+            manager().getTransaction().rollback();
         } finally {
-            manager.close();
+            manager().close();
         }
     }
 
@@ -54,15 +61,16 @@ public class RepositoryBase<E> {
         String classe = entityClass.toString();
         String table = classe.substring(classe.lastIndexOf(".")+1);
         System.out.println(table);
-        TypedQuery<E> query = manager.createQuery("from " + table, entityClass);
+        TypedQuery<E> query = manager().createQuery("from " + table, entityClass);
         List<E> result = query.getResultList();
-        manager.close();
+
+        manager().close();
         return result;
     }
 
     public E find(Integer id) {
-        E result = manager.find(entityClass, id);
-        manager.close();
+        E result = manager().find(entityClass, id);
+        manager().close();
 
         return result;
     }
