@@ -57,9 +57,9 @@ public class RepositoryBase<E> {
         }
     }
 
-    public List<E> all(){
-        String classe = entityClass.toString();
-        String table = classe.substring(classe.lastIndexOf(".")+1);
+    public List<E> all() {
+        String _class = entityClass.toString();
+        String table = _class.substring(_class.lastIndexOf(".") + 1);
         System.out.println(table);
         TypedQuery<E> query = manager().createQuery("from " + table, entityClass);
         List<E> result = query.getResultList();

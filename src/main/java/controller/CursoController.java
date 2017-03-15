@@ -29,7 +29,7 @@ public class CursoController extends Controller{
             novo();
             this.setTitulo("Novo Curso");
         }else {
-            this.setTitulo("Editar Disciplina");
+            this.setTitulo("Editar Curso");
             this.curso = (Curso) repo.find(cursoId);
         }
     }

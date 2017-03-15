@@ -1,0 +1,45 @@
+<ui:composition template="../templates/layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <f:metadata>
+        <f:viewParam name="id" value="#{periodoController.periodoId}"/>
+        <f:viewAction action="#{periodoController.init}"/>
+    </f:metadata>
+
+    <ui:define name="titulo">#{periodoController.titulo}</ui:define>
+    <ui:define name="breadcrumb-atual">
+        <li><a jsf:outcome="/periodo/index"> Periodo</a></li>
+        <li class="active">#{periodoController.titulo}</li>
+    </ui:define>
+
+    <ui:define name="conteudo">
+        <div class="row">
+            <div class="col-lg-8 col-md-offset-2">
+                <h:form styleClass="form-horizontal">
+                    <div class="form-group">
+                        <label for="inputNome" class="col-lg-2 control-label">Nome</label>
+                        <div class="col-sm-10">
+                            <input required="" type="text" class="form-control"
+                                   jsf:value="#{periodoController.periodo.nome}" id="inputNome"
+                                   jsf:maxlength="128"/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <a class="btn btn-link" jsf:outcome="/periodo/index">Cancelar</a>
+                            <button type="submit" jsf:action="#{periodoController.salvar}"
+                                    class="btn btn-success">Salvar
+                            </button>
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

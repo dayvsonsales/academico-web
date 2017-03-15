@@ -30,7 +30,7 @@ public class ConvidadoController extends Controller{
             novo();
             this.setTitulo("Novo Convidado");
         }else {
-            this.setTitulo("Editar Disciplina");
+            this.setTitulo("Editar Convidado");
             this.convidado = (Convidado) repo.find(convidadoId);
         }
     }
