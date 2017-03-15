@@ -15,6 +15,11 @@ public class Discente {
     private Periodo periodoIngresso;
     private String cpf;
 
+    public Discente(){
+        this.curso = new Curso();
+        this.periodoIngresso = new Periodo();
+    }
+
     public String getNome() {
         return nome;
     }
@@ -31,7 +36,7 @@ public class Discente {
         this.matricula = matricula;
     }
 
-    @OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public Curso getCurso() {
         return curso;
     }
@@ -40,7 +45,7 @@ public class Discente {
         this.curso = curso;
     }
 
-    @OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public Periodo getPeriodoIngresso() {
         return periodoIngresso;
     }

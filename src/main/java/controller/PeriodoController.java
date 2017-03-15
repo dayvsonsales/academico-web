@@ -4,14 +4,14 @@ import model.Periodo;
 import repository.PeriodoRepository;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.RequestScoped;
 import java.util.ArrayList;
 
 /**
  * Created by Dayvson on 13/03/2017.
  */
 @ManagedBean
-@ViewScoped
+@RequestScoped
 public class PeriodoController extends Controller{
     private Integer periodoId;
     private Periodo periodo;
@@ -20,7 +20,7 @@ public class PeriodoController extends Controller{
 
     public PeriodoController(){
         this.repo = new PeriodoRepository(Periodo.class);
-        this.periodos = (ArrayList<Periodo>) this.repo.all();
+
     }
 
     public void init() {
@@ -56,6 +56,9 @@ public class PeriodoController extends Controller{
     }
 
     public ArrayList<Periodo> getPeriodos() {
+        if(periodos == null){
+            this.periodos = (ArrayList<Periodo>) this.repo.all();
+        }
         return periodos;
     }
 

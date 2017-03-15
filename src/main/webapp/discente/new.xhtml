@@ -24,7 +24,7 @@
                     <div class="form-group">
                         <label for="inputNome" class="col-lg-2 control-label">Nome</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" jsf:value="#{discenteController.discente.nome}"
+                            <input required="required" type="text" class="form-control" jsf:value="#{discenteController.discente.nome}"
                                    id="inputNome" jsf:maxlength="128"/>
                         </div>
                         <label for="inputCpf" class="col-lg-2 control-label">CPF</label>
@@ -41,6 +41,7 @@
                         <div class="col-sm-10">
                             <h:selectOneMenu id="inputCurso" styleClass="form-control"
                                              value="#{discenteController.discente.curso}">
+                                <f:converter converterId="cursoConverter"></f:converter>
                                 <f:selectItems value="#{cursoController.cursos}"></f:selectItems>
                             </h:selectOneMenu>
                         </div>
@@ -48,6 +49,7 @@
                         <div class="col-sm-10">
                             <h:selectOneMenu id="inputPeriodo" styleClass="form-control"
                                              value="#{discenteController.discente.periodoIngresso}">
+                                <f:converter converterId="periodoConverter"></f:converter>
                                 <f:selectItems value="#{periodoController.periodos}"></f:selectItems>
                             </h:selectOneMenu>
                         </div>

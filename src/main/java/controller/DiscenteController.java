@@ -39,6 +39,7 @@ public class DiscenteController extends Controller {
     }
 
     public String salvar(){
+        System.out.println(discente);
         repo.save(discente);
         return "/discente/index?faces-redirect=true";
     }

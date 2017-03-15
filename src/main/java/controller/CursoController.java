@@ -4,6 +4,7 @@ import model.Curso;
 import repository.CursoRepository;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import java.util.ArrayList;
 
