@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	  xmlns:jsf="http://xmlns.jcp.org/jsf"
-	  xmlns:h="http://xmlns.jcp.org/jsf/html"
-	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" >
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title> Sistema Acadêmico do IC </title>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title> Sistema Acadêmico do IC </title>
 
-	<h:outputStylesheet library="css" name="bootstrap.min.css" />
-	<h:outputStylesheet library="css" name="AdminLTE.min.css" />
-	<h:outputStylesheet library="css" name="skins/skin-blue.min.css" />
-	<h:outputStylesheet library="css" name="AdminLTE-custom.css" />
-	<h:outputStylesheet library="css" name="app.css" />
+    <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+    <h:outputStylesheet library="css" name="AdminLTE.min.css"/>
+    <h:outputStylesheet library="css" name="skins/skin-blue.min.css"/>
+    <h:outputStylesheet library="css" name="AdminLTE-custom.css"/>
+    <h:outputStylesheet library="css" name="app.css"/>
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css"/>
 
 </h:head>
 <h:body styleClass="hold-transition skin-blue sidebar-mini">
@@ -25,87 +25,90 @@
 			<a jsf:outcome="/dashboard" class="logo">
 				<span class="logo-mini"> <h:graphicImage library="img" name="logo-ic-mini.png" styleClass="logo-img" /> </span>
 
-				<span class="logo-lg">Sistema Acadêmico
-					<h:graphicImage library="img" name="logo-ic-mini.png" styleClass="logo-img" />
+                <span class="logo-lg">Sistema Acadêmico
+					<h:graphicImage library="img" name="logo-ic-mini.png" styleClass="logo-img"/>
 				</span>
-			</a>
+            </a>
 
-			<nav class="navbar navbar-static-top" role="navigation">
-				<a href="javascript:void(0)" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-					<span class="sr-only">Toggle navigation</span>
-				</a>
+            <nav class="navbar navbar-static-top" role="navigation">
+                <a href="javascript:void(0)" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
 
-				<div class="navbar-custom-menu">
-					<ul class="nav navbar-nav">
-						<li class="dropdown user user-menu">
-							<a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
-								<span class="hidden-xs"><h:outputText value="#{loginController.usuario.nome}" /></span>
-							</a>
-							<ul class="dropdown-menu">
-								<li class="user-footer">
-									<div class="pull-left">
-										<a href="javascript:void(0)" class="btn btn-default btn-flat">Configurações</a>
-									</div>
-									<div class="pull-right">
-										<h:form>
-											<a jsf:action="#{loginController.logout}" class="btn btn-default btn-flat">Sair</a>
-										</h:form>
-									</div>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</nav>
-		</header>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown user user-menu">
+                            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="hidden-xs"> <h:outputText value="#{loginController.usuario.nome}" /></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <!--<a href="javascript:void(0)" class="btn btn-default btn-flat">Configurações</a>-->
+                                    </div>
+                                    <div class="pull-right">
+                                        <h:form>
+                                            <a jsf:action="#{loginController.logout}" class="btn btn-default btn-flat">Sair</a>
+                                        </h:form>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
 
-		<aside class="main-sidebar">
-			<section class="sidebar">
-				<ul class="sidebar-menu">
-					<li class="header">Módulos</li>
+        <aside class="main-sidebar">
+            <section class="sidebar">
+                <ul class="sidebar-menu">
+                    <li class="header">Módulos</li>
 
-					<li class="active"><a jsf:outcome="/empregados/index"><i class="fa fa-link"></i> <span>Empregados</span></a></li>
-
-					<li class="treeview">
-						<a href="javascript:void(0)"><i class="fa fa-link"></i> <span>Multilevel</span>
-							<span class="pull-right-container">
+                    <li class="treeview">
+                        <a href="javascript:void(0)"><i class="fa fa-university" aria-hidden="true"></i> <span>Instituicional</span>
+                            <span class="pull-right-container">
 							  <i class="fa fa-angle-left pull-right"></i>
 							</span>
-						</a>
+                        </a>
 
-						<ul class="treeview-menu">
-							<li><a href="javascript:void(0)">Link in level 2</a></li>
-							<li><a href="javascript:void(0)">Link in level 2</a></li>
-						</ul>
-					</li>
-				</ul>
-			</section>
-		</aside>
+                        <ul class="treeview-menu">
+                            <li><a jsf:outcome="/curso/index">Cursos</a></li>
+                            <li><a jsf:outcome="/disciplinas/index">Disciplinas</a></li>
+                            <li><a jsf:outcome="/discente/index">Discentes</a></li>
+                            <li><a jsf:outcome="/servidor/index">Servidor</a></li>
+                            <li><a jsf:outcome="/periodo/index">Período</a></li>
+                            <li><a jsf:outcome="/convidado/index">Convidado</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </aside>
 
-		<div class="content-wrapper">
-			<section class="content-header">
-				<h1>
-					<ui:insert name="titulo" />
-				</h1>
+        <div class="content-wrapper">
+            <section class="content-header">
+                <h1>
+                    <ui:insert name="titulo"/>
+                </h1>
 
-				<ol class="breadcrumb">
-					<li><a jsf:outcome="/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-					<ui:insert name="breadcrumb-atual" />
-				</ol>
-			</section>
+                <ol class="breadcrumb">
+                    <li><a jsf:outcome="/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                    <ui:insert name="breadcrumb-atual"/>
+                </ol>
+            </section>
 
-			<section class="content">
-				<ui:insert name="conteudo" />
-			</section>
-		</div>
+            <section class="content">
+                <ui:insert name="conteudo"/>
+            </section>
+        </div>
 
-		<footer class="main-footer">
-			<strong>Instituto da Computação - <a href="http://www.ufal.edu.br/" target="_blank">Ufal</a></strong>
-		</footer>
-	</div>
+        <footer class="main-footer">
+            <strong>Instituto da Computação - <a href="http://www.ufal.edu.br/" target="_blank">Ufal</a></strong>
+        </footer>
+    </div>
 
-	<h:outputScript library="js" name="jquery.min.js" />
-	<h:outputScript library="js" name="bootstrap.min.js" />
-	<h:outputScript library="js" name="AdminLTE.min.js" />
+    <h:outputScript library="js" name="jquery.min.js"/>
+    <h:outputScript library="js" name="bootstrap.min.js"/>
+    <h:outputScript library="js" name="AdminLTE.min.js"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js"></script>
 </h:body>
 </html>

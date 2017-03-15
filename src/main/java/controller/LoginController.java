@@ -43,7 +43,7 @@ public class LoginController {
             this.usuario = result;
             SessionUtils.setUsuario(result);
 
-            return "/dashboard";
+            return "/dashboard?faces-redirect=true";
         }
     }
 
