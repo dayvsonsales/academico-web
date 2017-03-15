@@ -34,7 +34,8 @@
                                 <h:form>
                                     <h:dataTable value="#{convidadoController.convidados}" var="convidado"
                                                  styleClass="table table-bordered table-hover dataTable"
-                                                 headerClass="table-header" paginator="true" rows="15">
+                                                 headerClass="table-header" paginator="true" rows="15"
+                                    >
 
                                         <h:column>
                                             <f:facet name="header">Nome</f:facet>
@@ -57,11 +58,13 @@
                                                     <i class="fa fa-pencil" aria-hidden="true"></i>
                                                     <f:param name="id" value="#{convidado.id}"/>
                                                 </h:link>
-                                                <a jsf:action="#{convidadoController.remover(convidado)}"
-                                                   title="Remover" class="btn btn-danger">
-                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                </a>
                                             </div>
+                                        </h:column>
+                                        <h:column>
+                                            <a jsf:action="#{convidadoController.remover(convidado)}"
+                                               title="Remover" class="btn btn-danger">
+                                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                            </a>
                                         </h:column>
                                     </h:dataTable>
                                 </h:form>

@@ -45,7 +45,6 @@ public class ConvidadoController extends Controller{
     }
 
     public void remover(Convidado convidado){
-        this.repo = new ConvidadoRepository(Convidado.class);
         repo.destroy(convidado);
         convidados.remove(convidado);
     }
