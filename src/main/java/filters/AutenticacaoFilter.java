@@ -17,27 +17,42 @@ import java.io.IOException;
  */
 @WebFilter(filterName = "AutenticacaoFilter", urlPatterns = { "*.xhtml" })
 public class AutenticacaoFilter implements Filter {
-    public void destroy() {
-    }
 
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) resp;
         String requestURI = request.getRequestURI();
 
-        Usuario usuario = SessionUtils.getUsuario();
-        if (usuario != null
-                || requestURI.indexOf("/login.xhtml") >= 0
-                || requestURI.indexOf("/usuarios/new.xhtml") >= 0
-                || requestURI.contains("javax.faces.resource")) {
-            chain.doFilter(req, resp);
+        Usuario usuario = getUsuario(request);
+        if (usuario == null) {
+            if (requestURI.equals("/login.xhtml") || requestURI.equals("/usuarios/new.xhtml") || requestURI.contains("javax.faces.resource")) {
+                chain.doFilter(req, resp);
+            } else {
+                response.sendRedirect(request.getContextPath() +"/login.xhtml");
+            }
         } else {
-            response.sendRedirect(request.getContextPath() +"/login.xhtml");
+            if (requestURI.equals("/login.xhtml") || requestURI.equals("/")) {
+                response.sendRedirect(request.getContextPath() +"/dashboard.xhtml");
+            } else {
+                chain.doFilter(req, resp);
+            }
         }
     }
 
-    public void init(FilterConfig config) throws ServletException {
+    public void init(FilterConfig config) throws ServletException { }
 
+    public void destroy() { }
+
+    private Usuario getUsuario(HttpServletRequest request) {
+        Usuario usuario;
+
+        try {
+            usuario = (Usuario) request.getSession(false).getAttribute("USUARIO");
+        } catch (NullPointerException e) {
+            usuario = null;
+        }
+
+        return usuario;
     }
 
 }

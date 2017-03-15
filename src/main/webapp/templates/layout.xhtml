@@ -22,7 +22,7 @@
 
 	<div class="wrapper">
 		<header class="main-header">
-			<a href="/" class="logo">
+			<a jsf:outcome="/dashboard" class="logo">
 				<span class="logo-mini"> <h:graphicImage library="img" name="logo-ic-mini.png" styleClass="logo-img" /> </span>
 
 				<span class="logo-lg">Sistema Acadêmico
@@ -39,7 +39,7 @@
 					<ul class="nav navbar-nav">
 						<li class="dropdown user user-menu">
 							<a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
-								<span class="hidden-xs"> Nome do Usuário</span>
+								<span class="hidden-xs"><h:outputText value="#{loginController.usuario.nome}" /></span>
 							</a>
 							<ul class="dropdown-menu">
 								<li class="user-footer">
@@ -89,7 +89,7 @@
 				</h1>
 
 				<ol class="breadcrumb">
-					<li><a href="/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+					<li><a jsf:outcome="/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
 					<ui:insert name="breadcrumb-atual" />
 				</ol>
 			</section>
