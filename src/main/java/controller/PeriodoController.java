@@ -5,13 +5,14 @@ import repository.PeriodoRepository;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 import java.util.ArrayList;
 
 /**
  * Created by Dayvson on 13/03/2017.
  */
 @ManagedBean
-@RequestScoped
+@ViewScoped
 public class PeriodoController extends Controller{
     private Integer periodoId;
     private Periodo periodo;
