@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 @ManagedBean
 @ViewScoped
-public class DisciplinaController {
+public class DisciplinaController extends Controller{
 
     private String titulo;
     private Integer disciplinaId;
