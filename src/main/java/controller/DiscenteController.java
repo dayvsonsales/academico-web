@@ -1,6 +1,7 @@
 package controller;
 
 import model.Discente;
+import model.PermissoesEnum;
 import repository.DiscenteRepository;
 
 import javax.faces.bean.ManagedBean;

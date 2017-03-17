@@ -1,5 +1,6 @@
 package controller;
 
+import model.PermissoesEnum;
 import model.Usuario;
 import repository.UsuarioRepository;
 import util.SessionUtils;
@@ -9,6 +10,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by anderson on 13/03/17.
@@ -20,6 +23,8 @@ public class LoginController {
     private String email;
     private String senha;
     private Usuario usuario;
+
+    private final List<PermissoesEnum> permissoesDisponiveis = Arrays.asList(PermissoesEnum.values());
 
     private UsuarioRepository usuarioRepo;
 
@@ -76,4 +81,7 @@ public class LoginController {
         return usuario;
     }
 
+    public List<PermissoesEnum> getPermissoesDisponiveis() {
+        return permissoesDisponiveis;
+    }
 }
