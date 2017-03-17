@@ -32,7 +32,7 @@
                             </c:when>
                             <c:otherwise>
                                 <h:form>
-                                    <table id="servidor" class="table table-striped table-bordered">
+                                    <table id="table" class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
                                                 <th>Nome</th>
@@ -70,24 +70,6 @@
                 </div>
             </div>
         </div>
-        <h:outputScript target="body">
-            $("#servidor").DataTable({
-                "language": {
-                    "lengthMenu": "Mostrar _MENU_ registros por página",
-                    "zeroRecords": "Nada encontrado",
-                    "info": "Mostrando página _PAGE_ de _PAGES_",
-                    "infoEmpty": "Sem registros disponíveis",
-                    "infoFiltered": "(filtrado de um _MAX_ total de registros)",
-                    "search":         "Procurar:",
-                    "paginate": {
-                        "first":      "Primeiro",
-                        "last":       "Último",
-                        "next":       "Próximo",
-                        "previous":   "Anterior"
-                    }
-                }
-            });
-        </h:outputScript>
     </ui:define>
 
 </ui:composition>
