@@ -22,8 +22,6 @@ public class LoginController {
     private String senha;
     private Usuario usuario;
 
-    private final PermissoesEnum[] permissoesDisponiveis = PermissoesEnum.values();
-
     private UsuarioRepository usuarioRepo;
 
     public LoginController() {
@@ -79,7 +77,4 @@ public class LoginController {
         return usuario;
     }
 
-    public PermissoesEnum[] getPermissoesDisponiveis() {
-        return permissoesDisponiveis;
-    }
 }

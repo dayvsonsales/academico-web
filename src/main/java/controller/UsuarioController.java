@@ -1,8 +1,10 @@
 package controller;
 
+import model.PermissoesEnum;
 import model.Usuario;
 import repository.UsuarioRepository;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -16,12 +18,14 @@ public class UsuarioController extends Controller {
     private Usuario usuario;
     private UsuarioRepository repo;
 
+    private final PermissoesEnum[] permissoesDisponiveis = PermissoesEnum.values();
+
     public UsuarioController() {
         this.repo = new UsuarioRepository();
     }
 
     public void init() {
-        usuario = new Usuario();
+        this.usuario = new Usuario();
     }
 
     public String salvarUsuario() {
@@ -36,5 +40,9 @@ public class UsuarioController extends Controller {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public PermissoesEnum[] getPermissoesDisponiveis() {
+        return permissoesDisponiveis;
     }
 }
