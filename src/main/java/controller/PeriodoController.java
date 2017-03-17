@@ -21,7 +21,6 @@ public class PeriodoController extends Controller{
 
     public PeriodoController(){
         this.repo = new PeriodoRepository(Periodo.class);
-
     }
 
     public void init() {

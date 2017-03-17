@@ -20,10 +20,10 @@
 </h:head>
 <h:body styleClass="hold-transition skin-blue sidebar-mini">
 
-	<div class="wrapper">
-		<header class="main-header">
-			<a jsf:outcome="/dashboard" class="logo">
-				<span class="logo-mini"> <h:graphicImage library="img" name="logo-ic-mini.png" styleClass="logo-img" /> </span>
+    <div class="wrapper">
+        <header class="main-header">
+            <a jsf:outcome="/dashboard" class="logo">
+                <span class="logo-mini"> <h:graphicImage library="img" name="logo-ic-mini.png" styleClass="logo-img"/> </span>
 
                 <span class="logo-lg">Sistema Acadêmico
 					<h:graphicImage library="img" name="logo-ic-mini.png" styleClass="logo-img"/>
@@ -39,7 +39,7 @@
                     <ul class="nav navbar-nav">
                         <li class="dropdown user user-menu">
                             <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
-                                <span class="hidden-xs"> <h:outputText value="#{loginController.usuario.nome}" /></span>
+                                <span class="hidden-xs"> <h:outputText value="#{loginController.usuario.nome}"/></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="user-footer">
@@ -48,7 +48,8 @@
                                     </div>
                                     <div class="pull-right">
                                         <h:form>
-                                            <a jsf:action="#{loginController.logout}" class="btn btn-default btn-flat">Sair</a>
+                                            <a jsf:action="#{loginController.logout}"
+                                               class="btn btn-default btn-flat">Sair</a>
                                         </h:form>
                                     </div>
                                 </li>
@@ -65,7 +66,8 @@
                     <li class="header">Módulos</li>
 
                     <li class="treeview">
-                        <a href="javascript:void(0)"><i class="fa fa-university" aria-hidden="true"></i> <span>Instituicional</span>
+                        <a href="javascript:void(0)"><i class="fa fa-university" aria-hidden="true"></i>
+                            <span>Instituicional</span>
                             <span class="pull-right-container">
 							  <i class="fa fa-angle-left pull-right"></i>
 							</span>
@@ -110,5 +112,25 @@
     <h:outputScript library="js" name="bootstrap.min.js"/>
     <h:outputScript library="js" name="AdminLTE.min.js"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/datatables.min.js"></script>
+    <h:outputScript target="body">
+        $("#table").DataTable({
+            "language": {
+                "lengthMenu": "Mostrar _MENU_ registros por página",
+                "zeroRecords": "Nada encontrado",
+                "info": "Mostrando página _PAGE_ de _PAGES_",
+                "infoEmpty": "Sem registros disponíveis",
+                "infoFiltered": "(filtrado de um _MAX_ total de registros)",
+                "search": "Procurar:",
+                "paginate": {
+                    "first": "Primeiro",
+                    "last": "Último",
+                    "next": "Próximo",
+                    "previous": "Anterior"
+                }
+            }
+        });
+    </h:outputScript>
 </h:body>
 </html>

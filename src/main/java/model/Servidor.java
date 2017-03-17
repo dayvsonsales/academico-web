@@ -15,7 +15,7 @@ public class Servidor {
     private String nome;
     private String siape;
     private String cargo;
-    private String CPF;
+    private String cpf;
 
     public String getNome() {
         return nome;
@@ -41,12 +41,12 @@ public class Servidor {
         this.cargo = cargo;
     }
 
-    public String getCPF() {
-        return CPF;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setCPF(String CPF) {
-        this.CPF = CPF;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
