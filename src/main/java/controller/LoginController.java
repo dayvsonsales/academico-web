@@ -10,8 +10,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by anderson on 13/03/17.
@@ -24,7 +22,7 @@ public class LoginController {
     private String senha;
     private Usuario usuario;
 
-    private final List<PermissoesEnum> permissoesDisponiveis = Arrays.asList(PermissoesEnum.values());
+    private final PermissoesEnum[] permissoesDisponiveis = PermissoesEnum.values();
 
     private UsuarioRepository usuarioRepo;
 
@@ -81,7 +79,7 @@ public class LoginController {
         return usuario;
     }
 
-    public List<PermissoesEnum> getPermissoesDisponiveis() {
+    public PermissoesEnum[] getPermissoesDisponiveis() {
         return permissoesDisponiveis;
     }
 }

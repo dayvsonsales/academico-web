@@ -52,7 +52,7 @@
                         <label for="inputPermissao" class="col-lg-2 control-label">Permissão</label>
                         <div class="col-sm-10">
                             <h:selectOneMenu id="inputPermissao" styleClass="form-control"
-                                             value="#{loginController.permissoesDisponiveis}">
+                                             value="#{loginController.usuario.permissao}">
                                 <f:converter converterId="permissaoConverter"></f:converter>
                                 <f:selectItems value="#{loginController.permissoesDisponiveis}"></f:selectItems>
                             </h:selectOneMenu>

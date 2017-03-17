@@ -11,7 +11,7 @@ import javax.faces.bean.ViewScoped;
  */
 @ManagedBean
 @ViewScoped
-public class UsuarioController {
+public class UsuarioController extends Controller {
 
     private Usuario usuario;
     private UsuarioRepository repo;
