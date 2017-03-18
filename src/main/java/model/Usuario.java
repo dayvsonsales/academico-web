@@ -4,8 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Created by anderson on 13/03/17.
@@ -17,7 +15,7 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
-    private PermissoesEnum permissao;
+    private Permissoes permissao;
 
     public Usuario() {}
 
@@ -55,11 +53,11 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public PermissoesEnum getPermissao() {
+    public Permissoes getPermissao() {
         return permissao;
     }
 
-    public void setPermissao(PermissoesEnum permissao) {
+    public void setPermissao(Permissoes permissao) {
         this.permissao = permissao;
     }
 }

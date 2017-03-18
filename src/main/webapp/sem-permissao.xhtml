@@ -1,0 +1,18 @@
+<ui:composition template="templates/layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+>
+
+<ui:define name="breadcrumb-atual">
+    <li class="active"> Sem Permissão </li>
+</ui:define>
+
+<ui:define name="conteudo">
+    <div class="text-center vertical-offset-100">
+        <h2>Você não tem permissão para acessar esse recurso!</h2>
+        <h4><a jsf:outcome="/dashboard">Ir para a dashboard</a></h4>
+    </div>
+</ui:define>
+
+</ui:composition>
