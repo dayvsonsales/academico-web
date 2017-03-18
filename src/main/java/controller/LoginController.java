@@ -1,6 +1,5 @@
 package controller;
 
-import model.PermissoesEnum;
 import model.Usuario;
 import repository.UsuarioRepository;
 import util.SessionUtils;
@@ -26,9 +25,6 @@ public class LoginController {
 
     public LoginController() {
         this.usuarioRepo = new UsuarioRepository();
-
-        if (getUsuario() == null)
-            this.usuario = SessionUtils.getUsuario();
     }
 
     public String login() {

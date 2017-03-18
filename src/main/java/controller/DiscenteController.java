@@ -1,12 +1,15 @@
 package controller;
 
 import model.Discente;
-import model.PermissoesEnum;
+import model.Permissoes;
 import repository.DiscenteRepository;
+import util.SessionUtils;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by Dayvson on 13/03/2017.
@@ -20,7 +23,8 @@ public class DiscenteController extends Controller {
     private DiscenteRepository repo;
     private ArrayList<Discente> discentes;
 
-    public DiscenteController(){
+    public DiscenteController() {
+        super(FacesContext.getCurrentInstance());
         this.repo = new DiscenteRepository(Discente.class);
         this.discentes = (ArrayList<Discente>) this.repo.all();
     }
@@ -73,4 +77,5 @@ public class DiscenteController extends Controller {
     public void setDiscenteId(Integer discenteId) {
         this.discenteId = discenteId;
     }
+
 }

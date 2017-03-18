@@ -1,12 +1,13 @@
 package controller;
 
-import model.PermissoesEnum;
+import model.Permissoes;
 import model.Usuario;
 import repository.UsuarioRepository;
 
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
+import java.util.Arrays;
 
 /**
  * Created by anderson on 14/03/17.
@@ -18,9 +19,12 @@ public class UsuarioController extends Controller {
     private Usuario usuario;
     private UsuarioRepository repo;
 
-    private final PermissoesEnum[] permissoesDisponiveis = PermissoesEnum.values();
+    private final Permissoes[] permissoesDisponiveis = Permissoes.values();
 
     public UsuarioController() {
+        super(FacesContext.getCurrentInstance());
+        setPermissoes(Arrays.asList(Permissoes.DIRETORIO));
+
         this.repo = new UsuarioRepository();
     }
 
@@ -42,7 +46,8 @@ public class UsuarioController extends Controller {
         this.usuario = usuario;
     }
 
-    public PermissoesEnum[] getPermissoesDisponiveis() {
+    public Permissoes[] getPermissoesDisponiveis() {
         return permissoesDisponiveis;
     }
+
 }

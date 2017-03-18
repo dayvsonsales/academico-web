@@ -1,25 +1,31 @@
 package controller;
 
 import model.Periodo;
+import model.Permissoes;
 import repository.PeriodoRepository;
+import util.SessionUtils;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by Dayvson on 13/03/2017.
  */
 @ManagedBean
 @ViewScoped
-public class PeriodoController extends Controller{
+public class PeriodoController extends Controller {
+
     private Integer periodoId;
     private Periodo periodo;
     private PeriodoRepository repo;
     private ArrayList<Periodo> periodos;
 
-    public PeriodoController(){
+    public PeriodoController() {
+        super(FacesContext.getCurrentInstance());
         this.repo = new PeriodoRepository(Periodo.class);
     }
 
@@ -73,4 +79,5 @@ public class PeriodoController extends Controller{
     public void setPeriodoId(Integer periodoId) {
         this.periodoId = periodoId;
     }
+
 }

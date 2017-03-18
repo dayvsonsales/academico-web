@@ -2,25 +2,30 @@ package controller;
 
 import model.Convidado;
 import model.Disciplina;
+import model.Permissoes;
 import repository.ConvidadoRepository;
+import util.SessionUtils;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by Dayvson on 13/03/2017.
  */
 @ManagedBean
 @ViewScoped
-public class ConvidadoController extends Controller{
+public class ConvidadoController extends Controller {
 
     private Integer convidadoId;
     private Convidado convidado;
     private ConvidadoRepository repo;
     private ArrayList<Convidado> convidados;
 
-    public ConvidadoController(){
+    public ConvidadoController() {
+        super(FacesContext.getCurrentInstance());
         this.repo = new ConvidadoRepository(Convidado.class);
         this.convidados = (ArrayList<Convidado>) this.repo.all();
     }
@@ -72,4 +77,5 @@ public class ConvidadoController extends Controller{
     public void setConvidadoId(Integer convidadoId) {
         this.convidadoId = convidadoId;
     }
+
 }

@@ -1,26 +1,31 @@
 package controller;
 
 import model.Curso;
+import model.Permissoes;
 import repository.CursoRepository;
+import util.SessionUtils;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by Dayvson on 13/03/2017.
  */
 @ManagedBean
 @ViewScoped
-public class CursoController extends Controller{
+public class CursoController extends Controller {
 
     private Integer cursoId;
     private Curso curso;
     private CursoRepository repo;
     private ArrayList<Curso> cursos;
 
-    public CursoController(){
+    public CursoController() {
+        super(FacesContext.getCurrentInstance());
         this.repo = new CursoRepository(Curso.class);
         this.cursos = (ArrayList<Curso>) this.repo.all();
     }
@@ -72,4 +77,5 @@ public class CursoController extends Controller{
     public void setCursoId(Integer cursoId) {
         this.cursoId = cursoId;
     }
+
 }
