@@ -1,6 +1,6 @@
 package converters;
 
-import model.Periodo;
+import model.instituicional.Periodo;
 import repository.PeriodoRepository;
 
 import javax.faces.component.UIComponent;

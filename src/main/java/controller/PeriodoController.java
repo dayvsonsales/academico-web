@@ -1,10 +1,9 @@
 package controller;
 
-import model.Periodo;
+import model.instituicional.Periodo;
 import repository.PeriodoRepository;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import java.util.ArrayList;
 

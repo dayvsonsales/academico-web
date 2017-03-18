@@ -1,6 +1,6 @@
 package controller;
 
-import model.Servidor;
+import model.instituicional.Servidor;
 import repository.ServidorRepository;
 
 import javax.faces.bean.ManagedBean;

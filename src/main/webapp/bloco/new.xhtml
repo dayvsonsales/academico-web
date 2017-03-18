@@ -1,0 +1,50 @@
+<ui:composition template="../templates/layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <f:metadata>
+        <f:viewParam name="id" value="#{blocoController.blocoId}"/>
+        <f:viewAction action="#{blocoController.init}"/>
+    </f:metadata>
+
+    <ui:define name="titulo">#{blocoController.titulo}</ui:define>
+    <ui:define name="breadcrumb-atual">
+        <li><a jsf:outcome="/bloco/index"> Bloco</a></li>
+        <li class="active">#{blocoController.titulo}</li>
+    </ui:define>
+
+    <ui:define name="conteudo">
+        <div class="row">
+            <div class="col-lg-8 col-md-offset-2">
+                <h:form styleClass="form-horizontal">
+                    <div class="form-group">
+                        <label for="inputNome" class="col-lg-2 control-label">Nome</label>
+                        <div class="col-sm-10">
+                            <input required="" type="text" class="form-control"
+                                   jsf:value="#{blocoController.bloco.nome}" id="inputNome"
+                                   jsf:maxlength="128"/>
+                        </div>
+                        <label for="inputNumero" class="col-lg-2 control-label">Número</label>
+                        <div class="col-sm-10">
+                            <input required="" type="text" class="form-control"
+                                   jsf:value="#{blocoController.bloco.numero}" id="inputNumero" jsf:maxlength="13"/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <a class="btn btn-link" jsf:outcome="/bloco/index">Cancelar</a>
+                            <button type="submit" jsf:action="#{blocoController.salvar}"
+                                    class="btn btn-success">Salvar
+                            </button>
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

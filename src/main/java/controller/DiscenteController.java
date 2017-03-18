@@ -1,6 +1,6 @@
 package controller;
 
-import model.Discente;
+import model.instituicional.Discente;
 import repository.DiscenteRepository;
 
 import javax.faces.bean.ManagedBean;

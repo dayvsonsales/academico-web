@@ -1,4 +1,4 @@
-package model;
+package model.instituicional;
 
 import javax.persistence.*;
 
@@ -15,7 +15,7 @@ public class Discente {
     private Periodo periodoIngresso;
     private String cpf;
 
-    public Discente(){
+    public Discente() {
         this.curso = new Curso();
         this.periodoIngresso = new Periodo();
     }

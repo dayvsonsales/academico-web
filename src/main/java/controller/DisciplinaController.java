@@ -1,6 +1,6 @@
 package controller;
 
-import model.Disciplina;
+import model.instituicional.Disciplina;
 import repository.DisciplinaRepository;
 
 import javax.faces.bean.ManagedBean;

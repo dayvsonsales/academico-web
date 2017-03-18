@@ -1,10 +1,9 @@
 package controller;
 
-import model.Curso;
+import model.instituicional.Curso;
 import repository.CursoRepository;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import java.util.ArrayList;
 
@@ -13,7 +12,7 @@ import java.util.ArrayList;
  */
 @ManagedBean
 @ViewScoped
-public class CursoController extends Controller{
+public class CursoController extends Controller {
 
     private Integer cursoId;
     private Curso curso;

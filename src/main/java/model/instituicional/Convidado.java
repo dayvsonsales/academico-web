@@ -1,4 +1,4 @@
-package model;
+package model.instituicional;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,13 +9,12 @@ import javax.persistence.Id;
  * Created by Dayvson on 13/03/2017.
  */
 @Entity
-public class Servidor {
+public class Convidado {
 
     private Integer id;
     private String nome;
-    private String siape;
-    private String cargo;
     private String cpf;
+    private String descricao;
 
     public String getNome() {
         return nome;
@@ -25,28 +24,20 @@ public class Servidor {
         this.nome = nome;
     }
 
-    public String getSiape() {
-        return siape;
-    }
-
-    public void setSiape(String siape) {
-        this.siape = siape;
-    }
-
-    public String getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
-    }
-
     public String getCpf() {
         return cpf;
     }
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)

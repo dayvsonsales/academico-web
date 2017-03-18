@@ -1,9 +1,11 @@
-package model;
+package model.patrimonio;
 
 import javax.persistence.*;
 
 import javax.persistence.Entity;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Dayvson on 11/03/2017.
@@ -14,6 +16,21 @@ public class Bloco implements Serializable {
     private Integer id;
     private String nome;
     private String numero;
+
+    private List<Sala> salas;
+
+    public Bloco(){
+        this.salas = new ArrayList<Sala>();
+    }
+
+    @OneToMany(mappedBy="bloco")
+    public List<Sala> getSalas() {
+        return salas;
+    }
+
+    public void setSalas(List<Sala> salas) {
+        this.salas = salas;
+    }
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

@@ -1,6 +1,6 @@
 package converters;
 
-import model.Curso;
+import model.instituicional.Curso;
 import repository.CursoRepository;
 
 import javax.faces.component.UIComponent;

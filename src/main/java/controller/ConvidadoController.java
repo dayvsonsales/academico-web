@@ -1,7 +1,6 @@
 package controller;
 
-import model.Convidado;
-import model.Disciplina;
+import model.instituicional.Convidado;
 import repository.ConvidadoRepository;
 
 import javax.faces.bean.ManagedBean;
