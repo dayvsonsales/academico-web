@@ -1,11 +1,15 @@
 package controller;
 
 import model.instituicional.Disciplina;
+import model.Permissoes;
 import repository.DisciplinaRepository;
+import util.SessionUtils;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by Dayvson on 12/03/2017.
@@ -13,7 +17,7 @@ import java.util.ArrayList;
 
 @ManagedBean
 @ViewScoped
-public class DisciplinaController extends Controller{
+public class DisciplinaController extends Controller {
 
     private String titulo;
     private Integer disciplinaId;
@@ -21,7 +25,8 @@ public class DisciplinaController extends Controller{
     private DisciplinaRepository repo;
     private ArrayList<Disciplina> disciplinas;
 
-    public DisciplinaController(){
+    public DisciplinaController() {
+        super(FacesContext.getCurrentInstance());
         this.repo = new DisciplinaRepository(Disciplina.class);
         this.disciplinas = (ArrayList) repo.all();
     }

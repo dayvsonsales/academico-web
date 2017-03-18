@@ -6,6 +6,7 @@ import repository.BlocoRepository;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import java.util.ArrayList;
 
 /**
@@ -21,6 +22,7 @@ public class BlocoController extends Controller {
     private ArrayList<Bloco> blocos;
 
     public BlocoController(){
+        super(FacesContext.getCurrentInstance());
         this.repo = new BlocoRepository(Bloco.class);
         this.blocos = (ArrayList<Bloco>) this.repo.all();
     }

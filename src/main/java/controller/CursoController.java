@@ -5,6 +5,7 @@ import repository.CursoRepository;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import java.util.ArrayList;
 
 /**
@@ -19,7 +20,8 @@ public class CursoController extends Controller {
     private CursoRepository repo;
     private ArrayList<Curso> cursos;
 
-    public CursoController(){
+    public CursoController() {
+        super(FacesContext.getCurrentInstance());
         this.repo = new CursoRepository(Curso.class);
         this.cursos = (ArrayList<Curso>) this.repo.all();
     }
@@ -71,4 +73,5 @@ public class CursoController extends Controller {
     public void setCursoId(Integer cursoId) {
         this.cursoId = cursoId;
     }
+
 }

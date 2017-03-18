@@ -5,6 +5,7 @@ import repository.ServidorRepository;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import java.util.ArrayList;
 
 /**
@@ -18,7 +19,9 @@ public class ServidorController extends Controller {
     private ServidorRepository repo;
     private ArrayList<Servidor> servidors;
 
-    public ServidorController(){
+    public ServidorController() {
+        super(FacesContext.getCurrentInstance());
+
         this.repo = new ServidorRepository(Servidor.class);
         this.servidors = (ArrayList<Servidor>) this.repo.all();
     }
@@ -71,4 +74,5 @@ public class ServidorController extends Controller {
     public void setServidorId(Integer servidorId) {
         this.servidorId = servidorId;
     }
+
 }

@@ -4,6 +4,7 @@ import model.Usuario;
 
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -25,12 +26,13 @@ public class SessionUtils {
         session.setAttribute("USUARIO", usuario);
     }
 
-    public static Usuario getUsuario() {
-        HttpSession session = getSession();
+    public static Usuario getUsuario(FacesContext context) {
+        HttpSession session = (HttpSession) context.getExternalContext().getSession(false);
 
         if (session == null) return null;
 
         Usuario usuario;
+
         try {
             usuario = (Usuario) session.getAttribute("USUARIO");
         } catch (NullPointerException e) {

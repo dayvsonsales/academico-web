@@ -2,9 +2,9 @@ package controller;
 
 import model.instituicional.Periodo;
 import repository.PeriodoRepository;
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import java.util.ArrayList;
 
 /**
@@ -12,13 +12,15 @@ import java.util.ArrayList;
  */
 @ManagedBean
 @ViewScoped
-public class PeriodoController extends Controller{
+public class PeriodoController extends Controller {
+
     private Integer periodoId;
     private Periodo periodo;
     private PeriodoRepository repo;
     private ArrayList<Periodo> periodos;
 
-    public PeriodoController(){
+    public PeriodoController() {
+        super(FacesContext.getCurrentInstance());
         this.repo = new PeriodoRepository(Periodo.class);
     }
 
@@ -72,4 +74,5 @@ public class PeriodoController extends Controller{
     public void setPeriodoId(Integer periodoId) {
         this.periodoId = periodoId;
     }
+
 }

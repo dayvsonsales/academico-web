@@ -15,14 +15,9 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
+    private Permissoes permissao;
 
-    public Usuario() { }
-
-    public Usuario(Integer id, String nome, String email) {
-        this.id = id;
-        this.nome = nome;
-        this.email = email;
-    }
+    public Usuario() {}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,5 +51,13 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public Permissoes getPermissao() {
+        return permissao;
+    }
+
+    public void setPermissao(Permissoes permissao) {
+        this.permissao = permissao;
     }
 }
