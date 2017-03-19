@@ -1,5 +1,6 @@
-package controller;
+package controller.instituicional;
 
+import controller.Controller;
 import model.instituicional.Discente;
 import model.Permissoes;
 import repository.DiscenteRepository;

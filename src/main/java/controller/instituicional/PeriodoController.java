@@ -1,5 +1,6 @@
-package controller;
+package controller.instituicional;
 
+import controller.Controller;
 import model.instituicional.Periodo;
 import repository.PeriodoRepository;
 import javax.faces.bean.ManagedBean;
