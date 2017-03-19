@@ -1,5 +1,8 @@
 package model.instituicional;
 
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.br.CPF;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +19,7 @@ public class Convidado {
     private String cpf;
     private String descricao;
 
+    @NotBlank
     public String getNome() {
         return nome;
     }
@@ -24,6 +28,8 @@ public class Convidado {
         this.nome = nome;
     }
 
+    @NotBlank
+    @CPF
     public String getCpf() {
         return cpf;
     }
@@ -32,6 +38,7 @@ public class Convidado {
         this.cpf = cpf;
     }
 
+    @NotBlank
     public String getDescricao() {
         return descricao;
     }
