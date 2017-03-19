@@ -17,58 +17,64 @@
     </ui:define>
 
     <ui:define name="conteudo">
-        <div class="row">
-            <div class="col-lg-8 col-md-offset-2">
-                <h:form styleClass="form-horizontal">
-
-                    <div class="form-group">
-                        <label for="inputNome" class="col-lg-2 control-label">Nome</label>
-                        <div class="col-sm-10">
-                            <input required="required" type="text" class="form-control" jsf:value="#{discenteController.discente.nome}"
-                                   id="inputNome" jsf:maxlength="128"/>
-                        </div>
-                        <label for="inputCpf" class="col-lg-2 control-label">CPF</label>
-                        <div class="col-sm-10">
-                            <input required="" type="text" class="form-control"
-                                   jsf:value="#{discenteController.discente.cpf}" id="inputCpf" jsf:maxlength="14"/>
-                        </div>
-                        <label for="inputMatricula" class="col-lg-2 control-label">Matrícula</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" jsf:value="#{discenteController.discente.matricula}"
-                                   id="inputMatricula" jsf:maxlength="128"/>
-                        </div>
-                        <label for="inputCurso" class="col-lg-2 control-label">Curso</label>
-                        <div class="col-sm-10">
-                            <h:selectOneMenu id="inputCurso" styleClass="form-control"
-                                             value="#{discenteController.discente.curso}">
-                                <f:converter converterId="cursoConverter"></f:converter>
-                                <f:selectItems value="#{cursoController.cursos}"></f:selectItems>
-                            </h:selectOneMenu>
-                        </div>
-                        <label for="inputPeriodo" class="col-lg-2 control-label">Período</label>
-                        <div class="col-sm-10">
-                            <h:selectOneMenu id="inputPeriodo" styleClass="form-control"
-                                             value="#{discenteController.discente.periodoIngresso}">
-                                <f:converter converterId="periodoConverter"></f:converter>
-                                <f:selectItems value="#{periodoController.periodos}"></f:selectItems>
-                            </h:selectOneMenu>
+        <div class="box box-primary">
+            <div class="box-body">
+                <h:form styleClass="col-md-8 col-md-offset-2">
+                    <div class="row form-group">
+                        <div class="form-group">
+                            <label for="inputNome">Nome</label>
+                            <h:inputText id="inputNome" styleClass="form-control" value="#{discenteController.discente.nome}" />
+                            <h:message for="inputNome" errorClass="error" />
                         </div>
 
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label for="inputCpf">CPF</label>
+                                <h:inputText id="inputCpf" styleClass="form-control cpf" value="#{discenteController.discente.cpf}" maxlength="14" />
+                                <h:message for="inputCpf" errorClass="error" />
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                <label for="inputMatricula">Matrícula</label>
+                                <h:inputText id="inputMatricula" styleClass="form-control" value="#{discenteController.discente.matricula}" />
+                                <h:message for="inputMatricula" errorClass="error" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label for="inputCurso">Curso</label>
+                                <h:selectOneMenu id="inputCurso" styleClass="form-control"
+                                                 value="#{discenteController.discente.curso}">
+                                    <f:converter converterId="cursoConverter"></f:converter>
+                                    <f:selectItems value="#{cursoController.cursos}"></f:selectItems>
+                                </h:selectOneMenu>
+                                <h:message for="inputCurso" errorClass="error" />
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                <label for="inputPeriodo">Período</label>
+                                <h:selectOneMenu id="inputPeriodo" styleClass="form-control"
+                                                 value="#{discenteController.discente.periodoIngresso}">
+                                    <f:converter converterId="periodoConverter"></f:converter>
+                                    <f:selectItems value="#{periodoController.periodos}"></f:selectItems>
+                                </h:selectOneMenu>
+                                <h:message for="inputPeriodo" errorClass="error" />
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-sm-offset-2 col-sm-10">
+                    <div class="row form-group">
+                        <div class="col-md-6 text-right">
                             <a class="btn btn-link" jsf:outcome="/discente/index">Cancelar</a>
-                            <button type="submit" jsf:action="#{discenteController.salvar}"
-                                    class="btn btn-success">Salvar
-                            </button>
+                        </div>
+
+                        <div class="col-md-6 text-left">
+                            <button type="submit" jsf:action="#{discenteController.salvar}" class="btn btn-success">Salvar</button>
                         </div>
                     </div>
                 </h:form>
             </div>
         </div>
-        <h:outputScript target="body">
-            $("#inputCpf").mask("###.###.###-##");
-        </h:outputScript>
     </ui:define>
 </ui:composition>

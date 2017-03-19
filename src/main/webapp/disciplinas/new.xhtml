@@ -17,21 +17,21 @@
     </ui:define>
 
     <ui:define name="conteudo">
-        <div class="row">
-            <div class="col-lg-8 col-md-offset-2">
-                <h:form styleClass="form-horizontal">
-
-
-                    <div class="form-group">
-                        <label for="inputNome" class="col-lg-2 control-label">Nome</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" jsf:value="#{disciplinaController.disciplina.nome}" id="inputNome" />
-                        </div>
+        <div class="box box-primary">
+            <div class="box-body">
+                <h:form styleClass="col-md-8 col-md-offset-2">
+                    <div class="row form-group">
+                        <label for="inputNome">Nome</label>
+                        <h:inputText id="inputNome" styleClass="form-control" value="#{disciplinaController.disciplina.nome}" />
+                        <h:message for="inputNome" errorClass="error" />
                     </div>
 
-                    <div class="row">
-                        <div class="col-sm-offset-2 col-sm-10">
+                    <div class="row form-group">
+                        <div class="col-md-6 text-right">
                             <a class="btn btn-link" jsf:outcome="/disciplinas/index">Cancelar</a>
+                        </div>
+
+                        <div class="col-md-6 text-left">
                             <button type="submit" jsf:action="#{disciplinaController.salvar}" class="btn btn-success">Salvar</button>
                         </div>
                     </div>

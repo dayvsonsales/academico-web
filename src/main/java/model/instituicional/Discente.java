@@ -1,6 +1,10 @@
 package model.instituicional;
 
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.br.CPF;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * Created by Dayvson on 13/03/2017.
@@ -20,48 +24,6 @@ public class Discente {
         this.periodoIngresso = new Periodo();
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
-    }
-
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    public Curso getCurso() {
-        return curso;
-    }
-
-    public void setCurso(Curso curso) {
-        this.curso = curso;
-    }
-
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    public Periodo getPeriodoIngresso() {
-        return periodoIngresso;
-    }
-
-    public void setPeriodoIngresso(Periodo periodoIngresso) {
-        this.periodoIngresso = periodoIngresso;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     public Integer getId() {
@@ -71,4 +33,53 @@ public class Discente {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    @NotBlank
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    @NotBlank
+    @CPF
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    @NotBlank
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
+    @NotNull
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
+    }
+
+    @NotNull
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    public Periodo getPeriodoIngresso() {
+        return periodoIngresso;
+    }
+
+    public void setPeriodoIngresso(Periodo periodoIngresso) {
+        this.periodoIngresso = periodoIngresso;
+    }
+
 }

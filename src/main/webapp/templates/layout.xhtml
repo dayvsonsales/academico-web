@@ -1,3 +1,4 @@
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:jsf="http://xmlns.jcp.org/jsf"
@@ -18,6 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/datatables.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.standalone.min.css"/>
+
 </h:head>
 <h:body styleClass="hold-transition skin-blue sidebar-mini">
 
@@ -84,7 +86,7 @@
                         </ul>
                     </li>
                     <li class="treeview">
-                        <a href="javascript:void(0)"><i class="fa fa-university" aria-hidden="true"></i>
+                        <a href="javascript:void(0)"><i class="fa fa-building" aria-hidden="true"></i>
                             <span>Patrimônio</span>
                             <span class="pull-right-container">
 							  <i class="fa fa-angle-left pull-right"></i>
@@ -128,26 +130,10 @@
     <h:outputScript library="js" name="jquery.min.js"/>
     <h:outputScript library="js" name="bootstrap.min.js"/>
     <h:outputScript library="js" name="AdminLTE.min.js"/>
+    <h:outputScript library="js" name="app.js" />
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/datatables.min.js"></script>
-    <h:outputScript target="body">
-        $("#table").DataTable({
-            "language": {
-                "lengthMenu": "Mostrar _MENU_ registros por página",
-                "zeroRecords": "Nada encontrado",
-                "info": "Mostrando página _PAGE_ de _PAGES_",
-                "infoEmpty": "Sem registros disponíveis",
-                "infoFiltered": "(filtrado de um _MAX_ total de registros)",
-                "search": "Procurar:",
-                "paginate": {
-                    "first": "Primeiro",
-                    "last": "Último",
-                    "next": "Próximo",
-                    "previous": "Anterior"
-                }
-            }
-        });
-    </h:outputScript>
 </h:body>
 </html>

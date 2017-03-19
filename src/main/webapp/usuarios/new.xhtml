@@ -3,62 +3,62 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:jsf="http://xmlns.jcp.org/jsf"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                xmlns:f="http://xmlns.jcp.org/jsf/core"
->
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-<ui:define name="titulo"> Novo Usuário</ui:define>
-<ui:define name="breadcrumb-atual">
-    <li class="active"> Novo Usuário</li>
-</ui:define>
+    <ui:define name="titulo"> Novo Usuário</ui:define>
+    <ui:define name="breadcrumb-atual">
+        <li class="active"> Novo Usuário</li>
+    </ui:define>
 
-<ui:define name="conteudo">
-    <div class="row">
-        <div class="col-lg-8 col-md-offset-2">
-            <h:form styleClass="form-horizontal">
-                <f:metadata>
-                    <f:viewAction action="#{usuarioController.init}" />
-                </f:metadata>
+    <ui:define name="conteudo">
+        <div class="box box-primary">
+            <div class="box-body">
+                <h:form styleClass="col-md-6 col-md-offset-3">
+                    <f:metadata>
+                        <f:viewAction action="#{usuarioController.init}" />
+                    </f:metadata>
 
-                <div class="form-group">
-                    <label for="inputNome" class="col-lg-2 control-label">Nome</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" jsf:value="#{usuarioController.usuario.nome}" id="inputNome" />
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="inputNome" class="">Nome</label>
+                            <h:inputText id="inputNome" styleClass="form-control" value="#{usuarioController.usuario.nome}" />
+                            <h:message for="inputNome" errorClass="error" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputPermissao" class="">Permissão</label>
+                            <h:selectOneMenu id="inputPermissao" styleClass="form-control text-center"
+                                             value="#{usuarioController.usuario.permissao}">
+                                <f:selectItems value="#{usuarioController.permissoesDisponiveis}" />
+                            </h:selectOneMenu>
+                            <h:message for="inputPermissao" styleClass="error" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail" class="">Email</label>
+                            <h:inputText id="inputEmail" styleClass="form-control" value="#{usuarioController.usuario.email}" />
+                            <h:message for="inputEmail" styleClass="error" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputSenha" class="">Senha</label>
+                            <h:inputSecret id="inputSenha" styleClass="form-control" value="#{usuarioController.usuario.senha}" />
+                            <h:message for="inputSenha" styleClass="error" />
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label for="inputEmail" class="col-lg-2 control-label">Email</label>
-                    <div class="col-sm-10">
-                        <input type="email" class="form-control" jsf:value="#{usuarioController.usuario.email}" id="inputEmail"/>
-                    </div>
-                </div>
+                    <div class="row form-group">
+                        <div class="col-md-6 text-right">
+                            <a class="btn btn-link" href="/">Cancelar</a>
+                        </div>
 
-                <div class="form-group">
-                    <label for="inputSenha" class="col-lg-2 control-label">Senha</label>
-                    <div class="col-sm-10">
-                        <input type="password" class="form-control" jsf:value="#{usuarioController.usuario.senha}" id="inputSenha"/>
+                        <div class="col-md-6 text-left">
+                            <button type="submit" jsf:action="#{usuarioController.salvarUsuario}" class="btn btn-success">Salvar</button>
+                        </div>
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="inputPermissao" class="col-lg-2 control-label">Permissão</label>
-                    <div class="col-sm-10">
-                        <h:selectOneMenu id="inputPermissao" styleClass="form-control"
-                                         value="#{usuarioController.usuario.permissao}">
-                            <f:selectItems value="#{usuarioController.permissoesDisponiveis}"></f:selectItems>
-                        </h:selectOneMenu>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <a class="btn btn-link" href="/">Cancelar</a>
-                        <button type="submit" jsf:action="#{usuarioController.salvarUsuario}" class="btn btn-success">Salvar</button>
-                    </div>
-                </div>
-            </h:form>
+                </h:form>
+            </div>
         </div>
-    </div>
-</ui:define>
+    </ui:define>
 
 </ui:composition>

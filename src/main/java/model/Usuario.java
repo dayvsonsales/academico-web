@@ -1,9 +1,14 @@
 package model;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 /**
  * Created by anderson on 13/03/17.
@@ -17,8 +22,6 @@ public class Usuario {
     private String senha;
     private Permissoes permissao;
 
-    public Usuario() {}
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
@@ -29,6 +32,7 @@ public class Usuario {
         this.id = id;
     }
 
+    @NotBlank
     public String getNome() {
         return nome;
     }
@@ -37,6 +41,8 @@ public class Usuario {
         this.nome = nome;
     }
 
+    @NotBlank
+    @Email
     public String getEmail() {
         return email;
     }
@@ -45,6 +51,8 @@ public class Usuario {
         this.email = email;
     }
 
+    @NotBlank
+    @Min(6)
     public String getSenha() {
         return senha;
     }
@@ -53,6 +61,7 @@ public class Usuario {
         this.senha = senha;
     }
 
+    @NotNull
     public Permissoes getPermissao() {
         return permissao;
     }
@@ -60,4 +69,5 @@ public class Usuario {
     public void setPermissao(Permissoes permissao) {
         this.permissao = permissao;
     }
+
 }

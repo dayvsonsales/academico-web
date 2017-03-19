@@ -1,5 +1,7 @@
 package model.instituicional;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,6 +27,7 @@ public class Curso {
         this.id = id;
     }
 
+    @NotBlank
     public String getCodigo() {
         return codigo;
     }
@@ -33,6 +36,7 @@ public class Curso {
         this.codigo = codigo;
     }
 
+    @NotBlank
     public String getNome() {
         return nome;
     }
