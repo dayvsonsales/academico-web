@@ -16,7 +16,8 @@
     <h:outputStylesheet library="css" name="app.css"/>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css"/>
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/datatables.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.standalone.min.css"/>
 </h:head>
 <h:body styleClass="hold-transition skin-blue sidebar-mini">
 
@@ -94,6 +95,7 @@
                             <li><a jsf:outcome="/bloco/index">Bloco</a></li>
                             <li><a jsf:outcome="/patrimonio/index">Patrimônio</a></li>
                             <li><a jsf:outcome="/sala/index">Sala</a></li>
+                            <li><a jsf:outcome="/atividade/index">Atividades</a></li>
                             <li><a jsf:outcome="/movimentacao/index">Movimentação</a></li>
                         </ul>
                     </li>
@@ -127,7 +129,7 @@
     <h:outputScript library="js" name="bootstrap.min.js"/>
     <h:outputScript library="js" name="AdminLTE.min.js"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/datatables.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/datatables.min.js"></script>
     <h:outputScript target="body">
         $("#table").DataTable({

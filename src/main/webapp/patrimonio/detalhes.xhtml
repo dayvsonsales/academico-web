@@ -1,0 +1,97 @@
+<ui:composition template="../templates/layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <f:metadata>
+        <f:viewParam name="id" value="#{patrimonioController.patrimonioId}"/>
+        <f:viewParam name="detalhes" value="#{patrimonioController.detalhes}"/>
+        <f:viewAction action="#{patrimonioController.init}"/>
+    </f:metadata>
+
+    <ui:define name="titulo">#{patrimonioController.titulo}</ui:define>
+    <ui:define name="breadcrumb-atual">
+        <li><a jsf:outcome="/patrimonio/index"> Patrimônio</a></li>
+        <li class="active">#{patrimonioController.titulo}</li>
+    </ui:define>
+
+    <ui:define name="conteudo">
+        <div class="row">
+            <div class="col-xs-12 col-xs-offset-2">
+                <h:form styleClass="form-horizontal">
+                    <div class="form-group">
+                        <label for="inputNome">Nome</label>
+                        <input disabled="disabled" required="" type="text" class="form-control"
+                               jsf:value="#{patrimonioController.patrimonio.nome}" id="inputNome"
+                               jsf:maxlength="128"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputNumero">Número</label>
+                        <input disabled="disabled" required="" type="number" class="form-control"
+                               jsf:value="#{patrimonioController.patrimonio.numero}" id="inputNumero"
+                               jsf:maxlength="13"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputStatus">Status</label>
+                        <input disabled="disabled" id="inputStatus" type="text" class="form-control"
+                               jsf:value="#{patrimonioController.patrimonio.status}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputFrequenciaManutencao">Freq. Manutenção (em dias)</label>
+                        <input disabled="disabled" id="inputFrequenciaManutencao" class="form-control"
+                               type="number"
+                               required="required"
+                               jsf:maxlength="12"
+                               jsf:value="#{patrimonioController.patrimonio.frequenciaDeManutencao}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDescricao">Descrição</label>
+                        <textarea disabled="disabled" id="inputDescricao" class="form-control"
+                                  required="required"
+                                  rows="3"
+                                  jsf:maxlength="256"
+                                  jsf:value="#{patrimonioController.patrimonio.descricao}"/>
+                    </div>
+                    <c:if test="${patrimonioController.tipo.toString() eq 'consumo'}">
+                        <div class="form-group">
+                            <label for="inputServidores">Responsável</label>
+                            <input disabled="disabled" id="inputServidores" type="text" class="form-control"
+                                   jsf:value="#{patrimonioController.servidor}"/>
+                        </div>
+                    </c:if>
+                </h:form>
+                <p>Movimentações</p>
+                <c:choose>
+                    <c:when test="${empty patrimonioController.patrimonio.movimentacoes}">
+                        <div class="col-md-6 col-md-offset-5">
+                            <h4>Sem Registros!</h4>
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <table id="table" class="table table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th>Patrimônio</th>
+                                <th>Sala</th>
+                                <th>Data</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <ui:repeat value="#{patrimonioController.patrimonio.movimentacoes}"
+                                       var="movimentacao">
+                                <tr>
+                                    <td>#{movimentacao.patrimonio}</td>
+                                    <td>#{movimentacao.sala}</td>
+                                    <td>#{movimentacao.data}</td>
+                                </tr>
+                            </ui:repeat>
+                            </tbody>
+                        </table>
+                    </c:otherwise>
+                </c:choose>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

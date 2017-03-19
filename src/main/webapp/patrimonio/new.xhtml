@@ -1,0 +1,79 @@
+<ui:composition template="../templates/layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <f:metadata>
+        <f:viewParam name="id" value="#{patrimonioController.patrimonioId}"/>
+        <f:viewParam name="tipo" value="#{patrimonioController.tipo}"/>
+        <f:viewAction action="#{patrimonioController.init}"/>
+    </f:metadata>
+
+    <ui:define name="titulo">#{patrimonioController.titulo}</ui:define>
+    <ui:define name="breadcrumb-atual">
+        <li><a jsf:outcome="/patrimonio/index"> Patrimônio</a></li>
+        <li class="active">#{patrimonioController.titulo}</li>
+    </ui:define>
+
+    <ui:define name="conteudo">
+        <div class="row">
+            <div class="col-lg-8 col-md-offset-2">
+                <h:form styleClass="form-horizontal">
+                    <div class="form-group">
+                        <label for="inputNome">Nome</label>
+                        <input required="" type="text" class="form-control"
+                               jsf:value="#{patrimonioController.patrimonio.nome}" id="inputNome"
+                               jsf:maxlength="128"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputNumero">Número</label>
+                        <input required="" type="number" class="form-control"
+                               jsf:value="#{patrimonioController.patrimonio.numero}" id="inputNumero"
+                               jsf:maxlength="13"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputStatus">Status</label>
+                        <h:selectOneMenu id="inputStatus" styleClass="form-control"
+                                         value="#{patrimonioController.patrimonio.status}">
+                            <f:selectItems value="#{patrimonioController.status}"></f:selectItems>
+                        </h:selectOneMenu>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputFrequenciaManutencao">Freq. Manutenção (em dias)</label>
+                        <input id="inputFrequenciaManutencao" class="form-control" type="number" required="required"
+                               jsf:maxlength="12"
+                               jsf:value="#{patrimonioController.patrimonio.frequenciaDeManutencao}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDescricao">Descrição</label>
+                        <textarea id="inputDescricao" class="form-control" required="required" rows="3"
+                                  placeholder="Descreva aqui o que é o patrimônio, também forneça informações sobre sua manutenção. "
+                                  jsf:maxlength="256" jsf:value="#{patrimonioController.patrimonio.descricao}"/>
+                    </div>
+                    <c:if test="${patrimonioController.tipo.toString() eq 'consumo'}">
+                        <div class="form-group">
+                            <label for="inputServidores">Selecione o responsável</label>
+                            <h:selectOneMenu id="inputServidores" styleClass="form-control"
+                                             value="#{patrimonioController.servidor}">
+                                <f:converter converterId="servidorConverter"></f:converter>
+                                <f:selectItems value="#{servidorController.servidors}"></f:selectItems>
+                            </h:selectOneMenu>
+                        </div>
+                    </c:if>
+
+                    <div class="row">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <a class="btn btn-link" jsf:outcome="/patrimonio/index">Cancelar</a>
+                            <button type="submit" jsf:action="#{patrimonioController.salvar}"
+                                    class="btn btn-success">Salvar
+                            </button>
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

@@ -13,7 +13,7 @@ public class Movimentacao {
 
     private Integer id;
     private Sala sala;
-    private List<Patrimonio> patrimonios;
+    private Patrimonio patrimonio;
     private Date data;
 
     @ManyToOne
@@ -25,13 +25,13 @@ public class Movimentacao {
         this.sala = sala;
     }
 
-    @ManyToMany
-    public List<Patrimonio> getPatrimonios() {
-        return patrimonios;
+    @ManyToOne
+    public Patrimonio getPatrimonio() {
+        return patrimonio;
     }
 
-    public void setPatrimonios(List<Patrimonio> patrimonios) {
-        this.patrimonios = patrimonios;
+    public void setPatrimonio(Patrimonio patrimonio) {
+        this.patrimonio = patrimonio;
     }
 
     public Date getData() {
