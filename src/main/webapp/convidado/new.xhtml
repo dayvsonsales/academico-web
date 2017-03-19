@@ -17,45 +17,42 @@
     </ui:define>
 
     <ui:define name="conteudo">
-        <div class="row">
-            <div class="col-lg-8 col-md-offset-2">
-                <h:form styleClass="form-horizontal">
-
-
-                    <div class="form-group">
-                        <label for="inputNome" class="col-lg-2 control-label">Nome</label>
-                        <div class="col-sm-10">
-                            <input required="" type="text" class="form-control"
-                                   jsf:value="#{convidadoController.convidado.nome}" id="inputNome"
-                                   jsf:maxlength="128"/>
+        <div class="box box-primary">
+            <div class="box-body">
+                <h:form styleClass="col-md-8 col-md-offset-2">
+                    <div class="row form-group">
+                        <div class="form-group">
+                            <label for="inputNome">Nome</label>
+                            <h:inputText id="inputNome" styleClass="form-control" value="#{convidadoController.convidado.nome}" />
+                            <h:message for="inputNome" errorClass="error" />
                         </div>
-                        <label for="inputCpf" class="col-lg-2 control-label">CPF</label>
-                        <div class="col-sm-10">
-                            <input required="" type="text" class="form-control"
-                                   jsf:value="#{convidadoController.convidado.cpf}" id="inputCpf" jsf:maxlength="14"/>
-                        </div>
-                        <label for="inputDescricao" class="col-lg-2 control-label">Descrição</label>
-                        <div class="col-sm-10">
-                            <input required="" type="text" class="form-control"
-                                   jsf:value="#{convidadoController.convidado.descricao}" id="inputDescricao"
-                                   jsf:maxlength="128"/>
+
+                        <div class="row">
+                            <div class="col-md-4 form-group">
+                                <label for="inputCpf">CPF</label>
+                                <h:inputText id="inputCpf" styleClass="form-control cpf" value="#{convidadoController.convidado.cpf}" maxlength="14" />
+                                <h:message for="inputCpf" errorClass="error" />
+                            </div>
+
+                            <div class="col-md-8 form-group">
+                                <label for="inputDescricao">Descrição</label>
+                                <h:inputText id="inputDescricao" styleClass="form-control" value="#{convidadoController.convidado.descricao}" />
+                                <h:message for="inputDescricao" errorClass="error" />
+                            </div>
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-sm-offset-2 col-sm-10">
+                    <div class="row form-group">
+                        <div class="col-md-6 text-right">
                             <a class="btn btn-link" jsf:outcome="/convidado/index">Cancelar</a>
-                            <button type="submit" jsf:action="#{convidadoController.salvar}"
-                                    class="btn btn-success">Salvar
-                            </button>
+                        </div>
+
+                        <div class="col-md-6 text-left">
+                            <button type="submit" jsf:action="#{convidadoController.salvar}" class="btn btn-success">Salvar</button>
                         </div>
                     </div>
                 </h:form>
             </div>
         </div>
-        <h:outputScript target="body">
-            $("#inputCpf").mask("###.###.###-##");
-        </h:outputScript>
     </ui:define>
-
 </ui:composition>
