@@ -4,6 +4,8 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
@@ -13,6 +15,7 @@ import java.util.Date;
  */
 @Entity
 public class Participante implements Serializable {
+
     private Integer id;
     private String nome;
     private String cpf;
@@ -29,6 +32,7 @@ public class Participante implements Serializable {
     private boolean aptidao;
     private String acessibilidade;
 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     public Integer getId() {
         return id;
