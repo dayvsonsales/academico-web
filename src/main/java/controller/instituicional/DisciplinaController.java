@@ -50,8 +50,12 @@ public class DisciplinaController extends Controller {
 
     public String salvar(){
         this.repo = new DisciplinaRepository(Disciplina.class);
-        repo.save(disciplina);
-        return "/disciplinas/index?faces-redirect=true";
+        if(repo.save(disciplina) == null){
+            setParamAlert("err-add");
+        }else{
+            setParamAlert("ok-add");
+        }
+        return "/disciplinas/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
     public void remover(Disciplina disciplina){

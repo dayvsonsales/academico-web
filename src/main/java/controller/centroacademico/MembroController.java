@@ -41,8 +41,12 @@ public class MembroController extends Controller {
     }
 
     public String salvar(){
-        repo.save(membro);
-        return "/membro/index?faces-redirect=true";
+        if(repo.save(membro) == null){
+            setParamAlert("err-add");
+        }else{
+            setParamAlert("ok-add");
+        }
+        return "/membro/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
     public void remover(Membro membro){

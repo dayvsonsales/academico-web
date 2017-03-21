@@ -29,9 +29,9 @@ public class FinanceiroController extends Controller {
     public void init() {
         if(this.financeiroId == null){
             novo();
-            this.setTitulo("Nova Movimentação");
+            this.setTitulo("Nova Movimentação Financeira");
         }else {
-            this.setTitulo("Editar Movimentação");
+            this.setTitulo("Editar Movimentação Financeira");
             this.financeiro = (MovimentacaoFinanceira) repo.find(financeiroId);
         }
     }
@@ -41,13 +41,22 @@ public class FinanceiroController extends Controller {
     }
 
     public String salvar(){
-        repo.save(financeiro);
-        return "/financeiro/index?faces-redirect=true";
+        if(repo.save(financeiro) == null){
+            setParamAlert("err-add");
+        }else{
+            setParamAlert("ok-add");
+        }
+        return "/financeiro/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
-    public void remover(MovimentacaoFinanceira financeiro){
-        repo.destroy(financeiro);
+    public String remover(MovimentacaoFinanceira financeiro){
+        if(repo.destroy(financeiro)){
+            setParamAlert("ok-del");
+        }else{
+            setParamAlert("err-del");
+        }
         movimentacoes.remove(financeiro);
+        return "/financeiro/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
     public MovimentacaoFinanceira getFinanceiro() {

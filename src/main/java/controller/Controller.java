@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.Serializable;
+
 import model.Permissoes;
 import model.Usuario;
 import util.SessionUtils;
@@ -19,6 +20,7 @@ import java.util.Set;
 public abstract class Controller implements Serializable {
 
     private String titulo;
+    private String paramAlert;
     private Set<Permissoes> permissoes;
     private FacesContext context;
     private Usuario usuarioAtual;
@@ -32,6 +34,14 @@ public abstract class Controller implements Serializable {
     }
 
     public abstract void init();
+
+    public String getParamAlert() {
+        return paramAlert;
+    }
+
+    public void setParamAlert(String paramAlert) {
+        this.paramAlert = paramAlert;
+    }
 
     public String getTitulo() {
         return titulo;

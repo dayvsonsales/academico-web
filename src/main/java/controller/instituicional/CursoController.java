@@ -42,8 +42,12 @@ public class CursoController extends Controller {
     }
 
     public String salvar(){
-        repo.save(curso);
-        return "/curso/index?faces-redirect=true";
+        if(repo.save(curso) == null){
+            setParamAlert("err-add");
+        }else{
+            setParamAlert("ok-add");
+        }
+        return "/curso/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
     public void remover(Curso curso){

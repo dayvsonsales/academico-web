@@ -42,8 +42,12 @@ public class AtividadeController extends Controller {
     }
 
     public String salvar(){
-        repo.save(atividade);
-        return "/atividade/index?faces-redirect=true";
+        if(repo.save(atividade) == null){
+            setParamAlert("err-add");
+        }else{
+            setParamAlert("ok-add");
+        }
+        return "/atividade/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
     public void remover(Atividade atividade){

@@ -45,9 +45,12 @@ public class DiscenteController extends Controller {
     }
 
     public String salvar(){
-        System.out.println(discente);
-        repo.save(discente);
-        return "/discente/index?faces-redirect=true";
+        if(repo.save(discente) == null){
+            setParamAlert("err-add");
+        }else{
+            setParamAlert("ok-add");
+        }
+        return "/discente/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
     public void remover(Discente discente){

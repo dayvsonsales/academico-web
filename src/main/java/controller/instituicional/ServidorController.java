@@ -42,9 +42,12 @@ public class ServidorController extends Controller {
     }
 
     public String salvar(){
-        System.out.println(servidor);
-        repo.save(servidor);
-        return "/servidor/index?faces-redirect=true";
+        if(repo.save(servidor) == null){
+            setParamAlert("err-add");
+        }else{
+            setParamAlert("ok-add");
+        }
+        return "/servidor/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
     public void remover(Servidor servidor){

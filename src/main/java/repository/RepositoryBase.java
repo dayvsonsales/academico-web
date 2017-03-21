@@ -43,15 +43,17 @@ public class RepositoryBase<E> {
         }
     }
 
-    public void destroy(E entity) {
+    public boolean destroy(E entity) {
         try {
             manager().getTransaction().begin();
             entity = manager().merge(entity);
             manager().remove(entity);
             manager().getTransaction().commit();
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
             manager().getTransaction().rollback();
+            return false;
         } finally {
             manager().close();
         }

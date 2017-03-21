@@ -42,12 +42,20 @@ public class SalaController extends Controller {
     }
 
     public String salvar(){
-        repo.save(sala);
-        return "/sala/index?faces-redirect=true";
+        if(repo.save(sala) == null){
+            setParamAlert("err-add");
+        }else{
+            setParamAlert("ok-add");
+        }
+        return "/sala/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
     public void remover(Sala sala){
-        repo.destroy(sala);
+        if(repo.destroy(sala)){
+            setParamAlert("ok-del");
+        }else{
+            setParamAlert("err-del");
+        }
         salas.remove(sala);
     }
 

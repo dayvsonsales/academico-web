@@ -72,17 +72,24 @@ public class PatrimonioController extends Controller {
 
     public String salvar() {
         if (this.tipo.equals("consumo")) {
-            System.out.println("bucetinha" + servidor.getId());
             ((PatrimonioConsumo) this.patrimonio).setServidor(servidor);
         }
-        System.out.println("cu" + ((PatrimonioConsumo) this.patrimonio).getServidor().getId());
-        repo.save(patrimonio);
-        return "/patrimonio/index?faces-redirect=true";
+        if(repo.save(patrimonio) == null){
+            setParamAlert("err-add");
+        }else{
+            setParamAlert("ok-add");
+        }
+        return "/patrimonio/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
-    public void remover(Patrimonio patrimonio) {
-        repo.destroy(patrimonio);
+    public String remover(Patrimonio patrimonio) {
+        if(repo.destroy(patrimonio)){
+            setParamAlert("ok-del");
+        }else{
+            setParamAlert("err-del");
+        }
         patrimonios.remove(patrimonio);
+        return "/patrimonio/index?faces-redirect=true&" + getParamAlert();
     }
 
     public Patrimonio getPatrimonio() {

@@ -40,8 +40,12 @@ public class PeriodoController extends Controller {
     }
 
     public String salvar(){
-        repo.save(periodo);
-        return "/periodo/index?faces-redirect=true";
+        if(repo.save(periodo) == null){
+            setParamAlert("err-add");
+        }else{
+            setParamAlert("ok-add");
+        }
+        return "/periodo/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
     public void remover(Periodo periodo){

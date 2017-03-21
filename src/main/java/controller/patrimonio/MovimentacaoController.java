@@ -42,8 +42,12 @@ public class MovimentacaoController extends Controller {
     }
 
     public String salvar(){
-        repo.save(movimentacao);
-        return "/movimentacao/index?faces-redirect=true";
+        if(repo.save(movimentacao) == null){
+            setParamAlert("err-add");
+        }else{
+            setParamAlert("ok-add");
+        }
+        return "/movimentacao/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
     public void remover(Movimentacao movimentacao){

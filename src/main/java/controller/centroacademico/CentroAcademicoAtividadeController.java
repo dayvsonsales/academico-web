@@ -47,16 +47,20 @@ public class CentroAcademicoAtividadeController extends Controller{
     }
 
     public String salvar(){
-        repo.save(centroAcademicoAtividade);
-        if(this.isEnviarEmail()){
-            MembroRepository membroRepository = new MembroRepository(Membro.class);
-            String mensagem = "Uma nova atividade foi marcada para " + new SimpleDateFormat("dd/mm/yyyy").format(centroAcademicoAtividade.getData()) + " no local" + centroAcademicoAtividade.getLocal();
-            ArrayList<Membro> membros = (ArrayList<Membro>) membroRepository.all();
-            for(Membro membro : membros){
-                EmailUtils.enviarMensagem(mensagem, centroAcademicoAtividade.getAssunto(), membro.getEmail());
+        if(repo.save(centroAcademicoAtividade) == null){
+            setParamAlert("err-add");
+        }else{
+            setParamAlert("ok-add");
+            if(this.isEnviarEmail()){
+                MembroRepository membroRepository = new MembroRepository(Membro.class);
+                String mensagem = "Uma nova atividade foi marcada para " + new SimpleDateFormat("dd/mm/yyyy").format(centroAcademicoAtividade.getData()) + " no local" + centroAcademicoAtividade.getLocal();
+                ArrayList<Membro> membros = (ArrayList<Membro>) membroRepository.all();
+                for(Membro membro : membros){
+                    EmailUtils.enviarMensagem(mensagem, centroAcademicoAtividade.getAssunto(), membro.getEmail());
+                }
             }
         }
-        return "/caatividade/index?faces-redirect=true";
+        return "/caatividade/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
     public void remover(MovimentacaoFinanceira centroAcademicoAtividade){
