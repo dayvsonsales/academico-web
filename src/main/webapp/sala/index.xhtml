@@ -52,7 +52,7 @@
                                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                                         <f:param name="id" value="#{sala.id}"/>
                                                     </h:link>
-                                                    <a jsf:action="#{salaController.remover(sala)}"
+                                                    <a jsf:onclick="return confirm('Tem certeza?')" jsf:action="#{salaController.remover(sala)}"
                                                        title="Remover"
                                                        class="btn btn-danger">
                                                         <f:ajax onevent="alerts"/>
