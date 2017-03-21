@@ -30,9 +30,9 @@ public class AtividadeController extends Controller {
     public void init() {
         if(this.atividadeId == null){
             novo();
-            this.setTitulo("Novo CAAtividade");
+            this.setTitulo("Nova Atividade");
         }else {
-            this.setTitulo("Editar CAAtividade");
+            this.setTitulo("Editar Atividade");
             this.atividade = (Atividade) repo.find(atividadeId);
         }
     }
