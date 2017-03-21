@@ -20,10 +20,6 @@
                     </div>
 
                     <div class="box-body">
-                        <c:if test="#{empty salaController.sala}">
-
-                        </c:if>
-
                         <c:choose>
                             <c:when test="${empty salaController.salas}">
                                 <div class="col-md-6 col-md-offset-5">
@@ -38,7 +34,7 @@
                                             <th>Número</th>
                                             <th>Nome</th>
                                             <th>Bloco</th>
-                                            <th></th>
+                                            <th class="table-actions"></th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -48,13 +44,11 @@
                                                 <td>#{sala.nome}</td>
                                                 <td>#{sala.bloco}</td>
                                                 <td>
-                                                    <h:link class="btn btn-primary" outcome="new">
+                                                    <h:link class="btn btn-primary" outcome="new" title="Editar">
                                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                                         <f:param name="id" value="#{sala.id}"/>
                                                     </h:link>
-                                                    <a jsf:action="#{salaController.remover(sala)}"
-                                                       title="Remover"
-                                                       class="btn btn-danger">
+                                                    <a jsf:action="#{salaController.remover(sala)}" title="Remover" class="btn btn-danger">
                                                         <f:ajax onevent="alerts"/>
                                                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                     </a>

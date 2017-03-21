@@ -20,10 +20,6 @@
                     </div>
 
                     <div class="box-body">
-                        <c:if test="#{empty movimentacaoController.movimentacao}">
-
-                        </c:if>
-
                         <c:choose>
                             <c:when test="${empty movimentacaoController.movimentacoes}">
                                 <div class="col-md-6 col-md-offset-5">
@@ -38,7 +34,7 @@
                                             <th>Patrimônio</th>
                                             <th>Sala</th>
                                             <th>Data</th>
-                                            <th></th>
+                                            <th class="table-actions"></th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -52,7 +48,7 @@
                                                     </h:outputText>
                                                 </td>
                                                 <td>
-                                                    <h:link class="btn btn-primary" outcome="new">
+                                                    <h:link class="btn btn-primary" outcome="new" title="Editar">
                                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                                         <f:param name="id" value="#{movimentacao.id}"/>
                                                     </h:link>

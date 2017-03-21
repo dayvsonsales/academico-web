@@ -3,6 +3,7 @@ package model.patrimonio;
 import model.instituicional.Servidor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * Created by Dayvson on 18/03/2017.
@@ -14,6 +15,7 @@ public class PatrimonioConsumo extends Patrimonio {
     private Integer id;
     private Servidor servidor;
 
+    @NotNull
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public Servidor getServidor() {
         return servidor;

@@ -61,7 +61,6 @@ public class Patrimonio {
         this.status = status;
     }
 
-    @NotNull
     public Date getManutencao() {
         return manutencao;
     }

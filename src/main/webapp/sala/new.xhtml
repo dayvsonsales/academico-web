@@ -17,37 +17,40 @@
     </ui:define>
 
     <ui:define name="conteudo">
-        <div class="row">
-            <div class="col-lg-8 col-md-offset-2">
-                <h:form styleClass="form-horizontal">
-                    <div class="form-group">
-                        <label for="inputNome" class="col-lg-2 control-label">Nome</label>
-                        <div class="col-sm-10">
-                            <input required="" type="text" class="form-control"
-                                   jsf:value="#{salaController.sala.nome}" id="inputNome"
-                                   jsf:maxlength="128"/>
+        <div class="box box-primary">
+            <div class="box-body">
+                <h:form styleClass="col-md-8 col-md-offset-2">
+                    <div class="row form-group">
+                        <div class="col-md-4">
+                            <label for="inputNumero">Número</label>
+                            <h:inputText id="inputNumero" type="number" styleClass="form-control"
+                                   value="#{salaController.sala.numero}"  maxlength="13"/>
+                            <h:message for="inputNumero" errorClass="error" />
                         </div>
-                        <label for="inputNumero" class="col-lg-2 control-label">Número</label>
-                        <div class="col-sm-10">
-                            <input required="" type="number" class="form-control"
-                                   jsf:value="#{salaController.sala.numero}" id="inputNumero" jsf:maxlength="13"/>
-                        </div>
-                        <label for="inputBloco" class="col-lg-2 control-label">Bloco</label>
-                        <div class="col-sm-10">
-                            <h:selectOneMenu id="inputBloco" styleClass="form-control"
-                                             value="#{salaController.sala.bloco}">
-                                <f:converter converterId="blocoConverter"></f:converter>
-                                <f:selectItems value="#{blocoController.blocos}"></f:selectItems>
-                            </h:selectOneMenu>
+
+                        <div class="col-md-8">
+                            <label for="inputNome">Nome</label>
+                            <h:inputText id="inputNome" type="text" styleClass="form-control"
+                                   value="#{salaController.sala.nome}" maxlength="128"/>
+                            <h:message for="inputNome" errorClass="error" />
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-sm-offset-2 col-sm-10">
+                    <div class="form-group">
+                        <label for="inputBloco">Bloco</label>
+                        <h:selectOneMenu id="inputBloco" styleClass="form-control" value="#{salaController.sala.bloco}">
+                            <f:converter converterId="blocoConverter"></f:converter>
+                            <f:selectItems value="#{blocoController.blocos}"></f:selectItems>
+                        </h:selectOneMenu>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-6 text-right">
                             <a class="btn btn-link" jsf:outcome="/sala/index">Cancelar</a>
-                            <button type="submit" jsf:action="#{salaController.salvar}"
-                                    class="btn btn-success">Salvar
-                            </button>
+                        </div>
+
+                        <div class="col-md-6 text-left">
+                            <button type="submit" jsf:action="#{salaController.salvar}" class="btn btn-success">Salvar</button>
                         </div>
                     </div>
                 </h:form>
