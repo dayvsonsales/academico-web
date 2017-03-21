@@ -1,6 +1,9 @@
 package model.patrimonio;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.List;
 
@@ -31,6 +34,7 @@ public class Patrimonio {
         this.movimentacoes = movimentacoes;
     }
 
+    @NotBlank
     public String getNome() {
         return nome;
     }
@@ -39,6 +43,7 @@ public class Patrimonio {
         this.nome = nome;
     }
 
+    @NotBlank
     public String getNumero() {
         return numero;
     }
@@ -47,6 +52,7 @@ public class Patrimonio {
         this.numero = numero;
     }
 
+    @NotNull
     public Status getStatus() {
         return status;
     }
@@ -63,6 +69,7 @@ public class Patrimonio {
         this.manutencao = manutencao;
     }
 
+    @NotNull
     public Integer getFrequenciaDeManutencao() {
         return frequenciaDeManutencao;
     }
@@ -81,6 +88,7 @@ public class Patrimonio {
         this.id = id;
     }
 
+    @NotBlank
     public String getDescricao() {
         return descricao;
     }

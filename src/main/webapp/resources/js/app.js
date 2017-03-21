@@ -18,10 +18,10 @@ function alerts() {
 
     switch (a) {
         case "ok-add":
-            sweetAlert("OK", "Adicionado com sucesso!", "success");
+            sweetAlert("OK", "Salvo com sucesso!", "success");
             break;
         case "err-add":
-            sweetAlert("Oops...", "Não foi possível adicionar!", "error");
+            sweetAlert("Oops...", "Não foi possível salvar!", "error");
             break;
         case "ok-del":
             sweetAlert("OK", "Removido com sucesso!", "success");
@@ -55,12 +55,13 @@ $(document).ready(function () {
 
     $("#table").DataTable({
         "language": {
-            "lengthMenu": "Mostrar _MENU_ registros por página",
+            "lengthMenu": "Mostrar  _MENU_  registros por página",
             "zeroRecords": "Nada encontrado",
             "info": "Mostrando página _PAGE_ de _PAGES_",
             "infoEmpty": "Sem registros disponíveis",
             "infoFiltered": "(filtrado de um _MAX_ total de registros)",
-            "search": "Procurar:",
+            "search": "_INPUT_",
+            "searchPlaceholder": "Buscar",
             "paginate": {
                 "first": "Primeiro",
                 "last": "Último",

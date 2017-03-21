@@ -52,7 +52,6 @@ public class Usuario {
     }
 
     @NotBlank
-    @Min(6)
     public String getSenha() {
         return senha;
     }

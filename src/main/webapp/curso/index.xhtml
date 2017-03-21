@@ -20,10 +20,6 @@
                     </div>
 
                     <div class="box-body">
-                        <c:if test="#{empty cursoController.curso}">
-
-                        </c:if>
-
                         <c:choose>
                             <c:when test="${empty cursoController.cursos}">
                                 <div class="col-md-6 col-md-offset-5">
@@ -37,7 +33,7 @@
                                         <tr>
                                             <th>Código</th>
                                             <th>Nome</th>
-                                            <th></th>
+                                            <th class="table-actions"></th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -45,8 +41,8 @@
                                             <tr>
                                                 <td>#{curso.codigo}</td>
                                                 <td>#{curso.nome}</td>
-                                                <td>
-                                                    <h:link class="btn btn-primary" outcome="new">
+                                                <td class="text-center">
+                                                    <h:link class="btn btn-primary" outcome="new" title="Editar">
                                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                                         <f:param name="id" value="#{curso.id}"/>
                                                     </h:link>

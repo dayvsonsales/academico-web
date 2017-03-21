@@ -20,10 +20,6 @@
                     </div>
 
                     <div class="box-body">
-                        <c:if test="#{empty discenteController.discentes}">
-
-                        </c:if>
-
                         <c:choose>
                             <c:when test="${empty discenteController.discentes}">
                                 <div class="col-md-6 col-md-offset-5">
@@ -40,7 +36,7 @@
                                             <th>Matrícula</th>
                                             <th>Curso</th>
                                             <th>Período Ingresso</th>
-                                            <th></th>
+                                            <th class="table-actions"></th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -52,7 +48,7 @@
                                                 <td>#{discente.curso}</td>
                                                 <td>#{discente.periodoIngresso}</td>
                                                 <td>
-                                                    <h:link class="btn btn-primary" outcome="new">
+                                                    <h:link class="btn btn-primary" outcome="new" title="Editar">
                                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                                         <f:param name="id" value="#{discente.id}"/>
                                                     </h:link>

@@ -3,12 +3,10 @@ package model.concurso;
 import model.instituicional.Servidor;
 import org.hibernate.validator.constraints.NotBlank;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -17,19 +15,21 @@ import java.util.List;
  */
 @Entity
 public class Concurso implements Serializable {
+
     private Integer id;
     private String nome;
     private String edital;
     private String areaEstudo;
-    private Servidor supervisor;
+    private Servidor supervisor = new Servidor();
     private Date dataTerminoInscricao;
     private Date dataConcurso;
     private Date dataInicioInscricao;
     private String modalidade;
 
-    private List<Servidor> banca;
-    private List<Participante> participantes;
+    private List<Servidor> banca = new ArrayList<Servidor>();
+    private List<Participante> participantes = new ArrayList<Participante>();
 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     public Integer getId() {
         return id;

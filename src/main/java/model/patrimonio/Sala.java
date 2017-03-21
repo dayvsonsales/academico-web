@@ -1,6 +1,9 @@
 package model.patrimonio;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,15 +24,17 @@ public class Sala {
         this.atividades = new ArrayList<Atividade>();
     }
 
-    @OneToMany(mappedBy = "sala")
-    public List<Atividade> getAtividades() {
-        return atividades;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    public Integer getId() {
+        return id;
     }
 
-    public void setAtividades(List<Atividade> atividades) {
-        this.atividades = atividades;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
+    @NotBlank
     public String getNome() {
         return nome;
     }
@@ -38,6 +43,7 @@ public class Sala {
         this.nome = nome;
     }
 
+    @NotBlank
     public String getNumero() {
         return numero;
     }
@@ -46,6 +52,7 @@ public class Sala {
         this.numero = numero;
     }
 
+    @NotNull
     @ManyToOne
     public Bloco getBloco() {
         return bloco;
@@ -55,14 +62,14 @@ public class Sala {
         this.bloco = bloco;
     }
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
-    public Integer getId() {
-        return id;
+
+    @OneToMany(mappedBy = "sala")
+    public List<Atividade> getAtividades() {
+        return atividades;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setAtividades(List<Atividade> atividades) {
+        this.atividades = atividades;
     }
 
     @Override

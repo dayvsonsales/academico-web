@@ -1,0 +1,117 @@
+<ui:composition template="../templates/layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <f:metadata>
+        <f:viewParam name="id" value="#{concursoController.concursoId}"/>
+        <f:viewAction action="#{concursoController.init}"/>
+    </f:metadata>
+
+    <ui:define name="titulo">#{concursoController.titulo}</ui:define>
+    <ui:define name="breadcrumb-atual">
+        <li><a jsf:outcome="/servidor/index"> Concursos</a></li>
+        <li class="active">#{concursoController.titulo}</li>
+    </ui:define>
+
+    <ui:define name="conteudo">
+        <div class="box box-primary">
+            <div class="box-body">
+                <h:form styleClass="col-md-8 col-md-offset-2">
+                    <div class="row form-group">
+                        <div class="form-group">
+                            <label for="inputNome">Nome</label>
+                            <h:inputText id="inputNome" styleClass="form-control" value="#{concursoController.concurso.nome}" />
+                            <h:message for="inputNome" errorClass="error" />
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label for="inputEdital">Edital</label>
+                                <h:inputText id="inputEdital" styleClass="form-control" value="#{concursoController.concurso.edital}" />
+                                <h:message for="inputEdital" errorClass="error" />
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                <label for="inputArea">Área de Estudo</label>
+                                <h:inputText id="inputArea" styleClass="form-control" value="#{concursoController.concurso.areaEstudo}" />
+                                <h:message for="inputArea" errorClass="error" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label for="inputDataConcurso">Data do Concurso</label>
+                                    <input id="inputDataConcurso" data-provide="datepicker" data-date-format="dd/mm/yyyy"
+                                           type="text" class="form-control" required="required"
+                                           jsf:converter="dataConverter"
+                                           jsf:value="#{concursoController.concurso.dataConcurso}"/>
+                                <h:message for="inputDataConcurso" errorClass="error" />
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                <label for="inputModalidade">Modalidade</label>
+                                <h:inputText id="inputModalidade" styleClass="form-control" value="#{concursoController.concurso.modalidade}" />
+                                <h:message for="inputModalidade" errorClass="error" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label for="inputDataInicio">Data de Início das Inscrições</label>
+                                <input id="inputDataInicio" data-provide="datepicker" data-date-format="dd/mm/yyyy"
+                                       type="text" class="form-control" required="required"
+                                       jsf:converter="dataConverter"
+                                       jsf:value="#{concursoController.concurso.dataInicioInscricao}"/>
+                                <h:message for="inputDataInicio" errorClass="error" />
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                <label for="inputDataTermino">Data de Término das Inscrições</label>
+                                <input id="inputDataTermino" data-provide="datepicker" data-date-format="dd/mm/yyyy"
+                                       type="text" class="form-control" required="required"
+                                       jsf:converter="dataConverter"
+                                       jsf:value="#{concursoController.concurso.dataTerminoInscricao}"/>
+                                <h:message for="inputDataTermino" errorClass="error" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label for="inputSupervisor">Supervisor</label>
+                                <h:selectOneMenu id="inputSupervisor" styleClass="form-control"
+                                                 value="#{concursoController.concurso.supervisor}">
+                                    <f:converter converterId="servidorConverter"/>
+                                    <f:selectItems value="#{servidorController.servidors}"/>
+                                </h:selectOneMenu>
+                                <h:message for="inputSupervisor" errorClass="error" />
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                <label for="inputBanca">Banca</label>
+                                <h:selectManyListbox id="inputBanca" styleClass="form-control"
+                                                 value="#{concursoController.concurso.banca}">
+                                    <f:converter converterId="servidorConverter"/>
+                                    <f:selectItems value="#{servidorController.servidors}"/>
+                                </h:selectManyListbox>
+                                <h:message for="inputBanca" errorClass="error" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-6 text-right">
+                            <a class="btn btn-link" jsf:outcome="/concurso/index">Cancelar</a>
+                        </div>
+
+                        <div class="col-md-6 text-left">
+                            <button type="submit" jsf:action="#{concursoController.salvar}" class="btn btn-success">Salvar</button>
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

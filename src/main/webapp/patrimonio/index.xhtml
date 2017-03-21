@@ -21,11 +21,7 @@
                     </div>
 
                     <div class="box-body">
-                        <c:if test="#{empty patrimonioController.patrimonio}">
-
-                        </c:if>
-
-                        <c:choose>
+                         <c:choose>
                             <c:when test="${empty patrimonioController.patrimonios}">
                                 <div class="col-md-6 col-md-offset-5">
                                     <h4>Sem Registros!</h4>
@@ -39,7 +35,7 @@
                                             <th>Número</th>
                                             <th>Nome</th>
                                             <th>Status</th>
-                                            <th></th>
+                                            <th class="table-actions"></th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -49,12 +45,12 @@
                                                 <td>#{patrimonio.nome}</td>
                                                 <td>#{patrimonio.status}</td>
                                                 <td>
-                                                    <h:link class="btn btn-primary" outcome="detalhes">
+                                                    <h:link class="btn btn-primary" outcome="detalhes" title="Detalhes">
                                                         <i class="fa fa-info" aria-hidden="true"></i>
                                                         <f:param name="id" value="#{patrimonio.id}"/>
                                                         <f:param name="detalhes" value="1"/>
                                                     </h:link>
-                                                    <h:link class="btn btn-primary" outcome="new">
+                                                    <h:link class="btn btn-primary" outcome="new" title="Editar">
                                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                                         <f:param name="id" value="#{patrimonio.id}"/>
                                                     </h:link>

@@ -20,10 +20,6 @@
                     </div>
 
                     <div class="box-body">
-                        <c:if test="#{empty blocoController.bloco}">
-
-                        </c:if>
-
                         <c:choose>
                             <c:when test="${empty blocoController.blocos}">
                                 <div class="col-md-6 col-md-offset-5">
@@ -37,7 +33,7 @@
                                         <tr>
                                             <th>Número</th>
                                             <th>Nome</th>
-                                            <th></th>
+                                            <th class="table-actions"></th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -46,7 +42,7 @@
                                                 <td>#{bloco.numero}</td>
                                                 <td>#{bloco.nome}</td>
                                                 <td>
-                                                    <h:link class="btn btn-primary" outcome="new">
+                                                    <h:link class="btn btn-primary" outcome="new" title="Editar">
                                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                                         <f:param name="id" value="#{bloco.id}"/>
                                                     </h:link>
