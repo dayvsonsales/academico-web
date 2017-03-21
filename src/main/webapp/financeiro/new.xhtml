@@ -1,0 +1,65 @@
+<ui:composition template="../templates/layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <f:metadata>
+        <f:viewParam name="id" value="#{financeiroController.financeiroId}"/>
+        <f:viewAction action="#{financeiroController.init}"/>
+    </f:metadata>
+
+    <ui:define name="titulo">#{financeiroController.titulo}</ui:define>
+    <ui:define name="breadcrumb-atual">
+        <li><a jsf:outcome="/financeiro/index"> Financeiro</a></li>
+        <li class="active">#{financeiroController.titulo}</li>
+    </ui:define>
+
+    <ui:define name="conteudo">
+        <div class="box box-primary">
+            <div class="box-body">
+                <h:form styleClass="col-md-8 col-md-offset-2">
+                    <div class="row form-group">
+                        <div class="form-group">
+                            <label for="inputJustificativa">Justificativa</label>
+                            <textarea id="inputJustificativa" class="form-control" required="required" rows="3"
+                                      placeholder="Descreva aqui a justificativa do movimento financeiro"
+                                      jsf:maxlength="256" jsf:value="#{financeiroController.financeiro.justificativa}"/>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 form-group">
+                                <label for="inputValor">Valor</label>
+                                <h:inputText id="inputValor" styleClass="form-control valor"
+                                             value="#{financeiroController.financeiro.valor}" maxlength="14" converter="javax.faces.Double"/>
+                                <h:message for="inputValor" errorClass="error"/>
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label for="inputData" class="col-lg-2 control-label">Data</label>
+                                <input required="required" id="inputData" data-provide="datepicker"
+                                       data-date-format="dd/mm/yyyy"
+                                       type="text" class="form-control"
+                                       jsf:converter="dataConverter"
+                                       jsf:value="#{financeiroController.financeiro.data}"/>
+                            </div>
+                        </div>
+
+
+                        <div class="row form-group">
+                            <div class="col-md-6 text-right">
+                                <a class="btn btn-link" jsf:outcome="/financeiro/index">Cancelar</a>
+                            </div>
+
+                            <div class="col-md-6 text-left">
+                                <button type="submit" jsf:action="#{financeiroController.salvar}"
+                                        class="btn btn-success">Salvar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

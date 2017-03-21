@@ -1,0 +1,84 @@
+<ui:composition template="../templates/layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <f:metadata>
+        <f:viewParam name="id" value="#{membroController.membroId}"/>
+        <f:viewAction action="#{membroController.init}"/>
+    </f:metadata>
+
+    <ui:define name="titulo">#{membroController.titulo}</ui:define>
+    <ui:define name="breadcrumb-atual">
+        <li><a jsf:outcome="/membro/index"> Membros</a></li>
+        <li class="active">#{membroController.titulo}</li>
+    </ui:define>
+
+    <ui:define name="conteudo">
+        <div class="box box-primary">
+            <div class="box-body">
+                <h:form styleClass="col-md-8 col-md-offset-2">
+                    <div class="row form-group">
+                        <div class="form-group">
+                            <label for="inputNome">Nome</label>
+                            <h:inputText id="inputNome" styleClass="form-control" value="#{membroController.membro.nome}" />
+                            <h:message for="inputNome" errorClass="error" />
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 form-group">
+                                <label for="inputCpf">CPF</label>
+                                <h:inputText id="inputCpf" styleClass="form-control cpf" value="#{membroController.membro.matricula}" maxlength="14" />
+                                <h:message for="inputCpf" errorClass="error" />
+                            </div>
+
+                            <div class="col-md-8 form-group">
+                                <label for="inputCargo">Cargo</label>
+                                <h:inputText id="inputCargo" styleClass="form-control" value="#{membroController.membro.cargo}" />
+                                <h:message for="inputCargo" errorClass="error" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 form-group">
+                                <label for="inputEmail">Email</label>
+                                <h:inputText id="inputEmail" type="email" styleClass="form-control"  value="#{membroController.membro.email}" maxlength="128" />
+                                <h:message for="inputEmail" errorClass="error" />
+                            </div>
+
+                            <div class="col-md-8 form-group">
+                                <label for="inputPeriodo">Período Ingresso</label>
+                                <h:selectOneMenu id="inputPeriodo" styleClass="form-control"
+                                                 value="#{membroController.membro.periodoIngresso}">
+                                    <f:converter converterId="periodoConverter"></f:converter>
+                                    <f:selectItems value="#{periodoController.periodos}"></f:selectItems>
+                                </h:selectOneMenu>
+                                <h:message for="inputPeriodo" errorClass="error" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputCurso">Curso</label>
+                            <h:selectOneMenu id="inputCurso" styleClass="form-control"
+                                             value="#{membroController.membro.curso}">
+                                <f:converter converterId="cursoConverter"></f:converter>
+                                <f:selectItems value="#{cursoController.cursos}"></f:selectItems>
+                            </h:selectOneMenu>
+                            <h:message for="inputCurso" errorClass="error" />
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-6 text-right">
+                            <a class="btn btn-link" jsf:outcome="/membro/index">Cancelar</a>
+                        </div>
+
+                        <div class="col-md-6 text-left">
+                            <button type="submit" jsf:action="#{membroController.salvar}" class="btn btn-success">Salvar</button>
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

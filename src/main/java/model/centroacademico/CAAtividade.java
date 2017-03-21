@@ -4,6 +4,8 @@ import com.sun.istack.internal.NotNull;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
@@ -12,12 +14,13 @@ import java.util.Date;
  * Created by Dayvson on 19/03/2017.
  */
 @Entity
-public class Atividade implements Serializable {
+public class CAAtividade implements Serializable {
     private Integer id;
     private String local;
     private Date data;
     private String assunto;
 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     public Integer getId() {
         return id;

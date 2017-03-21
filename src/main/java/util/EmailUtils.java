@@ -15,7 +15,7 @@ import javax.mail.internet.MimeMessage;
  */
 public class EmailUtils {
 
-    public void enviarMensagem(String mensagem, String assunto, String contato){
+    public static void enviarMensagem(String mensagem, String assunto, String contato){
         Properties props = new Properties();
         /** Parâmetros de conexão com servidor Gmail */
         props.put("mail.smtp.host", "smtp.gmail.com");

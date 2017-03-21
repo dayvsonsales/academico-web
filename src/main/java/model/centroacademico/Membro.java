@@ -1,10 +1,11 @@
 package model.centroacademico;
 
+import model.instituicional.Curso;
 import model.instituicional.Periodo;
+import org.hibernate.validator.constraints.NotBlank;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -15,11 +16,12 @@ public class Membro implements Serializable {
     private Integer id;
     private String nome;
     private String matricula;
-    private String curso;
+    private Curso curso;
     private Periodo periodoIngresso;
     private String cargo;
     private String email;
 
+    @NotBlank
     public String getNome() {
         return nome;
     }
@@ -28,6 +30,7 @@ public class Membro implements Serializable {
         this.nome = nome;
     }
 
+    @NotBlank
     public String getMatricula() {
         return matricula;
     }
@@ -36,15 +39,8 @@ public class Membro implements Serializable {
         this.matricula = matricula;
     }
 
-    public String getCurso() {
-        return curso;
-    }
-
-    public void setCurso(String curso) {
-        this.curso = curso;
-    }
-
     @ManyToOne
+    @NotNull
     public Periodo getPeriodoIngresso() {
         return periodoIngresso;
     }
@@ -53,6 +49,7 @@ public class Membro implements Serializable {
         this.periodoIngresso = periodoIngresso;
     }
 
+    @NotBlank
     public String getCargo() {
         return cargo;
     }
@@ -61,6 +58,7 @@ public class Membro implements Serializable {
         this.cargo = cargo;
     }
 
+    @NotBlank
     public String getEmail() {
         return email;
     }
@@ -69,6 +67,17 @@ public class Membro implements Serializable {
         this.email = email;
     }
 
+    @ManyToOne
+    @NotNull
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
+    }
+
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     public Integer getId() {
         return id;

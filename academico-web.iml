@@ -38,10 +38,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: org.hibernate:hibernate-validator:5.4.1.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.glassfish:javax.el:3.0.1-b08" level="project" />
-    <orderEntry type="library" name="Maven: org.hibernate:hibernate-validator-cdi:5.4.1.Final" level="project" />
-    <orderEntry type="library" name="Maven: javax.validation:validation-api:1.1.0.Final" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish:javax.faces:2.2.13" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-core:5.2.8.Final" level="project" />
@@ -59,5 +55,7 @@
     <orderEntry type="library" name="Maven: org.glassfish:javax.el:3.0.1-b08" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-validator-cdi:5.4.1.Final" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:6.0.5" level="project" />
+    <orderEntry type="library" name="Maven: javax.mail:javax.mail-api:1.5.6" level="project" />
+    <orderEntry type="library" name="Maven: org.omnifaces:omnifaces:1.8.1" level="project" />
   </component>
 </module>
