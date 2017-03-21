@@ -50,9 +50,14 @@ public class AtividadeController extends Controller {
         return "/atividade/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
-    public void remover(Atividade atividade){
-        repo.destroy(atividade);
+    public String remover(Atividade atividade){
+        if(repo.destroy(atividade)){
+            setParamAlert("ok-del");
+        }else{
+            setParamAlert("err-del");
+        }
         atividades.remove(atividade);
+        return "/atividade/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
     public Atividade getAtividade() {

@@ -50,9 +50,14 @@ public class MovimentacaoController extends Controller {
         return "/movimentacao/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
-    public void remover(Movimentacao movimentacao){
-        repo.destroy(movimentacao);
+    public String remover(Movimentacao movimentacao){
+        if(repo.destroy(movimentacao)){
+            setParamAlert("ok-del");
+        }else{
+            setParamAlert("err-del");
+        }
         movimentacoes.remove(movimentacao);
+        return "/movimentacao/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
     public Movimentacao getMovimentacao() {

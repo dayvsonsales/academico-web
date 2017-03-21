@@ -50,9 +50,14 @@ public class BlocoController extends Controller {
         return "/bloco/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
-    public void remover(Bloco bloco){
-        repo.destroy(bloco);
+    public String remover(Bloco bloco){
+        if(repo.destroy(bloco)){
+            setParamAlert("ok-del");
+        }else{
+            setParamAlert("err-del");
+        }
         blocos.remove(bloco);
+        return "/bloco/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
     public Bloco getBloco() {

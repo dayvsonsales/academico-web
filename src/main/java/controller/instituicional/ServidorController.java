@@ -50,9 +50,14 @@ public class ServidorController extends Controller {
         return "/servidor/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
-    public void remover(Servidor servidor){
-        repo.destroy(servidor);
+    public String remover(Servidor servidor){
+        if(repo.destroy(servidor)){
+            setParamAlert("ok-del");
+        }else{
+            setParamAlert("err-del");
+        }
         servidors.remove(servidor);
+        return "/servidor/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
     public Servidor getServidor() {

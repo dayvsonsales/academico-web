@@ -58,10 +58,15 @@ public class DisciplinaController extends Controller {
         return "/disciplinas/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
-    public void remover(Disciplina disciplina){
+    public String remover(Disciplina disciplina){
         this.repo = new DisciplinaRepository(Disciplina.class);
-        repo.destroy(disciplina);
+        if(repo.destroy(disciplina)){
+            setParamAlert("ok-del");
+        }else{
+            setParamAlert("err-del");
+        }
         disciplinas.remove(disciplina);
+        return "/disciplinas/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
     public ArrayList<Disciplina> getDisciplinas() {

@@ -48,9 +48,14 @@ public class PeriodoController extends Controller {
         return "/periodo/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
-    public void remover(Periodo periodo){
-        repo.destroy(periodo);
+    public String remover(Periodo periodo){
+        if(repo.destroy(periodo)){
+            setParamAlert("ok-del");
+        }else{
+            setParamAlert("err-del");
+        }
         periodos.remove(periodo);
+        return "/periodo/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
     public Periodo getPeriodo() {

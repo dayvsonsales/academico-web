@@ -89,7 +89,7 @@ public class PatrimonioController extends Controller {
             setParamAlert("err-del");
         }
         patrimonios.remove(patrimonio);
-        return "/patrimonio/index?faces-redirect=true&" + getParamAlert();
+        return "/patrimonio/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
     public Patrimonio getPatrimonio() {

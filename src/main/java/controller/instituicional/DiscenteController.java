@@ -53,9 +53,14 @@ public class DiscenteController extends Controller {
         return "/discente/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
-    public void remover(Discente discente){
-        repo.destroy(discente);
+    public String remover(Discente discente){
+        if(repo.destroy(discente)){
+            setParamAlert("ok-del");
+        }else{
+            setParamAlert("err-del");
+        }
         discentes.remove(discente);
+        return "/discente/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
     public Discente getDiscente() {

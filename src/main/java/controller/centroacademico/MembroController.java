@@ -49,9 +49,14 @@ public class MembroController extends Controller {
         return "/membro/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
-    public void remover(Membro membro){
-        repo.destroy(membro);
+    public String remover(Membro membro){
+        if(repo.destroy(membro)){
+            setParamAlert("ok-del");
+        }else{
+            setParamAlert("err-del");
+        }
         membros.remove(membro);
+        return "/membro/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
     public Membro getMembro() {

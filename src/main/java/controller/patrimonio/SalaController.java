@@ -50,13 +50,14 @@ public class SalaController extends Controller {
         return "/sala/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
-    public void remover(Sala sala){
+    public String remover(Sala sala){
         if(repo.destroy(sala)){
             setParamAlert("ok-del");
         }else{
             setParamAlert("err-del");
         }
         salas.remove(sala);
+        return "/sala/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
     public Sala getSala() {

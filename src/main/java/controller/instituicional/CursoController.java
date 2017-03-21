@@ -50,9 +50,14 @@ public class CursoController extends Controller {
         return "/curso/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
-    public void remover(Curso curso){
-        repo.destroy(curso);
+    public String remover(Curso curso){
+        if(repo.destroy(curso)){
+            setParamAlert("ok-del");
+        }else{
+            setParamAlert("err-del");
+        }
         cursos.remove(curso);
+        return "/curso/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
     public Curso getCurso() {

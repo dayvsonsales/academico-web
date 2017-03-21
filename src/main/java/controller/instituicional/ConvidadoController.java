@@ -50,9 +50,14 @@ public class ConvidadoController extends Controller {
         return "/convidado/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
-    public void remover(Convidado convidado){
-        repo.destroy(convidado);
+    public String remover(Convidado convidado){
+        if(repo.destroy(convidado)){
+            setParamAlert("ok-del");
+        }else{
+            setParamAlert("err-del");
+        }
         convidados.remove(convidado);
+        return "/convidado/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
     public Convidado getConvidado() {

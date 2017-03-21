@@ -63,9 +63,14 @@ public class CentroAcademicoAtividadeController extends Controller{
         return "/caatividade/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
-    public void remover(MovimentacaoFinanceira centroAcademicoAtividade){
-        repo.destroy(centroAcademicoAtividade);
+    public String remover(MovimentacaoFinanceira centroAcademicoAtividade){
+        if(repo.destroy(centroAcademicoAtividade)){
+            setParamAlert("ok-del");
+        }else{
+            setParamAlert("err-del");
+        }
         centroAcademicoAtividades.remove(centroAcademicoAtividade);
+        return "/caatividade/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
     public Integer getCentroAcademicoAtividadeId() {
