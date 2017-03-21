@@ -20,10 +20,6 @@
                     </div>
 
                     <div class="box-body">
-                        <c:if test="#{empty servidorController.servidors}">
-
-                        </c:if>
-
                         <c:choose>
                             <c:when test="${empty servidorController.servidors}">
                                 <div class="col-md-6 col-md-offset-5">
@@ -39,7 +35,7 @@
                                                 <th>CPF</th>
                                                 <th>Cargo</th>
                                                 <th>Siape</th>
-                                                <th></th>
+                                                <th class="table-actions"></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -50,12 +46,11 @@
                                                     <td>#{servidor.cargo}</td>
                                                     <td>#{servidor.siape}</td>
                                                     <td>
-                                                        <h:link class="btn btn-primary" outcome="new">
+                                                        <h:link class="btn btn-primary" outcome="new" title="Editar">
                                                             <i class="fa fa-pencil" aria-hidden="true"></i>
                                                             <f:param name="id" value="#{servidor.id}"/>
                                                         </h:link>
-                                                        <a jsf:action="#{servidorController.remover(servidor)}" title="Remover"
-                                                           class="btn btn-danger">
+                                                        <a jsf:action="#{servidorController.remover(servidor)}" title="Remover" class="btn btn-danger">
                                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                         </a>
                                                     </td>

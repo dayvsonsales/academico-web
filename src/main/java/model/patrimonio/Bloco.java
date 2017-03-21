@@ -1,5 +1,7 @@
 package model.patrimonio;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
 
 import javax.persistence.Entity;
@@ -23,15 +25,6 @@ public class Bloco implements Serializable {
         this.salas = new ArrayList<Sala>();
     }
 
-    @OneToMany(mappedBy="bloco")
-    public List<Sala> getSalas() {
-        return salas;
-    }
-
-    public void setSalas(List<Sala> salas) {
-        this.salas = salas;
-    }
-
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     public Integer getId() {
@@ -42,6 +35,7 @@ public class Bloco implements Serializable {
         this.id = id;
     }
 
+    @NotBlank
     public String getNome() {
         return nome;
     }
@@ -50,12 +44,22 @@ public class Bloco implements Serializable {
         this.nome = nome;
     }
 
+    @NotBlank
     public String getNumero() {
         return numero;
     }
 
     public void setNumero(String numero) {
         this.numero = numero;
+    }
+
+    @OneToMany(mappedBy="bloco")
+    public List<Sala> getSalas() {
+        return salas;
+    }
+
+    public void setSalas(List<Sala> salas) {
+        this.salas = salas;
     }
 
     public String toString() {
