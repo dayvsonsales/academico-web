@@ -1,6 +1,7 @@
 package controller.centroacademico;
 
 import controller.Controller;
+import model.Permissoes;
 import model.centroacademico.CAAtividade;
 import model.centroacademico.Membro;
 import model.centroacademico.MovimentacaoFinanceira;
@@ -13,6 +14,7 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by Dayvson on 20/03/2017.
@@ -28,6 +30,8 @@ public class CentroAcademicoAtividadeController extends Controller{
 
     public CentroAcademicoAtividadeController(){
         super(FacesContext.getCurrentInstance());
+        setPermissoes(Arrays.asList(Permissoes.CENTRO_ACADEMICO));
+
         this.repo = new CentroAcademicoAtividadeRepository(CAAtividade.class);
         this.centroAcademicoAtividades = (ArrayList<CAAtividade>) this.repo.all();
     }

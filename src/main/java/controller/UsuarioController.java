@@ -23,7 +23,7 @@ public class UsuarioController extends Controller {
 
     public UsuarioController() {
         super(FacesContext.getCurrentInstance());
-        setPermissoes(Arrays.asList(Permissoes.DIRETORIO));
+        setPermissoes(Arrays.asList(Permissoes.CENTRO_ACADEMICO));
 
         this.repo = new UsuarioRepository();
     }

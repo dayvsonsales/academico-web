@@ -1,6 +1,7 @@
 package controller.centroacademico;
 
 import controller.Controller;
+import model.Permissoes;
 import model.centroacademico.Membro;
 import repository.MembroRepository;
 
@@ -8,6 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by Dayvson on 20/03/2017.
@@ -22,6 +24,8 @@ public class MembroController extends Controller {
 
     public MembroController() {
         super(FacesContext.getCurrentInstance());
+        setPermissoes(Arrays.asList(Permissoes.CENTRO_ACADEMICO));
+
         this.repo = new MembroRepository(Membro.class);
         this.membros = (ArrayList<Membro>) this.repo.all();
     }

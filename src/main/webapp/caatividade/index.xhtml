@@ -20,10 +20,6 @@
                     </div>
 
                     <div class="box-body">
-                        <c:if test="#{empty centroAcademicoAtividadeController.centroAcademicoAtividade}">
-
-                        </c:if>
-
                         <c:choose>
                             <c:when test="${empty centroAcademicoAtividadeController.centroAcademicoAtividades}">
                                 <div class="col-md-6 col-md-offset-5">
@@ -37,7 +33,7 @@
                                         <tr>
                                             <th>Local</th>
                                             <th>Data</th>
-                                            <th></th>
+                                            <th class="table-actions"></th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -50,7 +46,7 @@
                                                     </h:outputText>
                                                 </td>
                                                 <td>
-                                                    <h:link class="btn btn-primary" outcome="new">
+                                                    <h:link class="btn btn-primary" outcome="new" title="Editar">
                                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                                         <f:param name="id" value="#{centroAcademicoAtividade.id}"/>
                                                     </h:link>

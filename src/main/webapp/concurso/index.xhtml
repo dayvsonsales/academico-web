@@ -36,7 +36,7 @@
                                                 <th>Supervisor</th>
                                                 <th>Área de Estudo</th>
                                                 <th>Data</th>
-                                                <th></th>
+                                                <th class="table-actions"></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -52,7 +52,7 @@
                                                         </h:outputText>
                                                     </td>
                                                     <td>
-                                                        <h:link class="btn btn-primary" outcome="new">
+                                                        <h:link class="btn btn-primary" outcome="new" title="Editar">
                                                             <i class="fa fa-pencil" aria-hidden="true"></i>
                                                             <f:param name="id" value="#{concurso.id}"/>
                                                         </h:link>
