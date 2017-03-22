@@ -13,6 +13,7 @@ import java.io.Serializable;
  */
 @Entity
 public class Membro implements Serializable {
+
     private Integer id;
     private String nome;
     private String matricula;

@@ -32,7 +32,6 @@ public abstract class Relatorio {
     protected void imprimirRelatorio() throws JRException, IOException {
         FacesContext facesContext = FacesContext.getCurrentInstance();
         facesContext.responseComplete();
-        System.out.println("chegou no pai");
         ServletContext scontext = (ServletContext) facesContext.getExternalContext().getContext();
 
         path = scontext.getRealPath("/WEB-INF/reports/");

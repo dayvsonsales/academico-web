@@ -6,7 +6,7 @@ package model;
 public enum Permissoes {
 
     ADMIN,
-    ALUNO,
-    DIRETORIO;
+    CENTRO_ACADEMICO,
+    ALUNO;
 
 }
