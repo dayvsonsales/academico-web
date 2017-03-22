@@ -13,10 +13,10 @@ function getParameterByName(name, url) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
-function alerts(){
+function alerts() {
     var a = getParameterByName("alert");
 
-    switch (a){
+    switch (a) {
         case "ok-add":
             sweetAlert("OK", "Salvo com sucesso!", "success");
             break;
@@ -31,7 +31,26 @@ function alerts(){
             break;
     }
 }
-$( document ).ready(function() {
+
+function confirmar() {
+    var ok = true;
+    swal({
+            title: "Tem certeza?",
+            text: "Você não poderá voltar atrás!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Sim",
+            closeOnConfirm: true
+        },
+        function (isConfirm) {
+            return isConfirm;
+        });
+
+    return ok;
+}
+
+$(document).ready(function () {
     $(".cpf").mask("###.###.###-##");
 
     $("#table").DataTable({

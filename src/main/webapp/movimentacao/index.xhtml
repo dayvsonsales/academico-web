@@ -52,7 +52,7 @@
                                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                                         <f:param name="id" value="#{movimentacao.id}"/>
                                                     </h:link>
-                                                    <a jsf:action="#{movimentacaoController.remover(movimentacao)}"
+                                                    <a jsf:onclick="return confirm('Tem certeza?')" jsf:action="#{movimentacaoController.remover(movimentacao)}"
                                                        title="Remover"
                                                        class="btn btn-danger">
                                                         <i class="fa fa-trash-o" aria-hidden="true"></i>

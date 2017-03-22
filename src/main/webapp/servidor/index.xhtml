@@ -50,6 +50,8 @@
                                                             <i class="fa fa-pencil" aria-hidden="true"></i>
                                                             <f:param name="id" value="#{servidor.id}"/>
                                                         </h:link>
+                                                        <a jsf:onclick="return confirm('Tem certeza?')" jsf:action="#{servidorController.remover(servidor)}" title="Remover"
+                                                           class="btn btn-danger">
                                                         <a jsf:action="#{servidorController.remover(servidor)}" title="Remover" class="btn btn-danger">
                                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                         </a>
