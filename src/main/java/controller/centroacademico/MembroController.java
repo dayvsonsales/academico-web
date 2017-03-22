@@ -3,12 +3,14 @@ package controller.centroacademico;
 import controller.Controller;
 import model.Permissoes;
 import model.centroacademico.Membro;
+import reports.impl.RelatorioMembro;
 import repository.MembroRepository;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Arrays;
 
 /**
@@ -31,32 +33,40 @@ public class MembroController extends Controller {
     }
 
     public void init() {
-        if(this.membroId == null){
+        if (this.membroId == null) {
             novo();
             this.setTitulo("Novo Membro");
-        }else {
+        } else {
             this.setTitulo("Editar Membro");
             this.membro = (Membro) repo.find(membroId);
         }
     }
 
-    public void novo(){
+    public void novo() {
         this.membro = new Membro();
     }
 
-    public String salvar(){
-        if(repo.save(membro) == null){
+    public void relatorio() {
+        try {
+            new RelatorioMembro().gerarRelatorio(new HashMap());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String salvar() {
+        if (repo.save(membro) == null) {
             setParamAlert("err-add");
-        }else{
+        } else {
             setParamAlert("ok-add");
         }
         return "/membro/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
-    public String remover(Membro membro){
-        if(repo.destroy(membro)){
+    public String remover(Membro membro) {
+        if (repo.destroy(membro)) {
             setParamAlert("ok-del");
-        }else{
+        } else {
             setParamAlert("err-del");
         }
         membros.remove(membro);
