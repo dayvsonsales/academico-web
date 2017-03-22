@@ -2,12 +2,14 @@ package controller.centroacademico;
 
 import controller.Controller;
 import model.centroacademico.Membro;
+import reports.impl.RelatorioMembro;
 import repository.MembroRepository;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by Dayvson on 20/03/2017.
@@ -38,6 +40,15 @@ public class MembroController extends Controller {
 
     public void novo(){
         this.membro = new Membro();
+    }
+
+    public void relatorio(){
+        System.out.println("aqui");
+        try {
+            new RelatorioMembro().gerarRelatorio(new HashMap());
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public String salvar(){
