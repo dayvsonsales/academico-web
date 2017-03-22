@@ -1,6 +1,6 @@
 package controller.instituicional;
 
-import controller.Controller;
+import controller.ControllerBase;
 import model.instituicional.Periodo;
 import repository.PeriodoRepository;
 import javax.faces.bean.ManagedBean;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 @ManagedBean
 @ViewScoped
-public class PeriodoController extends Controller {
+public class PeriodoController extends ControllerBase {
 
     private Integer periodoId;
     private Periodo periodo;

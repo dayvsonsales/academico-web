@@ -1,6 +1,6 @@
 package controller.patrimonio;
 
-import controller.Controller;
+import controller.ControllerBase;
 import model.patrimonio.Sala;
 import repository.SalaRepository;
 
@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 @ManagedBean
 @ViewScoped
-public class SalaController extends Controller {
+public class SalaController extends ControllerBase {
 
     private Integer salaId;
     private Sala sala;

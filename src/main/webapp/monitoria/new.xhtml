@@ -1,0 +1,60 @@
+<ui:composition template="../templates/layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <f:metadata>
+        <f:viewParam name="id" value="#{monitoriaController.monitoriaId}"/>
+        <f:viewAction action="#{monitoriaController.init}"/>
+    </f:metadata>
+
+    <ui:define name="titulo">#{monitoriaController.titulo}</ui:define>
+    <ui:define name="breadcrumb-atual">
+        <li><a jsf:outcome="/monitor/index"> Monitorias </a></li>
+        <li class="active">#{monitoriaController.titulo}</li>
+    </ui:define>
+
+    <ui:define name="conteudo">
+        <div class="box box-primary">
+            <div class="box-body">
+                <h:form styleClass="col-md-8 col-md-offset-2">
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <label for="inputDisciplina">Disciplina</label>
+                            <h:selectOneMenu id="inputDisciplina" styleClass="form-control"
+                                             value="#{monitoriaController.monitoria.disciplina}">
+                                <f:converter converterId="disciplinaConverter"/>
+                                <f:selectItems value="#{disciplinaController.disciplinas}"/>
+                            </h:selectOneMenu>
+                            <h:message for="inputDisciplina" errorClass="error" />
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="inputMonitores">Monitores</label>
+                            <h:selectManyListbox id="inputMonitores" styleClass="form-control"
+                                             value="#{monitoriaController.monitoria.monitores}">
+                                <f:converter converterId="monitorConverter"/>
+                                <f:selectItems value="#{monitorController.monitores}"/>
+                            </h:selectManyListbox>
+                            <h:message for="inputMonitores" errorClass="error" />
+                        </div>
+                    </div>
+
+
+                    <div class="row form-group">
+                        <div class="col-md-6 text-right">
+                            <a class="btn btn-link" jsf:outcome="/monitoria/index">Cancelar</a>
+                        </div>
+
+                        <div class="col-md-6 text-left">
+                            <button type="submit" jsf:action="#{monitoriaController.salvar}" class="btn btn-success">Salvar</button>
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

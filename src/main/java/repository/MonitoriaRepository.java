@@ -1,7 +1,5 @@
 package repository;
 
-import model.Monitoria;
-
 /**
  * Created by Dayvson on 12/03/2017.
  */

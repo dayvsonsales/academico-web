@@ -1,10 +1,9 @@
 package controller.centroacademico;
 
-import controller.Controller;
+import controller.ControllerBase;
 import model.Permissoes;
 import model.centroacademico.CAAtividade;
 import model.centroacademico.Membro;
-import model.centroacademico.MovimentacaoFinanceira;
 import repository.CentroAcademicoAtividadeRepository;
 import repository.MembroRepository;
 import util.EmailUtils;
@@ -21,7 +20,7 @@ import java.util.Arrays;
  */
 @ManagedBean
 @ViewScoped
-public class CentroAcademicoAtividadeController extends Controller{
+public class CentroAcademicoAtividadeController extends ControllerBase {
     private Integer centroAcademicoAtividadeId;
     private CAAtividade centroAcademicoAtividade;
     private CentroAcademicoAtividadeRepository repo;

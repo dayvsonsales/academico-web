@@ -1,23 +1,20 @@
 package controller.instituicional;
 
-import controller.Controller;
+import controller.ControllerBase;
 import model.instituicional.Discente;
-import model.Permissoes;
 import repository.DiscenteRepository;
-import util.SessionUtils;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Created by Dayvson on 13/03/2017.
  */
 @ManagedBean
 @ViewScoped
-public class DiscenteController extends Controller {
+public class DiscenteController extends ControllerBase {
 
     private Integer discenteId;
     private Discente discente;

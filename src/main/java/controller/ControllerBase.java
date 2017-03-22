@@ -17,7 +17,7 @@ import java.util.Set;
 /**
  * Created by anderson on 13/03/2017.
  */
-public abstract class Controller implements Serializable {
+public abstract class ControllerBase implements Serializable {
 
     private String titulo;
     private String paramAlert;
@@ -25,7 +25,7 @@ public abstract class Controller implements Serializable {
     private FacesContext context;
     private Usuario usuarioAtual;
 
-    public Controller(FacesContext context) {
+    public ControllerBase(FacesContext context) {
         this.context = context;
         this.permissoes = new HashSet<Permissoes>(Arrays.asList(Permissoes.ADMIN));
         this.usuarioAtual = SessionUtils.getUsuario(context);

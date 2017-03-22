@@ -1,6 +1,6 @@
 package controller.patrimonio;
 
-import controller.Controller;
+import controller.ControllerBase;
 import model.patrimonio.Movimentacao;
 import repository.MovimentacaoRepository;
 
@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 @ManagedBean
 @ViewScoped
-public class MovimentacaoController extends Controller {
+public class MovimentacaoController extends ControllerBase {
 
     private Integer movimentacaoId;
     private Movimentacao movimentacao;

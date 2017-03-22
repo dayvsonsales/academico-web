@@ -35,4 +35,8 @@ public class Disciplina {
         this.nome = nome;
     }
 
+    @Override
+    public String toString() {
+        return this.nome;
+    }
 }

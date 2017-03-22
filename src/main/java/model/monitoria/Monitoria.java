@@ -1,8 +1,9 @@
-package model;
+package model.monitoria;
 
 import model.instituicional.Disciplina;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -12,29 +13,9 @@ import java.util.List;
 public class Monitoria {
 
     private Integer id;
-
     private Disciplina disciplina;
 
     private List<Monitor> monitores;
-
-    @OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true)
-    public Disciplina getDisciplina() {
-        return disciplina;
-    }
-
-    public void setDisciplina(Disciplina disciplina) {
-        this.disciplina = disciplina;
-    }
-
-    @ManyToMany(cascade=CascadeType.ALL)
-    @JoinTable(name="monitor_monitoria", joinColumns=@JoinColumn(name="monitoria_id"), inverseJoinColumns=@JoinColumn(name="monitor_id"))
-    public List<Monitor> getMonitores() {
-        return monitores;
-    }
-
-    public void setMonitores(List<Monitor> monitores) {
-        this.monitores = monitores;
-    }
 
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Id
@@ -46,5 +27,22 @@ public class Monitoria {
         this.id = id;
     }
 
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    public Disciplina getDisciplina() {
+        return disciplina;
+    }
+
+    public void setDisciplina(Disciplina disciplina) {
+        this.disciplina = disciplina;
+    }
+
+    @ManyToMany(cascade=CascadeType.ALL)
+    public List<Monitor> getMonitores() {
+        return monitores;
+    }
+
+    public void setMonitores(List<Monitor> monitores) {
+        this.monitores = monitores;
+    }
 
 }

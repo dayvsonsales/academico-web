@@ -1,6 +1,6 @@
 package controller.centroacademico;
 
-import controller.Controller;
+import controller.ControllerBase;
 import model.Permissoes;
 import model.centroacademico.MovimentacaoFinanceira;
 import repository.FinanceiroRepository;
@@ -16,7 +16,7 @@ import java.util.Arrays;
  */
 @ManagedBean
 @ViewScoped
-public class FinanceiroController extends Controller {
+public class FinanceiroController extends ControllerBase {
     private Integer financeiroId;
     private MovimentacaoFinanceira financeiro;
     private FinanceiroRepository repo;

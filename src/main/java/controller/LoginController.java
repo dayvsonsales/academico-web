@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
  */
 @ManagedBean
 @SessionScoped
-public class LoginController {
+public class LoginController implements Autenticacao {
 
     private String email;
     private String senha;

@@ -1,6 +1,6 @@
 package controller.patrimonio;
 
-import controller.Controller;
+import controller.ControllerBase;
 import model.patrimonio.Bloco;
 import repository.BlocoRepository;
 
@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 @ManagedBean
 @ViewScoped
-public class BlocoController extends Controller {
+public class BlocoController extends ControllerBase {
 
     private Integer blocoId;
     private Bloco bloco;

@@ -1,6 +1,6 @@
 package controller.instituicional;
 
-import controller.Controller;
+import controller.ControllerBase;
 import model.instituicional.Servidor;
 import repository.ServidorRepository;
 
@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 @ManagedBean
 @ViewScoped
-public class ServidorController extends Controller {
+public class ServidorController extends ControllerBase {
     private Integer servidorId;
     private Servidor servidor;
     private ServidorRepository repo;

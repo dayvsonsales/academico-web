@@ -1,6 +1,6 @@
 package controller.centroacademico;
 
-import controller.Controller;
+import controller.ControllerBase;
 import model.Permissoes;
 import model.centroacademico.Membro;
 import reports.impl.RelatorioMembro;
@@ -18,7 +18,7 @@ import java.util.Arrays;
  */
 @ManagedBean
 @ViewScoped
-public class MembroController extends Controller {
+public class MembroController extends ControllerBase {
     private Integer membroId;
     private Membro membro;
     private MembroRepository repo;

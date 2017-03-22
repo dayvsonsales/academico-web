@@ -1,6 +1,6 @@
 package controller.instituicional;
 
-import controller.Controller;
+import controller.ControllerBase;
 import model.instituicional.Curso;
 import repository.CursoRepository;
 
@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 @ManagedBean
 @ViewScoped
-public class CursoController extends Controller {
+public class CursoController extends ControllerBase {
 
     private Integer cursoId;
     private Curso curso;

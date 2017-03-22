@@ -1,6 +1,6 @@
 package controller.instituicional;
 
-import controller.Controller;
+import controller.ControllerBase;
 import model.instituicional.Convidado;
 import repository.ConvidadoRepository;
 
@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 @ManagedBean
 @ViewScoped
-public class ConvidadoController extends Controller {
+public class ConvidadoController extends ControllerBase {
 
     private Integer convidadoId;
     private Convidado convidado;

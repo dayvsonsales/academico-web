@@ -1,9 +1,7 @@
 package controller.concurso;
 
-import controller.Controller;
-import model.concurso.Concurso;
+import controller.ControllerBase;
 import model.concurso.Participante;
-import repository.ConcursoRepository;
 import repository.ParticipanteRepository;
 
 import javax.faces.bean.ManagedBean;
@@ -16,7 +14,7 @@ import java.util.List;
  */
 @ManagedBean
 @ViewScoped
-public class ParticipanteController extends Controller {
+public class ParticipanteController extends ControllerBase {
 
     private Integer participanteId;
     private Participante participante;

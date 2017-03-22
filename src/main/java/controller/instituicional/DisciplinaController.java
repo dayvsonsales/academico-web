@@ -1,16 +1,13 @@
 package controller.instituicional;
 
-import controller.Controller;
+import controller.ControllerBase;
 import model.instituicional.Disciplina;
-import model.Permissoes;
 import repository.DisciplinaRepository;
-import util.SessionUtils;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Created by Dayvson on 12/03/2017.
@@ -18,7 +15,7 @@ import java.util.Arrays;
 
 @ManagedBean
 @ViewScoped
-public class DisciplinaController extends Controller {
+public class DisciplinaController extends ControllerBase {
 
     private String titulo;
     private Integer disciplinaId;

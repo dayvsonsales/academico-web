@@ -14,7 +14,7 @@ import java.util.Arrays;
  */
 @ManagedBean
 @ViewScoped
-public class UsuarioController extends Controller {
+public class UsuarioController extends ControllerBase {
 
     private Usuario usuario;
     private UsuarioRepository repo;

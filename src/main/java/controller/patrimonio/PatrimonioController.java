@@ -1,6 +1,6 @@
 package controller.patrimonio;
 
-import controller.Controller;
+import controller.ControllerBase;
 import model.patrimonio.Patrimonio;
 import model.patrimonio.PatrimonioConsumo;
 import model.patrimonio.PatrimonioPermanente;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
  */
 @ManagedBean
 @ViewScoped
-public class PatrimonioController extends Controller {
+public class PatrimonioController extends ControllerBase {
 
     private boolean detalhes;
     private Integer patrimonioId;
