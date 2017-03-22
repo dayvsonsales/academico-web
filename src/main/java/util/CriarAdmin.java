@@ -1,3 +1,5 @@
+package util;
+
 import model.Permissoes;
 import model.Usuario;
 import repository.UsuarioRepository;
@@ -5,7 +7,7 @@ import repository.UsuarioRepository;
 /**
  * Created by anderson on 20/03/17.
  */
-public class Main {
+public class CriarAdmin {
 
     public static void main(String[] args) {
         Usuario usuario = new Usuario();

@@ -3,12 +3,12 @@ package model.concurso;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.br.CPF;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Dayvson on 19/03/2017.
@@ -31,6 +31,8 @@ public class Participante implements Serializable {
     private String telefone;
     private boolean aptidao;
     private String acessibilidade;
+
+    private List<Concurso> concursos = new ArrayList<Concurso>();
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -77,6 +79,7 @@ public class Participante implements Serializable {
         this.orgaoEmissorRG = orgaoEmissorRG;
     }
 
+    @NotNull
     public Date getDataNascimento() {
         return dataNascimento;
     }
@@ -85,6 +88,7 @@ public class Participante implements Serializable {
         this.dataNascimento = dataNascimento;
     }
 
+    @NotBlank
     public String getNomeMae() {
         return nomeMae;
     }
@@ -126,6 +130,7 @@ public class Participante implements Serializable {
         this.endereco = endereco;
     }
 
+    @NotBlank
     public String getEmail() {
         return email;
     }
@@ -156,5 +161,14 @@ public class Participante implements Serializable {
 
     public void setAcessibilidade(String acessibilidade) {
         this.acessibilidade = acessibilidade;
+    }
+
+    @ManyToMany
+    public List<Concurso> getConcursos() {
+        return concursos;
+    }
+
+    public void setConcursos(List<Concurso> concursos) {
+        this.concursos = concursos;
     }
 }

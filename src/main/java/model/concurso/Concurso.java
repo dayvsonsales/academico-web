@@ -121,12 +121,17 @@ public class Concurso implements Serializable {
         this.banca = banca;
     }
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "concursos")
     public List<Participante> getParticipantes() {
         return participantes;
     }
 
     public void setParticipantes(List<Participante> participantes) {
         this.participantes = participantes;
+    }
+
+    @Override
+    public String toString() {
+        return this.edital +" - " +this.nome;
     }
 }
