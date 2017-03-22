@@ -51,12 +51,11 @@
             <version>5.4.1.Final</version>
         </dependency>
 
-        <!-- MySQL JDBC Driver -->
+        <!-- PostgreSQL JDBC Driver -->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>6.0.5</version>
-            <scope>compile</scope>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.0.0</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
