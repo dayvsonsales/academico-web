@@ -18,11 +18,11 @@ public class JpaUtil {
         Map<String, Object> configOverrides = new HashMap<String, Object>();
 
         for (String envName : env.keySet()) {
-            if (envName.contains("DATABASE_USER")) {
+            if (envName.contains("DB_USER")) {
                 configOverrides.put("javax.persistence.jdbc.user", env.get(envName));
-            }else if (envName.contains("DATABASE_URL")) {
+            }else if (envName.contains("DB_URL")) {
                 configOverrides.put("javax.persistence.jdbc.url", env.get(envName));
-            } else if (envName.contains("DATABASE_PASSWORD")) {
+            } else if (envName.contains("DB_PASSWORD")) {
                 configOverrides.put("javax.persistence.jdbc.password", env.get(envName));
             }
         }
