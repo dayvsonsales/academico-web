@@ -8,6 +8,6 @@ Para contribuir, é necessário importar o projeto pelo maven. Recomendamos a ut
 
 # Requisitos
 
-**MySQL 5.6**  
+**PostgreSQL**  
 **Hibernate**  
 **JSF 2.x**
