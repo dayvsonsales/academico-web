@@ -42,8 +42,10 @@ public class Monitoria {
 
 
 
+
     @Size(min = 1)
     @ManyToMany(fetch = FetchType.EAGER)
+
     @ManyToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
     public List<Monitor> getMonitores() {
         return monitores;
