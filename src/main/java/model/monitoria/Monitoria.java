@@ -36,6 +36,8 @@ public class Monitoria {
         this.disciplina = disciplina;
     }
 
+
+
     @ManyToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
     public List<Monitor> getMonitores() {
         return monitores;
