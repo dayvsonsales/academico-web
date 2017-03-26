@@ -65,7 +65,7 @@ public class SolicitacaoTrancamentoController extends ControllerBase {
 
         solicitacaoTrancamento.setPeriodoSolicitacaoTrancamento((Periodo) periodoRepository.find(1)); //TODO: alterar para ter um painal de configuração
 
-        DiscenteRepository discenteRepository = new DiscenteRepository(Discente.class);
+        DiscenteRepository discenteRepository = new DiscenteRepository();
         Discente discente = discenteRepository.buscarPorMatricula(matricula);
 
         if(discente == null){
