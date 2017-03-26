@@ -22,7 +22,7 @@ public class PeriodoController extends ControllerBase {
 
     public PeriodoController() {
         super(FacesContext.getCurrentInstance());
-        this.repo = new PeriodoRepository(Periodo.class);
+        this.repo = new PeriodoRepository();
     }
 
     public void init() {
@@ -31,7 +31,7 @@ public class PeriodoController extends ControllerBase {
             this.setTitulo("Novo Periodo");
         }else {
             this.setTitulo("Editar Periodo");
-            this.periodo = (Periodo) repo.find(periodoId);
+            this.periodo = repo.find(periodoId);
         }
     }
 

@@ -31,7 +31,7 @@ public class CentroAcademicoAtividadeController extends ControllerBase {
         super(FacesContext.getCurrentInstance());
         setPermissoes(Arrays.asList(Permissoes.CENTRO_ACADEMICO));
 
-        this.repo = new CentroAcademicoAtividadeRepository(CAAtividade.class);
+        this.repo = new CentroAcademicoAtividadeRepository();
         this.centroAcademicoAtividades = (ArrayList<CAAtividade>) this.repo.all();
     }
 
@@ -55,7 +55,7 @@ public class CentroAcademicoAtividadeController extends ControllerBase {
         }else{
             setParamAlert("ok-add");
             if(this.isEnviarEmail()){
-                MembroRepository membroRepository = new MembroRepository(Membro.class);
+                MembroRepository membroRepository = new MembroRepository();
                 String mensagem = "Uma nova atividade foi marcada para " + new SimpleDateFormat("dd/mm/yyyy").format(centroAcademicoAtividade.getData()) + " no local" + centroAcademicoAtividade.getLocal();
                 ArrayList<Membro> membros = (ArrayList<Membro>) membroRepository.all();
                 for(Membro membro : membros){

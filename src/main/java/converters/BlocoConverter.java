@@ -18,7 +18,7 @@ public class BlocoConverter implements Converter {
         Bloco bloco;
 
         try {
-            bloco = (Bloco) new BlocoRepository(Bloco.class).find(Integer.parseInt(s));
+            bloco = new BlocoRepository().find(Integer.parseInt(s));
         } catch (Throwable e) {
             e.printStackTrace();
             throw new ConverterException("Erro ao converter para objeto Bloco");

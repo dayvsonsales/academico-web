@@ -23,7 +23,7 @@ public class AtividadeController extends ControllerBase {
 
     public AtividadeController(){
         super(FacesContext.getCurrentInstance());
-        this.repo = new AtividadeRepository(Atividade.class);
+        this.repo = new AtividadeRepository();
         this.atividades = (ArrayList<Atividade>) this.repo.all();
     }
 
@@ -33,7 +33,7 @@ public class AtividadeController extends ControllerBase {
             this.setTitulo("Nova Atividade");
         }else {
             this.setTitulo("Editar Atividade");
-            this.atividade = (Atividade) repo.find(atividadeId);
+            this.atividade = repo.find(atividadeId);
         }
     }
 

@@ -23,7 +23,7 @@ public class SalaController extends ControllerBase {
 
     public SalaController(){
         super(FacesContext.getCurrentInstance());
-        this.repo = new SalaRepository(Sala.class);
+        this.repo = new SalaRepository();
         this.salas = (ArrayList<Sala>) this.repo.all();
     }
 

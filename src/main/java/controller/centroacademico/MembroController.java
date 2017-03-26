@@ -12,6 +12,7 @@ import javax.faces.context.FacesContext;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Dayvson on 20/03/2017.
@@ -22,14 +23,14 @@ public class MembroController extends ControllerBase {
     private Integer membroId;
     private Membro membro;
     private MembroRepository repo;
-    private ArrayList<Membro> membros;
+    private List<Membro> membros;
 
     public MembroController() {
         super(FacesContext.getCurrentInstance());
         setPermissoes(Arrays.asList(Permissoes.CENTRO_ACADEMICO));
 
-        this.repo = new MembroRepository(Membro.class);
-        this.membros = (ArrayList<Membro>) this.repo.all();
+        this.repo = new MembroRepository();
+        this.membros = this.repo.all();
     }
 
     public void init() {
@@ -38,7 +39,7 @@ public class MembroController extends ControllerBase {
             this.setTitulo("Novo Membro");
         } else {
             this.setTitulo("Editar Membro");
-            this.membro = (Membro) repo.find(membroId);
+            this.membro = repo.find(membroId);
         }
     }
 
@@ -81,7 +82,7 @@ public class MembroController extends ControllerBase {
         this.membro = membro;
     }
 
-    public ArrayList<Membro> getMembros() {
+    public List<Membro> getMembros() {
         return membros;
     }
 

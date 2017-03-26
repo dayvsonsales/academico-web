@@ -21,14 +21,17 @@
             <div class="box-body">
                 <h:form styleClass="col-md-8 col-md-offset-2">
                     <div class="row form-group">
-                        <label for="inputNome">Nome</label>
-                        <h:inputText id="inputNome" styleClass="form-control" value="#{disciplinaController.disciplina.nome}" />
-                        <h:message for="inputNome" errorClass="error" />
-                    </div>
-                    <div class="row form-group">
-                        <label for="inputCodigo">Nome</label>
-                        <h:inputText id="inputCodigo" styleClass="form-control" value="#{disciplinaController.disciplina.codigo}" />
-                        <h:message for="inputCodigo" errorClass="error" />
+                        <div class="col-md-4">
+                                <label for="inputCodigo">Código</label>
+                                <h:inputText id="inputCodigo" styleClass="form-control" value="#{disciplinaController.disciplina.codigo}" />
+                                <h:message for="inputCodigo" errorClass="error" />
+                        </div>
+
+                        <div class="col-md-8">
+                            <label for="inputNome">Nome</label>
+                            <h:inputText id="inputNome" styleClass="form-control" value="#{disciplinaController.disciplina.nome}" />
+                            <h:message for="inputNome" errorClass="error" />
+                        </div>
                     </div>
 
                     <div class="row form-group">

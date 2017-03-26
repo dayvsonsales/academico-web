@@ -20,7 +20,7 @@ public class DisciplinaConverter implements Converter {
         Disciplina disciplina;
 
         try {
-            disciplina = (Disciplina) new DisciplinaRepository(Disciplina.class).find(Integer.parseInt(s));
+            disciplina = new DisciplinaRepository().find(Integer.parseInt(s));
         } catch (Throwable e) {
             e.printStackTrace();
             throw new ConverterException("Erro ao converter para objeto Disciplina");

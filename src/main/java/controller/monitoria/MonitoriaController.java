@@ -25,7 +25,7 @@ public class MonitoriaController extends ControllerBase {
     public MonitoriaController() {
         super(FacesContext.getCurrentInstance());
 
-        this.repo = new MonitoriaRepository(Monitoria.class);
+        this.repo = new MonitoriaRepository();
         this.monitorias = this.repo.all();
     }
 
@@ -35,7 +35,7 @@ public class MonitoriaController extends ControllerBase {
             this.setTitulo("Nova Monitoria");
         } else {
             this.setTitulo("Editar Monitoria");
-            this.monitoria = (Monitoria) repo.find(monitoriaId);
+            this.monitoria = repo.find(monitoriaId);
         }
     }
 

@@ -8,7 +8,7 @@ import javax.persistence.TypedQuery;
 /**
  * Created by Dayvson on 13/03/2017.
  */
-public class DiscenteRepository extends RepositoryBase {
+public class DiscenteRepository extends RepositoryBase<Discente> {
     public DiscenteRepository() {
         super(Discente.class);
     }

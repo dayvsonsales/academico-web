@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Dayvson on 12/03/2017.
@@ -21,23 +22,21 @@ public class DisciplinaController extends ControllerBase {
     private Integer disciplinaId;
     private Disciplina disciplina;
     private DisciplinaRepository repo;
-    private ArrayList<Disciplina> disciplinas;
+    private List<Disciplina> disciplinas;
 
     public DisciplinaController() {
         super(FacesContext.getCurrentInstance());
-        this.repo = new DisciplinaRepository(Disciplina.class);
-        this.disciplinas = (ArrayList) repo.all();
+        this.repo = new DisciplinaRepository();
+        this.disciplinas = repo.all();
     }
 
     public void init(){
-
         if(disciplinaId == null){
             novaDisciplina();
             this.titulo = "Nova Disciplina";
         }else {
             this.titulo = "Editar Disciplina";
-            this.repo = new DisciplinaRepository(Disciplina.class);
-            this.disciplina = (Disciplina) repo.find(disciplinaId);
+            this.disciplina = repo.find(disciplinaId);
         }
     }
 
@@ -46,7 +45,6 @@ public class DisciplinaController extends ControllerBase {
     }
 
     public String salvar(){
-        this.repo = new DisciplinaRepository(Disciplina.class);
         if(repo.save(disciplina) == null){
             setParamAlert("err-add");
         }else{
@@ -56,7 +54,6 @@ public class DisciplinaController extends ControllerBase {
     }
 
     public String remover(Disciplina disciplina){
-        this.repo = new DisciplinaRepository(Disciplina.class);
         if(repo.destroy(disciplina)){
             setParamAlert("ok-del");
         }else{
@@ -66,7 +63,7 @@ public class DisciplinaController extends ControllerBase {
         return "/disciplinas/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
-    public ArrayList<Disciplina> getDisciplinas() {
+    public List<Disciplina> getDisciplinas() {
         return disciplinas;
     }
 

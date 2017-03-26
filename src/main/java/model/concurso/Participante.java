@@ -64,7 +64,7 @@ public class Participante implements Serializable {
         this.cpf = cpf;
     }
 
-    @NotBlank
+    @NotNull
     public Integer getRg() {
         return rg;
     }

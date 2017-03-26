@@ -28,7 +28,7 @@ public class MonitorController extends ControllerBase {
     public MonitorController() {
         super(FacesContext.getCurrentInstance());
 
-        this.repo = new MonitorRepository(Monitor.class);
+        this.repo = new MonitorRepository();
         this.monitores = this.repo.all();
     }
 
@@ -38,7 +38,7 @@ public class MonitorController extends ControllerBase {
             this.setTitulo("Novo Monitor");
         } else {
             this.setTitulo("Editar Monitor");
-            this.monitor = (Monitor) repo.find(monitorId);
+            this.monitor = repo.find(monitorId);
         }
     }
 

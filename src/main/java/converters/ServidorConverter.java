@@ -18,7 +18,7 @@ public class ServidorConverter implements Converter {
         Servidor servidor;
 
         try {
-            servidor = (Servidor) new ServidorRepository(Servidor.class).find(Integer.parseInt(s));
+            servidor = new ServidorRepository().find(Integer.parseInt(s));
         } catch (Throwable e) {
             e.printStackTrace();
             throw new ConverterException("Erro ao converter para objeto Servidor");

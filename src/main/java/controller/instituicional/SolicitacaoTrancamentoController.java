@@ -28,7 +28,7 @@ public class SolicitacaoTrancamentoController extends ControllerBase {
     private String matricula;
 
     public SolicitacaoTrancamentoController() {
-        this.repo = new SolicitacaoTrancamentoRepository(SolicitacaoTrancamento.class);
+        this.repo = new SolicitacaoTrancamentoRepository();
     }
 
     public void init() {
@@ -36,7 +36,7 @@ public class SolicitacaoTrancamentoController extends ControllerBase {
             novo();
             this.setTitulo("Nova Solicitação de Trancamento");
         }else{
-            this.solicitacaoTrancamento = (SolicitacaoTrancamento) repo.find(solicitacaoTrancamentoId);
+            this.solicitacaoTrancamento = repo.find(solicitacaoTrancamentoId);
         }
     }
 
@@ -61,7 +61,7 @@ public class SolicitacaoTrancamentoController extends ControllerBase {
     }
 
     public String salvar(){
-        PeriodoRepository periodoRepository = new PeriodoRepository(Periodo.class);
+        PeriodoRepository periodoRepository = new PeriodoRepository();
 
         solicitacaoTrancamento.setPeriodoSolicitacaoTrancamento((Periodo) periodoRepository.find(1)); //TODO: alterar para ter um painal de configuração
 

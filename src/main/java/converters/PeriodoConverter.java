@@ -18,7 +18,7 @@ public class PeriodoConverter implements Converter {
         Periodo periodo;
 
         try {
-            periodo = (Periodo) new PeriodoRepository(Periodo.class).find(Integer.parseInt(s));
+            periodo = new PeriodoRepository().find(Integer.parseInt(s));
         } catch (Throwable e) {
             e.printStackTrace();
             throw new ConverterException("Erro ao converter para objeto Periodo");

@@ -23,7 +23,7 @@ public class ParticipanteController extends ControllerBase {
 
     public ParticipanteController() {
         super(FacesContext.getCurrentInstance());
-        this.repo = new ParticipanteRepository(Participante.class);
+        this.repo = new ParticipanteRepository();
         this.participantes = repo.all();
     }
 

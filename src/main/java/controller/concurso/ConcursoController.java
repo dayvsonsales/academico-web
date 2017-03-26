@@ -23,7 +23,7 @@ public class ConcursoController extends ControllerBase {
 
     public ConcursoController() {
         super(FacesContext.getCurrentInstance());
-        this.repo = new ConcursoRepository(Concurso.class);
+        this.repo = new ConcursoRepository();
         this.concursos = repo.all();
     }
 

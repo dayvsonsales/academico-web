@@ -12,6 +12,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Dayvson on 18/03/2017.
@@ -24,7 +25,7 @@ public class PatrimonioController extends ControllerBase {
     private Integer patrimonioId;
     private Patrimonio patrimonio;
     private PatrimonioRepository repo;
-    private ArrayList<Patrimonio> patrimonios;
+    private List<Patrimonio> patrimonios;
     private Status[] status = Status.values();
     private String tipo;
     private Servidor servidor;
@@ -32,9 +33,9 @@ public class PatrimonioController extends ControllerBase {
 
     public PatrimonioController() {
         super(FacesContext.getCurrentInstance());
-        this.repo = new PatrimonioRepository(Patrimonio.class);
+        this.repo = new PatrimonioRepository();
         this.servidor = new Servidor();
-        this.patrimonios = (ArrayList<Patrimonio>) this.repo.all();
+        this.patrimonios = this.repo.all();
     }
 
     public void init() {
@@ -43,10 +44,10 @@ public class PatrimonioController extends ControllerBase {
             this.setTitulo("Novo Patrimonio");
         } else if (detalhes) {
             this.setTitulo("Detalhes Patrimonio");
-            this.patrimonio = (Patrimonio) repo.find(patrimonioId);
+            this.patrimonio = repo.find(patrimonioId);
         } else {
             this.setTitulo("Editar Patrimonio");
-            this.patrimonio = (Patrimonio) repo.find(patrimonioId);
+            this.patrimonio = repo.find(patrimonioId);
         }
         setarTipo();
     }
@@ -100,7 +101,7 @@ public class PatrimonioController extends ControllerBase {
         this.patrimonio = patrimonio;
     }
 
-    public ArrayList<Patrimonio> getPatrimonios() {
+    public List<Patrimonio> getPatrimonios() {
         return patrimonios;
     }
 

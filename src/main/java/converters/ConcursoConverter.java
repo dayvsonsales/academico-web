@@ -20,7 +20,7 @@ public class ConcursoConverter implements Converter {
         Concurso concurso;
 
         try {
-            concurso = new ConcursoRepository(Concurso.class).find(Integer.parseInt(s));
+            concurso = new ConcursoRepository().find(Integer.parseInt(s));
         } catch (Throwable e) {
             e.printStackTrace();
             throw new ConverterException("Erro ao converter para objeto Concurso");

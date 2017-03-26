@@ -23,7 +23,7 @@ public class ServidorController extends ControllerBase {
     public ServidorController() {
         super(FacesContext.getCurrentInstance());
 
-        this.repo = new ServidorRepository(Servidor.class);
+        this.repo = new ServidorRepository();
         this.servidors = (ArrayList<Servidor>) this.repo.all();
     }
 
@@ -33,7 +33,7 @@ public class ServidorController extends ControllerBase {
             this.setTitulo("Novo Servidor");
         }else {
             this.setTitulo("Editar Servidor");
-            this.servidor = (Servidor) repo.find(servidorId);
+            this.servidor = repo.find(servidorId);
         }
     }
 

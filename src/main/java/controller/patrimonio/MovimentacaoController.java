@@ -23,7 +23,7 @@ public class MovimentacaoController extends ControllerBase {
 
     public MovimentacaoController(){
         super(FacesContext.getCurrentInstance());
-        this.repo = new MovimentacaoRepository(Movimentacao.class);
+        this.repo = new MovimentacaoRepository();
         this.movimentacoes = (ArrayList<Movimentacao>) this.repo.all();
     }
 
@@ -33,7 +33,7 @@ public class MovimentacaoController extends ControllerBase {
             this.setTitulo("Nova Movimentação");
         }else {
             this.setTitulo("Editar Movimentação");
-            this.movimentacao = (Movimentacao) repo.find(movimentacaoId);
+            this.movimentacao = repo.find(movimentacaoId);
         }
     }
 

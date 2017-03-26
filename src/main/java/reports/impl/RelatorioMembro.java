@@ -30,7 +30,7 @@ public class RelatorioMembro extends Relatorio {
 
         super.parametros = parametros;
 
-        List<Membro> listaMembro = (ArrayList<Membro>) new MembroRepository(Membro.class).all();
+        List<Membro> listaMembro = new MembroRepository().all();
 
         ds = new JRBeanCollectionDataSource(listaMembro, false);
 

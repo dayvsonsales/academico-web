@@ -18,7 +18,7 @@ public class SalaConverter implements Converter {
         Sala sala;
 
         try {
-            sala = (Sala) new SalaRepository(Sala.class).find(Integer.parseInt(s));
+            sala = new SalaRepository().find(Integer.parseInt(s));
         } catch (Throwable e) {
             e.printStackTrace();
             throw new ConverterException("Erro ao converter para objeto Sala");

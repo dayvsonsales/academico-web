@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Dayvson on 18/03/2017.
@@ -19,12 +20,12 @@ public class BlocoController extends ControllerBase {
     private Integer blocoId;
     private Bloco bloco;
     private BlocoRepository repo;
-    private ArrayList<Bloco> blocos;
+    private List<Bloco> blocos;
 
     public BlocoController(){
         super(FacesContext.getCurrentInstance());
-        this.repo = new BlocoRepository(Bloco.class);
-        this.blocos = (ArrayList<Bloco>) this.repo.all();
+        this.repo = new BlocoRepository();
+        this.blocos = this.repo.all();
     }
 
     public void init() {
@@ -33,7 +34,7 @@ public class BlocoController extends ControllerBase {
             this.setTitulo("Novo Bloco");
         }else {
             this.setTitulo("Editar Bloco");
-            this.bloco = (Bloco) repo.find(blocoId);
+            this.bloco = repo.find(blocoId);
         }
     }
 
@@ -68,7 +69,7 @@ public class BlocoController extends ControllerBase {
         this.bloco = bloco;
     }
 
-    public ArrayList<Bloco> getBlocos() {
+    public List<Bloco> getBlocos() {
         return blocos;
     }
 

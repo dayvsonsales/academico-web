@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Dayvson on 13/03/2017.
@@ -19,12 +20,12 @@ public class CursoController extends ControllerBase {
     private Integer cursoId;
     private Curso curso;
     private CursoRepository repo;
-    private ArrayList<Curso> cursos;
+    private List<Curso> cursos;
 
     public CursoController() {
         super(FacesContext.getCurrentInstance());
-        this.repo = new CursoRepository(Curso.class);
-        this.cursos = (ArrayList<Curso>) this.repo.all();
+        this.repo = new CursoRepository();
+        this.cursos = this.repo.all();
     }
 
     public void init() {
@@ -33,7 +34,7 @@ public class CursoController extends ControllerBase {
             this.setTitulo("Novo Curso");
         }else {
             this.setTitulo("Editar Curso");
-            this.curso = (Curso) repo.find(cursoId);
+            this.curso = repo.find(cursoId);
         }
     }
 
@@ -68,7 +69,7 @@ public class CursoController extends ControllerBase {
         this.curso = curso;
     }
 
-    public ArrayList<Curso> getCursos() {
+    public List<Curso> getCursos() {
         return cursos;
     }
 

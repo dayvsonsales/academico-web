@@ -20,7 +20,7 @@ public class MonitorConverter implements Converter {
         Monitor monitor;
 
         try {
-            monitor = (Monitor) new MonitorRepository(Monitor.class).find(Integer.parseInt(s));
+            monitor = new MonitorRepository().find(Integer.parseInt(s));
         } catch (Throwable e) {
             e.printStackTrace();
             throw new ConverterException("Erro ao converter para objeto Disciplina");

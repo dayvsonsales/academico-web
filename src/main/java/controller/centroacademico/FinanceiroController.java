@@ -26,7 +26,7 @@ public class FinanceiroController extends ControllerBase {
         super(FacesContext.getCurrentInstance());
         setPermissoes(Arrays.asList(Permissoes.CENTRO_ACADEMICO));
 
-        this.repo = new FinanceiroRepository(MovimentacaoFinanceira.class);
+        this.repo = new FinanceiroRepository();
         this.movimentacoes = (ArrayList<MovimentacaoFinanceira>) this.repo.all();
     }
 
@@ -36,7 +36,7 @@ public class FinanceiroController extends ControllerBase {
             this.setTitulo("Nova Movimentação Financeira");
         }else {
             this.setTitulo("Editar Movimentação Financeira");
-            this.financeiro = (MovimentacaoFinanceira) repo.find(financeiroId);
+            this.financeiro = repo.find(financeiroId);
         }
     }
 

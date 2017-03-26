@@ -18,7 +18,7 @@ public class PatrimonioConverter implements Converter {
         Patrimonio patrimonio;
 
         try {
-            patrimonio = (Patrimonio) new PatrimonioRepository(Patrimonio.class).find(Integer.parseInt(s));
+            patrimonio = new PatrimonioRepository().find(Integer.parseInt(s));
         } catch (Throwable e) {
             e.printStackTrace();
             throw new ConverterException("Erro ao converter para objeto Patrimonio");

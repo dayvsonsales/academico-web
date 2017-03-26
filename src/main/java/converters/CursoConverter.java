@@ -18,7 +18,7 @@ public class CursoConverter implements Converter {
         Curso curso;
 
         try {
-            curso = (Curso) new CursoRepository(Curso.class).find(Integer.parseInt(s));
+            curso = new CursoRepository().find(Integer.parseInt(s));
         } catch (Throwable e) {
             e.printStackTrace();
             throw new ConverterException("Erro ao converter para objeto Curso");
