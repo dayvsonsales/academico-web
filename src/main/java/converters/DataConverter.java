@@ -14,6 +14,7 @@ import java.util.Date;
 @FacesConverter(value = "dataConverter", forClass = Date.class)
 public class DataConverter implements Converter {
     public Object getAsObject(FacesContext facesContext, UIComponent uiComponent, String s) {
+        if (s == null) return null;
         Date data;
 
         try {

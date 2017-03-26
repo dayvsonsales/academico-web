@@ -1,7 +1,7 @@
-package controller.instituicional;
+package controller.tcc;
 
 import controller.ControllerBase;
-import model.instituicional.Convidado;
+import model.tcc.Convidado;
 import repository.ConvidadoRepository;
 
 import javax.faces.bean.ManagedBean;

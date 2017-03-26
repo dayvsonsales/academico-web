@@ -1,11 +1,10 @@
 package model.instituicional;
 
+import model.tcc.Tcc;
 import org.hibernate.validator.constraints.NotBlank;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by Dayvson on 13/03/2017.
@@ -17,8 +16,10 @@ public class Curso {
     private String codigo;
     private String nome;
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private List<Tcc> tccs;
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
         return id;
     }
@@ -43,6 +44,15 @@ public class Curso {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    @OneToMany
+    public List<Tcc> getTccs() {
+        return tccs;
+    }
+
+    public void setTccs(List<Tcc> tccs) {
+        this.tccs = tccs;
     }
 
     public String toString() {

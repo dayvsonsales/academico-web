@@ -23,7 +23,7 @@ public class DiscenteController extends ControllerBase {
 
     public DiscenteController() {
         super(FacesContext.getCurrentInstance());
-        this.repo = new DiscenteRepository(Discente.class);
+        this.repo = new DiscenteRepository();
         this.discentes = (ArrayList<Discente>) this.repo.all();
     }
 
