@@ -23,7 +23,7 @@ public class ConvidadoController extends ControllerBase {
 
     public ConvidadoController() {
         super(FacesContext.getCurrentInstance());
-        this.repo = new ConvidadoRepository(Convidado.class);
+        this.repo = new ConvidadoRepository();
         this.convidados = (ArrayList<Convidado>) this.repo.all();
     }
 
