@@ -23,32 +23,32 @@
                 <h:form styleClass="col-md-8 col-md-offset-2">
                     <div class="form-group">
                         <label for="inputTitulo">Título</label>
-                        <h:inputText id="inputTitulo" styleClass="form-control" value="#{projetoController.projeto.titulo}" />
+                        <h:inputText id="inputTitulo" styleClass="form-control" tabindex="1" value="#{projetoController.projeto.titulo}" />
                         <h:message for="inputTitulo" errorClass="error" />
                     </div>
 
                     <div class="form-group">
                         <label for="inputDescricao">Descrição</label>
-                        <h:inputTextarea id="inputDescricao" styleClass="form-control" rows="3" value="#{projetoController.projeto.descricao}" />
+                        <h:inputTextarea id="inputDescricao" styleClass="form-control" rows="3" tabindex="2" value="#{projetoController.projeto.descricao}" />
                         <h:message for="inputDescricao" errorClass="error" />
                     </div>
                     
                     <div class="row form-group">
                         <div class="col-md-4">
                             <label for="inputTipo">Tipo</label>
-                            <h:inputText id="inputTipo" styleClass="form-control" value="#{projetoController.projeto.tipo}" />
+                            <h:inputText id="inputTipo" styleClass="form-control" tabindex="3" value="#{projetoController.projeto.tipo}" />
                             <h:message for="inputTipo" errorClass="error" />
                         </div>
 
                         <div class="col-md-4">
                             <label for="inputFinanciador">Financiadora</label>
-                            <h:inputText id="inputFinanciador" styleClass="form-control" value="#{projetoController.projeto.financiador}" />
+                            <h:inputText id="inputFinanciador" styleClass="form-control" tabindex="4" value="#{projetoController.projeto.financiador}" />
                             <h:message for="inputFinanciador" errorClass="error" />
                         </div>
 
                         <div class="col-md-4">
                             <label for="inputLinhaPesquisa">Linha de Pesquisa</label>
-                            <h:inputText id="inputLinhaPesquisa" styleClass="form-control" value="#{projetoController.projeto.linhaDePesquisa}" />
+                            <h:inputText id="inputLinhaPesquisa" styleClass="form-control" tabindex="5" value="#{projetoController.projeto.linhaDePesquisa}" />
                             <h:message for="inputLinhaPesquisa" errorClass="error" />
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                             <label for="inputDataInicio">Data de Início</label>
                             <h:inputText id="inputDataInicio" class="form-control" converter="dataConverter"
                                      pt:data-provide="datepicker" pt:data-date-format="dd/mm/yyyy"
-                                     pt:tabindex="5" value="#{projetoController.projeto.dataInicio}" />
+                                     pt:tabindex="6" value="#{projetoController.projeto.dataInicio}" />
                             <h:message for="inputDataInicio" errorClass="error" />
                         </div>
 
@@ -66,7 +66,7 @@
                             <label for="inputDataTermino">Data de Término</label>
                             <h:inputText id="inputDataTermino" class="form-control" converter="dataConverter"
                                          pt:data-provide="datepicker" pt:data-date-format="dd/mm/yyyy"
-                                         pt:tabindex="5" value="#{projetoController.projeto.dataTermino}" />
+                                         pt:tabindex="7" value="#{projetoController.projeto.dataTermino}" />
                             <h:message for="inputDataTermino" errorClass="error" />
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                         <div class="col-md-6">
                             <label for="inputIntegrantes">Integrantes</label> <br/>
                             <h:selectManyListbox id="inputIntegrantes" styleClass="form-control select-multiple"
-                                                 value="#{projetoController.projeto.integrantes}">
+                                                 tabindex="8" value="#{projetoController.projeto.integrantes}">
                                 <f:converter converterId="discenteConverter"/>
                                 <f:selectItems value="#{discenteController.discentes}"/>
                             </h:selectManyListbox>
@@ -85,7 +85,7 @@
                         <div class="col-md-6">
                             <label for="inputOrientadores">Orientadores</label> <br/>
                             <h:selectManyListbox id="inputOrientadores" styleClass="form-control select-multiple"
-                                                 value="#{projetoController.projeto.orientadores}">
+                                                 tabindex="9" value="#{projetoController.projeto.orientadores}">
                                 <f:converter converterId="servidorConverter"/>
                                 <f:selectItems value="#{servidorController.servidors}"/>
                             </h:selectManyListbox>
@@ -95,11 +95,11 @@
 
                     <div class="row form-group">
                         <div class="col-md-6 text-right">
-                            <a class="btn btn-link" jsf:outcome="/projeto/index">Cancelar</a>
+                            <a class="btn btn-link" tabindex="11" jsf:outcome="/projeto/index">Cancelar</a>
                         </div>
 
                         <div class="col-md-6 text-left">
-                            <button type="submit" jsf:action="#{projetoController.salvar}" class="btn btn-success">Salvar</button>
+                            <button type="submit" jsf:action="#{projetoController.salvar}" tabindex="10" class="btn btn-success">Salvar</button>
                         </div>
                     </div>
                 </h:form>

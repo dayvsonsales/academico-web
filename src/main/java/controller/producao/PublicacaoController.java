@@ -6,12 +6,17 @@ import model.producao.Publicacao;
 
 import repository.PublicacaoRepository;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.util.List;
 
 /**
  * Created by Jose_Augusto on 24/03/2017.
  */
+
+@ManagedBean
+@ViewScoped
 public class PublicacaoController extends ControllerBase {
 
     private Integer publicacaoId;
@@ -23,6 +28,7 @@ public class PublicacaoController extends ControllerBase {
         super(FacesContext.getCurrentInstance());
 
         this.repo = new PublicacaoRepository();
+        this.publicacoes = repo.all();
     }
 
     public void init() {
@@ -31,7 +37,7 @@ public class PublicacaoController extends ControllerBase {
             this.setTitulo("Nova Publicação");
         } else {
             this.setTitulo("Editar Publicação");
-            this.publicacao = (Publicacao) repo.find(publicacaoId);
+            this.publicacao = repo.find(publicacaoId);
         }
     }
 
@@ -41,7 +47,7 @@ public class PublicacaoController extends ControllerBase {
         } else {
             setParamAlert("ok-add");
         }
-        return "/monitor/index?faces-redirect=true&alert=" + getParamAlert();
+        return "/publicacao/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
     public String remover(Publicacao publicacao) {
@@ -52,6 +58,10 @@ public class PublicacaoController extends ControllerBase {
         }
         publicacoes.remove(publicacao);
         return "/publicacao/index?faces-redirect=true&alert=" + getParamAlert();
+    }
+
+    private void novo() {
+        this.publicacao = new Publicacao();
     }
 
     public Integer getPublicacaoId() {
@@ -77,10 +87,4 @@ public class PublicacaoController extends ControllerBase {
     public void setPublicacoes(List<Publicacao> publicacoes) {
         this.publicacoes = publicacoes;
     }
-
-    private void novo() {
-        this.publicacao = new Publicacao();
-    }
-
-
 }

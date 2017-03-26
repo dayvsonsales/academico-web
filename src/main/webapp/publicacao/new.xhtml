@@ -1,0 +1,110 @@
+<ui:composition template="../templates/layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" >
+
+    <f:metadata>
+        <f:viewParam name="id" value="#{publicacaoController.publicacaoId}"/>
+        <f:viewAction action="#{publicacaoController.init}"/>
+    </f:metadata>
+
+    <ui:define name="titulo">#{publicacaoController.titulo}</ui:define>
+    <ui:define name="breadcrumb-atual">
+        <li><a jsf:outcome="/curso/index"> Publicações </a></li>
+        <li class="active">#{publicacaoController.titulo}</li>
+    </ui:define>
+
+    <ui:define name="conteudo">
+        <div class="box box-primary">
+            <div class="box-body">
+                <h:form styleClass="col-md-8 col-md-offset-2">
+                    <div class="form-group">
+                        <label for="inputTitulo">Título</label>
+                        <h:inputText id="inputTitulo" styleClass="form-control" tabindex="1" value="#{publicacaoController.publicacao.titulo}" />
+                        <h:message for="inputTitulo" errorClass="error" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputResumo">Resumo</label>
+                        <h:inputTextarea id="inputResumo" styleClass="form-control" rows="3" tabindex="2" value="#{publicacaoController.publicacao.resumo}" />
+                        <h:message for="inputResumo" errorClass="error" />
+                    </div>
+                    
+                    <div class="row form-group">
+                        <div class="col-md-4">
+                            <label for="inputRevista">Revista</label>
+                            <h:inputText id="inputRevista" styleClass="form-control" tabindex="3" value="#{publicacaoController.publicacao.revista}" />
+                            <h:message for="inputRevista" errorClass="error" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="inputFinanciador">Financiadora</label>
+                            <h:inputText id="inputFinanciador" styleClass="form-control" tabindex="4" value="#{publicacaoController.publicacao.financiador}" />
+                            <h:message for="inputFinanciador" errorClass="error" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="inputpalavrasChave">Palavras Chave</label>
+                            <h:inputText id="inputpalavrasChave" styleClass="form-control" tabindex="5" value="#{publicacaoController.publicacao.palavrasChave}" />
+                            <h:message for="inputpalavrasChave" errorClass="error" />
+                        </div>
+                    </div>
+                    
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <label for="inputDataSubmissao">Data de Submissão</label>
+                            <h:inputText id="inputDataSubmissao" class="form-control" converter="dataConverter"
+                                     pt:data-provide="datepicker" pt:data-date-format="dd/mm/yyyy"
+                                     pt:tabindex="6" value="#{publicacaoController.publicacao.dataDeSubmissao}" />
+                            <h:message for="inputDataSubmissao" errorClass="error" />
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="inputDataPublicacao">Data de Publicação</label>
+                            <h:inputText id="inputDataPublicacao" class="form-control" converter="dataConverter"
+                                         pt:data-provide="datepicker" pt:data-date-format="dd/mm/yyyy"
+                                         pt:tabindex="7" value="#{publicacaoController.publicacao.dataDePublicacao}" />
+                            <h:message for="inputDataPublicacao" errorClass="error" />
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <label for="inputProjeto">Projeto</label>
+                            <h:selectOneListbox id="inputProjeto" styleClass="form-control" tabindex="8"
+                                                 value="#{publicacaoController.publicacao.projeto}">
+                                <f:converter converterId="projetoConverter"/>
+                                <f:selectItems value="#{projetoController.projetos}"/>
+                            </h:selectOneListbox>
+                            <h:message for="inputProjeto" errorClass="error" />
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="inputAutores">Autores</label> <br/>
+                            <h:selectManyListbox id="inputAutores" styleClass="form-control select-multiple"
+                                                 tabindex="9" value="#{publicacaoController.publicacao.autores}">
+                                <f:converter converterId="discenteConverter"/>
+                                <f:selectItems value="#{discenteController.discentes}"/>
+                            </h:selectManyListbox>
+                            <h:message for="inputAutores" errorClass="error" />
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-6 text-right">
+                            <a class="btn btn-link" tabindex="11" jsf:outcome="/publicacao/index">Cancelar</a>
+                        </div>
+
+                        <div class="col-md-6 text-left">
+                            <button type="submit" jsf:action="#{publicacaoController.salvar}" tabindex="10" class="btn btn-success">Salvar</button>
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

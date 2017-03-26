@@ -1,6 +1,7 @@
 package model.producao;
 
 import model.instituicional.Discente;
+import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -43,7 +44,7 @@ public class Publicacao {
         this.id = id;
     }
 
-    @NotNull
+    @NotBlank
     public String getTitulo() {
         return titulo;
     }
@@ -52,8 +53,7 @@ public class Publicacao {
         this.titulo = titulo;
     }
 
-    @Size(min=1)
-    @ManyToMany(cascade=CascadeType.ALL)
+    @ManyToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
     public List<Discente> getAutores() {
         return autores;
     }
@@ -62,6 +62,7 @@ public class Publicacao {
         this.autores = autores;
     }
 
+    @NotBlank
     public String getResumo() {
         return resumo;
     }
@@ -70,6 +71,7 @@ public class Publicacao {
         this.resumo = resumo;
     }
 
+    @NotBlank
     public String getRevista() {
         return revista;
     }
@@ -86,10 +88,12 @@ public class Publicacao {
         this.financiador = financiador;
     }
 
+    @NotNull
     public Date getDataDeSubmissao() {
         return dataDeSubmissao;
     }
 
+    @NotNull
     public Date getDataDePublicacao() {
         return dataDePublicacao;
     }
@@ -102,6 +106,7 @@ public class Publicacao {
         this.dataDePublicacao = dataDePublicacao;
     }
 
+    @NotBlank
     public String getPalavrasChave() {
         return palavrasChave;
     }
@@ -111,6 +116,7 @@ public class Publicacao {
     }
 
     @ManyToOne
+    @NotNull
     public Projeto getProjeto() {
         return projeto;
     }

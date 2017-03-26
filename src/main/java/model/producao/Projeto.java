@@ -166,4 +166,8 @@ public class Projeto {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return this.titulo;
+    }
 }
