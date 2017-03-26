@@ -3,8 +3,8 @@ package model.producao;
 import model.instituicional.Discente;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -13,65 +13,61 @@ import java.util.List;
  * Created by Jose_Augusto on 24/03/2017.
  */
 
-
 @Entity
 public class Publicacao {
+
     private Integer id;
-    private String  title;
-    private String abstract_;
+    private String titulo;
+    private String resumo;
     private String revista;
-    private List<String> palavrasChaveList;
+    private String palavrasChave;
     private List<Discente> autores;
     private String financiador;
     private Date dataDeSubmissao;
     private Date dataDePublicacao;
 
+    private Projeto projeto;
+
     public Publicacao() {
-        this.palavrasChaveList = new ArrayList<String>();
         this.autores = new ArrayList<Discente>();
+        this.projeto = new Projeto();
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @NotNull
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    @Size(min=1)
     @ManyToMany(cascade=CascadeType.ALL)
     public List<Discente> getAutores() {
         return autores;
     }
 
-
-    public String getPalavrasChave(){
-        String palavras= new String();
-        for(String str:palavrasChaveList){
-           palavras= palavras.concat(str+" ");
-        }
-        return palavras;
-    }
-
-    public void setPalavrasChave(String string){
-        String[] paravras=string.split(" ");
-        for(String str:paravras){
-            palavrasChaveList.add(str);
-        }
-    }
-
-
     public void setAutores(List<Discente> autores) {
         this.autores = autores;
     }
 
-    @NotNull
-    public String getTitle() {
-        return title;
+    public String getResumo() {
+        return resumo;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getAbstract_() {
-        return abstract_;
-    }
-
-    public void setAbstract_(String abstract_) {
-        this.abstract_ = abstract_;
+    public void setResumo(String resumo) {
+        this.resumo = resumo;
     }
 
     public String getRevista() {
@@ -106,28 +102,20 @@ public class Publicacao {
         this.dataDePublicacao = dataDePublicacao;
     }
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
-    public Integer getId() {
-        return id;
+    public String getPalavrasChave() {
+        return palavrasChave;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setPalavrasChave(String palavrasChave) {
+        this.palavrasChave = palavrasChave;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Publicacao that = (Publicacao) o;
-
-        return id.equals(that.id);
+    @ManyToOne
+    public Projeto getProjeto() {
+        return projeto;
     }
 
-    @Override
-    public int hashCode() {
-        return id.hashCode();
+    public void setProjeto(Projeto projeto) {
+        this.projeto = projeto;
     }
 }

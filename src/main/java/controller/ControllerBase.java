@@ -68,17 +68,13 @@ public abstract class ControllerBase implements Serializable {
     public void verificarPermissao() {
         HttpServletResponse response = (HttpServletResponse) context.getExternalContext().getResponse();
 
-        if (!pode()) {
+        if (!permissoes.contains(usuarioAtual.getPermissao())) {
             try {
                 response.sendRedirect("/sem-permissao.xhtml");
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-    }
-
-    public boolean pode() {
-        return permissoes.contains(usuarioAtual.getPermissao());
     }
 
     public String getMessageAlert() {

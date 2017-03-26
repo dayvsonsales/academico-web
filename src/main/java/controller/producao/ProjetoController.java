@@ -6,20 +6,18 @@ import model.producao.Publicacao;
 import repository.ProjetoRepository;
 import repository.PublicacaoRepository;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.util.List;
 
 /**
  * Created by Jose_Augusto on 24/03/2017.
  */
+
+@ManagedBean
+@ViewScoped
 public class ProjetoController extends ControllerBase {
-
-    public ProjetoController(FacesContext context) {
-        super(context);
-    }
-
-
-
 
     private Integer projetoId;
     private Projeto projeto;
@@ -29,8 +27,8 @@ public class ProjetoController extends ControllerBase {
     public ProjetoController() {
         super(FacesContext.getCurrentInstance());
 
-        this.repo = new ProjetoRepository(ProjetoRepository.class);
-        // this.monitores = this.repo.all();
+        this.repo = new ProjetoRepository();
+        this.projetos = repo.all();
     }
 
     public void init() {
@@ -39,7 +37,7 @@ public class ProjetoController extends ControllerBase {
             this.setTitulo("Novo Projeto");
         } else {
             this.setTitulo("Editar Projeto");
-            this.projeto = (Projeto) repo.find(projetoId);
+            this.projeto = repo.find(projetoId);
         }
     }
 
@@ -62,7 +60,11 @@ public class ProjetoController extends ControllerBase {
         return "/projeto/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
-    public Integer getProjetoIdId() {
+    private void novo() {
+        this.projeto = new Projeto();
+    }
+
+    public Integer getProjetoId() {
         return projetoId;
     }
 
@@ -74,7 +76,7 @@ public class ProjetoController extends ControllerBase {
         return projeto;
     }
 
-    public void setPublicacao(Projeto projeto) {
+    public void setProjeto(Projeto projeto) {
         this.projeto = projeto;
     }
 
@@ -85,11 +87,4 @@ public class ProjetoController extends ControllerBase {
     public void setProjetos(List<Projeto> projetos) {
         this.projetos = projetos;
     }
-
-    private void novo() {
-        this.projeto = new Projeto();
-    }
-
-
-
 }

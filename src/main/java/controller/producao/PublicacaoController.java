@@ -22,8 +22,7 @@ public class PublicacaoController extends ControllerBase {
     public PublicacaoController() {
         super(FacesContext.getCurrentInstance());
 
-        this.repo = new PublicacaoRepository(Publicacao.class);
-       // this.monitores = this.repo.all();
+        this.repo = new PublicacaoRepository();
     }
 
     public void init() {
