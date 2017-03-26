@@ -18,8 +18,9 @@ public class DataConverter implements Converter {
         Date data;
 
         try {
-            SimpleDateFormat df = new SimpleDateFormat("dd/mm/yyyy");
+            SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
             data = df.parse(s);
+            System.out.println(data);
         } catch (Throwable e) {
             e.printStackTrace();
             throw new ConverterException("Erro ao converter para objeto Data");
@@ -32,7 +33,7 @@ public class DataConverter implements Converter {
         String value;
         try {
             Date data = (Date) o;
-            SimpleDateFormat df = new SimpleDateFormat("dd/mm/yyyy");
+            SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
             value = df.format(data);
         } catch (Throwable e) {
             throw new ConverterException("Erro ao converter para string Data");
