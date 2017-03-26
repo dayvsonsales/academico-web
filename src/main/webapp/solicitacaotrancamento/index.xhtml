@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title> Solicitação Matrícula </title>
+
+    <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+    <h:outputStylesheet library="css" name="AdminLTE-custom.css"/>
+    <h:outputStylesheet library="css" name="sweetalert.css"/>
+    <h:outputStylesheet library="css" name="bootstrap-multiselect.css" />
+    <h:outputStylesheet library="css" name="app.css"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css"/>
+
+</h:head>
+<h:body>
+    <f:metadata>
+        <f:viewParam name="id" value="#{solicitacaoTrancamentoController.solicitacaoTrancamentoId}"/>
+        <f:viewAction action="#{solicitacaoTrancamentoController.init}"/>
+    </f:metadata>
+    <div class="container">
+        <div class="col-md-1-offset-10">
+            <div class="form-area">
+                <h:form role="form">
+                    <br style="clear:both"/>
+                    <h3 style="margin-bottom: 25px; text-align: center;">Solicitação de Matrícula</h3>
+                    <div class="form-group">
+                        <label for="inputMatrícula">Matrícula</label>
+                        <h:inputText id="inputMatrícula" styleClass="form-control" value="#{solicitacaoTrancamentoController.matricula}"/>
+                        <h:message for="inputMatrícula" errorClass="error"/>
+                    </div>
+                    <div class="form-group">
+                        <p>Selecione as disciplinas que deseja trancar. Atenção: selecione apenas as matriculadas.</p>
+                        <h:selectManyListbox id="inputDisciplina" styleClass="form-control select-multiple" value="#{solicitacaoTrancamentoController.solicitacaoTrancamento.disciplinas}">
+                            <f:converter converterId="disciplinaConverter" />
+                            <f:selectItems value="#{disciplinaController.disciplinas}"/>
+                        </h:selectManyListbox>
+                        <h:message for="inputDisciplina" errorClass="error" />
+                    </div>
+                    <div class="form-group">
+                        <p> Atenção: este formulário está válido para o período atual (#{sistema.periodoAtual}) </p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputJustificativa"> Justificativa</label>
+                        <textarea class="form-control" jsf:value="#{solicitacaoTrancamentoController.solicitacaoTrancamento.justificativa}" id="inputJustificativa" placeholder="Dê uma breve justificativa para o trancamento (máximo 140 caracteres)"
+                                  maxlength="140" rows="7" required="required"/>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" jsf:action="#{solicitacaoTrancamentoController.salvar}" class="btn btn-success">Solicitar
+                        </button>
+                    </div>
+
+                </h:form>
+            </div>
+        </div>
+    </div>
+
+    <h:outputScript library="js" name="jquery.min.js"/>
+    <h:outputScript library="js" name="bootstrap.min.js"/>
+    <h:outputScript library="js" name="AdminLTE.min.js"/>
+    <h:outputScript library="js" name="sweetalert.min.js" />
+    <h:outputScript library="js" name="bootstrap-multiselect.js" />
+    <h:outputScript library="js" name="app.js" />
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/datatables.min.js"></script>
+</h:body>
+</html>
