@@ -1,10 +1,10 @@
 package controller.tcc;
 
 import controller.ControllerBase;
-import model.tcc.Convidado;
+import model.tcc.Banca;
 import model.tcc.Tcc;
-import repository.RepositoryBase;
-import repository.TccRepo;
+import repository.BancaRepository;
+import repository.TccRepository;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -21,12 +21,15 @@ public class TccController extends ControllerBase {
     private Integer tccId;
     private Tcc tcc;
     private List<Tcc> tccs;
-    private TccRepo repo;
+    private Banca banca;
+    private TccRepository tccRepo;
+    private BancaRepository bancaRepo;
 
     public TccController() {
         super(FacesContext.getCurrentInstance());
-        this.repo = new TccRepo();
-        this.tccs = repo.all();
+        this.tccRepo = new TccRepository();
+        this.bancaRepo = new BancaRepository();
+        this.tccs = tccRepo.all();
     }
 
     public void init() {
@@ -35,25 +38,34 @@ public class TccController extends ControllerBase {
             this.setTitulo("Novo TCC");
         }else {
             this.setTitulo("Editar TCC");
-            this.tcc = repo.find(tccId);
+            this.tcc = tccRepo.find(tccId);
+            this.banca = tcc.getBanca();
         }
     }
 
     private void novo() {
         this.tcc = new Tcc();
+        this.banca = new Banca();
     }
 
     public String salvar(){
-        if(repo.save(tcc) == null){
+        Tcc tccSalvo = tccRepo.save(tcc);
+
+        if(tccSalvo == null){
             setParamAlert("err-add");
         }else{
+            tcc = tccSalvo;
+            banca.setTcc(tcc);
+            banca = bancaRepo.save(banca);
+
             setParamAlert("ok-add");
         }
+
         return "/tcc/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
     public String remover(Tcc tcc){
-        if(repo.destroy(tcc)){
+        if(tccRepo.destroy(tcc)){
             setParamAlert("ok-del");
         }else{
             setParamAlert("err-del");
@@ -87,4 +99,11 @@ public class TccController extends ControllerBase {
         this.tccs = tccs;
     }
 
+    public Banca getBanca() {
+        return banca;
+    }
+
+    public void setBanca(Banca banca) {
+        this.banca = banca;
+    }
 }
