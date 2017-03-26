@@ -1,18 +1,17 @@
 package model.tcc;
 
-import model.concurso.Concurso;
-import org.hibernate.annotations.Proxy;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.br.CPF;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  * Created by Dayvson on 13/03/2017.
  */
 @Entity
-@Proxy(lazy = false)
 public class Convidado {
 
     private Integer id;

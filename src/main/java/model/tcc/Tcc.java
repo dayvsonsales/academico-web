@@ -3,7 +3,6 @@ package model.tcc;
 import model.instituicional.Curso;
 import model.instituicional.Discente;
 import model.instituicional.Servidor;
-import org.hibernate.annotations.Proxy;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
@@ -15,7 +14,6 @@ import java.util.Date;
  */
 
 @Entity
-@Proxy(lazy = false)
 public class Tcc {
 
     private Integer id;
@@ -28,9 +26,7 @@ public class Tcc {
 
     private Banca banca;
 
-    public Tcc() {
-
-    }
+    public Tcc() { }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

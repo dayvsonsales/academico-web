@@ -3,7 +3,6 @@ package model.tcc;
 import model.instituicional.Servidor;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
-import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -14,7 +13,6 @@ import java.util.List;
  */
 
 @Entity
-@Proxy(lazy = false)
 public class Banca {
 
     private Integer id;
