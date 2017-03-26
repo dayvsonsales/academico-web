@@ -82,4 +82,8 @@ public class Discente {
         this.periodoIngresso = periodoIngresso;
     }
 
+    @Override
+    public String toString(){
+        return this.matricula + " - " + this.nome;
+    }
 }
