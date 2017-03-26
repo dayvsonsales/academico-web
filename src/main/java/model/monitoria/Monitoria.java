@@ -42,14 +42,11 @@ public class Monitoria {
 
 
 
-<<<<<<< ecd0e89d823b26bb145ece6c7062832d3caf758e
+
 
     @Size(min = 1)
     @ManyToMany(fetch = FetchType.EAGER)
 
-=======
->>>>>>> Adicao de classes do modulo de producao
-    @ManyToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
     public List<Monitor> getMonitores() {
         return monitores;
     }
