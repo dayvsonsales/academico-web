@@ -46,9 +46,15 @@ public class ParticipanteController extends ControllerBase {
         return "/participante/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
-    public void remover(Participante participante){
-        repo.destroy(participante);
+    public String remover(Participante participante){
+        if (repo.destroy(participante)) {
+            setParamAlert("ok-del");
+        } else {
+            setParamAlert("err-del");
+        }
+
         participantes.remove(participante);
+        return "/participante/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
     private void novo() {

@@ -1,14 +1,8 @@
-.table-actions {
-    width: 90px;
-}
+.table-actions {  width: 90px;  }
 
-.vertical-offset-100{
-    padding-top:100px;
-}
+.vertical-offset-100{  padding-top:100px;  }
 
-.error {
-    color: #E74E40;
-}
+.error {  color: #E74E40;  }
 
 table.dataTable thead th {
     position: relative;

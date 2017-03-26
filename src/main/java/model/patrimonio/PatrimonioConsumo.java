@@ -16,7 +16,7 @@ public class PatrimonioConsumo extends Patrimonio {
     private Servidor servidor;
 
     @NotNull
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     public Servidor getServidor() {
         return servidor;
     }

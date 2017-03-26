@@ -63,7 +63,7 @@ public class Discente {
     }
 
     @NotNull
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     public Curso getCurso() {
         return curso;
     }
@@ -73,7 +73,7 @@ public class Discente {
     }
 
     @NotNull
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     public Periodo getPeriodoIngresso() {
         return periodoIngresso;
     }

@@ -1,9 +1,12 @@
 package model.monitoria;
 
 import model.instituicional.Disciplina;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 /**
@@ -27,7 +30,8 @@ public class Monitoria {
         this.id = id;
     }
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @NotNull
+    @OneToOne(fetch = FetchType.EAGER)
     public Disciplina getDisciplina() {
         return disciplina;
     }
@@ -36,7 +40,8 @@ public class Monitoria {
         this.disciplina = disciplina;
     }
 
-    @ManyToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+    @Size(min = 1)
+    @ManyToMany(fetch = FetchType.EAGER)
     public List<Monitor> getMonitores() {
         return monitores;
     }

@@ -7,12 +7,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 /**
  * Created by Dayvson on 13/03/2017.
  */
 @Entity
-public class Servidor {
+public class Servidor implements Serializable {
 
     private Integer id;
     private String nome;

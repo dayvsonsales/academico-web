@@ -90,8 +90,8 @@
                             </div>
 
                             <div class="col-md-6 form-group">
-                                <label for="inputBanca">Banca</label>
-                                <h:selectManyListbox id="inputBanca" styleClass="form-control"
+                                <label for="inputBanca">Banca</label> <br/>
+                                <h:selectManyListbox id="inputBanca" styleClass="form-control select-multiple"
                                                  value="#{concursoController.concurso.banca}">
                                     <f:converter converterId="servidorConverter"/>
                                     <f:selectItems value="#{servidorController.servidors}"/>

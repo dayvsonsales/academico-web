@@ -9,10 +9,7 @@ import util.SessionUtils;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by anderson on 13/03/2017.
@@ -51,14 +48,16 @@ public abstract class ControllerBase implements Serializable {
         this.titulo = titulo;
     }
 
+    public List toSelectList(List list) {
+        ArrayList selectList = new ArrayList(list);
+
+        return selectList;
+    }
+
     public void setPermissoes(List<Permissoes> permissoes) {
         this.permissoes.addAll(permissoes);
 
         verificarPermissao();
-    }
-
-    public Usuario getUsuarioAtual() {
-        return usuarioAtual;
     }
 
     public void verificarPermissao() {

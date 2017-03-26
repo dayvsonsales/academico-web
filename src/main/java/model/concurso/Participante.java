@@ -1,5 +1,6 @@
 package model.concurso;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.br.CPF;
 
@@ -63,6 +64,7 @@ public class Participante implements Serializable {
         this.cpf = cpf;
     }
 
+    @NotBlank
     public Integer getRg() {
         return rg;
     }
@@ -71,6 +73,7 @@ public class Participante implements Serializable {
         this.rg = rg;
     }
 
+    @NotBlank
     public String getOrgaoEmissorRG() {
         return orgaoEmissorRG;
     }
@@ -130,6 +133,7 @@ public class Participante implements Serializable {
         this.endereco = endereco;
     }
 
+    @Email
     @NotBlank
     public String getEmail() {
         return email;
@@ -163,7 +167,7 @@ public class Participante implements Serializable {
         this.acessibilidade = acessibilidade;
     }
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     public List<Concurso> getConcursos() {
         return concursos;
     }

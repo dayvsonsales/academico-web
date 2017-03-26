@@ -66,8 +66,8 @@ public class Concurso implements Serializable {
         this.areaEstudo = areaEstudo;
     }
 
-    @ManyToOne
     @NotNull
+    @ManyToOne
     public Servidor getSupervisor() {
         return supervisor;
     }
@@ -112,7 +112,7 @@ public class Concurso implements Serializable {
         this.modalidade = modalidade;
     }
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     public List<Servidor> getBanca() {
         return banca;
     }

@@ -46,9 +46,14 @@ public class ConcursoController extends ControllerBase {
         return "/concurso/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
-    public void remover(Concurso concurso){
-        repo.destroy(concurso);
+    public String remover(Concurso concurso){
+        if (repo.destroy(concurso)) {
+            setParamAlert("ok-del");
+        } else {
+            setParamAlert("err-del");
+        }
         concursos.remove(concurso);
+        return "/concurso/index?faces-redirect=true&alert=" + getParamAlert();
     }
 
     private void novo() {
@@ -78,4 +83,5 @@ public class ConcursoController extends ControllerBase {
     public void setConcursos(List<Concurso> concursos) {
         this.concursos = concursos;
     }
+
 }
