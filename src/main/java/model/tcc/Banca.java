@@ -1,8 +1,11 @@
 package model.tcc;
 
 import model.instituicional.Servidor;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,7 +19,12 @@ public class Banca {
     private List<Convidado> convidados;
     private List<Servidor> professores;
 
-    public Banca() {}
+    private Tcc tcc;
+
+    public Banca() {
+        convidados = new ArrayList<Convidado>();
+        professores = new ArrayList<Servidor>();
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +36,8 @@ public class Banca {
         this.id = id;
     }
 
-    @ManyToMany(mappedBy = "bancas")
+    @ManyToMany(fetch = FetchType.EAGER)
+    @Fetch(FetchMode.SELECT)
     public List<Convidado> getConvidados() {
         return convidados;
     }
@@ -37,7 +46,8 @@ public class Banca {
         this.convidados = convidados;
     }
 
-    @ManyToMany(mappedBy = "bancas")
+    @ManyToMany(fetch = FetchType.EAGER)
+    @Fetch(FetchMode.SELECT)
     public List<Servidor> getProfessores() {
         return professores;
     }
@@ -46,4 +56,12 @@ public class Banca {
         this.professores = professores;
     }
 
+    @OneToOne
+    public Tcc getTcc() {
+        return tcc;
+    }
+
+    public void setTcc(Tcc tcc) {
+        this.tcc = tcc;
+    }
 }

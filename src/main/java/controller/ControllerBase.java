@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import model.Permissoes;
 import model.Usuario;
+import org.apache.commons.codec.binary.Base64;
 import util.SessionUtils;
 
 import javax.faces.context.FacesContext;
@@ -18,16 +19,20 @@ public abstract class ControllerBase implements Serializable {
 
     private String titulo;
     private String paramAlert;
+    private String messageAlert;
     private Set<Permissoes> permissoes;
     private FacesContext context;
     private Usuario usuarioAtual;
+
+    public ControllerBase(){}
 
     public ControllerBase(FacesContext context) {
         this.context = context;
         this.permissoes = new HashSet<Permissoes>(Arrays.asList(Permissoes.ADMIN));
         this.usuarioAtual = SessionUtils.getUsuario(context);
-
-        verificarPermissao();
+        if(usuarioAtual != null){
+            verificarPermissao();
+        }
     }
 
     public abstract void init();
@@ -76,4 +81,11 @@ public abstract class ControllerBase implements Serializable {
         return permissoes.contains(usuarioAtual.getPermissao());
     }
 
+    public String getMessageAlert() {
+        return Base64.encodeBase64String(messageAlert.getBytes());
+    }
+
+    public void setMessageAlert(String messageAlert) {
+        this.messageAlert = messageAlert;
+    }
 }

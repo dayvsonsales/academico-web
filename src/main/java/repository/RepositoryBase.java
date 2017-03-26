@@ -29,7 +29,7 @@ public class RepositoryBase<E> {
     public E save(E entity) {
         try {
             manager().getTransaction().begin();
-            manager().merge(entity);
+            entity = manager().merge(entity);
             manager().getTransaction().commit();
 
             return entity;

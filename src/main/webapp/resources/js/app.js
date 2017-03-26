@@ -65,19 +65,22 @@ function getParameterByName(name, url) {
 }
 function alerts() {
     var a = getParameterByName("alert");
+    var msg = getParameterByName("message");
+    var b;
+    if(msg) b = atob(msg);
 
     switch (a) {
         case "ok-add":
-            sweetAlert("OK", "Salvo com sucesso!", "success");
+            sweetAlert("OK", b || "Salvo com sucesso!", "success");
             break;
         case "err-add":
-            sweetAlert("Oops...", "Não foi possível salvar!", "error");
+            sweetAlert("Oops...", b || "Não foi possível salvar!", "error");
             break;
         case "ok-del":
-            sweetAlert("OK", "Removido com sucesso!", "success");
+            sweetAlert("OK", b || "Removido com sucesso!", "success");
             break;
         case "err-del":
-            sweetAlert("Oops...", "Não foi possível remover!", "error");
+            sweetAlert("Oops...", b || "Não foi possível remover!", "error");
             break;
     }
 }
