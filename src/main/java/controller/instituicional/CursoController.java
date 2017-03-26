@@ -2,12 +2,14 @@ package controller.instituicional;
 
 import controller.ControllerBase;
 import model.instituicional.Curso;
+import reports.impl.RelatorioCurso;
 import repository.CursoRepository;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -40,6 +42,17 @@ public class CursoController extends ControllerBase {
 
     public void novo(){
         this.curso = new Curso();
+    }
+
+    public void relatorio(Curso curso) {
+        try {
+            HashMap param = new HashMap();
+            param.put("FILTROS", curso.getNome());
+            param.put("curso_id", curso.getId());
+            new RelatorioCurso().gerarRelatorio(param);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public String salvar(){

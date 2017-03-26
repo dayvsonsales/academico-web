@@ -18,6 +18,8 @@ public class Curso {
 
     private List<Tcc> tccs;
 
+    private List<Discente> discentes;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
@@ -53,6 +55,15 @@ public class Curso {
 
     public void setTccs(List<Tcc> tccs) {
         this.tccs = tccs;
+    }
+
+    @OneToMany(mappedBy = "curso")
+    public List<Discente> getDiscentes() {
+        return discentes;
+    }
+
+    public void setDiscentes(List<Discente> discentes) {
+        this.discentes = discentes;
     }
 
     public String toString() {

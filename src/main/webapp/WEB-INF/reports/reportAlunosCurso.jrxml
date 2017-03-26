@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2017-03-26T14:46:02 -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportMembro2" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="82781829-4a56-419e-adc8-a20f7fc08cac">
+<!-- 2017-03-26T14:45:52 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportAlunosCurso" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" uuid="82781829-4a56-419e-adc8-a20f7fc08cac">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<style name="Zebra" mode="Opaque">
 		<conditionalStyle>
@@ -15,13 +15,11 @@
 		<![CDATA[]]>
 	</queryString>
 	<field name="id" class="java.lang.Integer"/>
-	<field name="curso.nome" class="java.lang.String"/>
 	<field name="periodoIngresso.nome" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="matricula" class="java.lang.String"/>
-	<field name="cargo" class="java.lang.String"/>
-	<field name="email" class="java.lang.String"/>
+	<field name="cpf" class="java.lang.String"/>
 	<field name="nome" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
@@ -65,7 +63,7 @@
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Relatório de Membros - CA]]></text>
+				<text><![CDATA[Relatório de Alunos]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
 				<reportElement x="9" y="118" width="318" height="20" uuid="6a8c2e9d-e21b-42e3-aaea-2fc0245845d0"/>
@@ -80,7 +78,7 @@
 	<columnHeader>
 		<band height="34" splitType="Stretch">
 			<staticText>
-				<reportElement stretchType="RelativeToBandHeight" x="30" y="3" width="140" height="29" uuid="2fbe5d16-0e9a-4265-a592-895718ebd35e"/>
+				<reportElement stretchType="RelativeToBandHeight" x="30" y="3" width="193" height="29" uuid="2fbe5d16-0e9a-4265-a592-895718ebd35e"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -106,7 +104,7 @@
 				<text><![CDATA[Cód.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement stretchType="RelativeToBandHeight" x="170" y="3" width="60" height="29" uuid="83f90994-a24e-4666-b869-85d2b6ff1af9"/>
+				<reportElement stretchType="RelativeToBandHeight" x="223" y="3" width="80" height="29" uuid="83f90994-a24e-4666-b869-85d2b6ff1af9"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -116,10 +114,10 @@
 				<textElement textAlignment="Center">
 					<font size="11" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Período]]></text>
+				<text><![CDATA[Período Ingresso]]></text>
 			</staticText>
 			<staticText>
-				<reportElement stretchType="RelativeToBandHeight" x="230" y="3" width="50" height="29" uuid="451f06c7-6c7c-4378-9c46-54d5f35e44a6"/>
+				<reportElement stretchType="RelativeToBandHeight" x="303" y="3" width="99" height="29" uuid="451f06c7-6c7c-4378-9c46-54d5f35e44a6"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -132,7 +130,7 @@
 				<text><![CDATA[Matrícula]]></text>
 			</staticText>
 			<staticText>
-				<reportElement stretchType="RelativeToBandHeight" x="280" y="3" width="74" height="29" uuid="c4213930-f9f0-444a-884d-e05e886358df"/>
+				<reportElement stretchType="RelativeToBandHeight" x="402" y="3" width="142" height="29" uuid="a998652d-275e-4fea-ad90-d6c74519adaf"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -142,40 +140,14 @@
 				<textElement textAlignment="Center">
 					<font size="11" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Curso]]></text>
-			</staticText>
-			<staticText>
-				<reportElement stretchType="RelativeToBandHeight" x="354" y="3" width="96" height="29" uuid="354456be-909a-4c9b-a554-398f001a5707"/>
-				<box>
-					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center">
-					<font size="11" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Cargo]]></text>
-			</staticText>
-			<staticText>
-				<reportElement stretchType="RelativeToBandHeight" x="450" y="3" width="100" height="29" uuid="a998652d-275e-4fea-ad90-d6c74519adaf"/>
-				<box>
-					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center">
-					<font size="11" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Email]]></text>
+				<text><![CDATA[CPF]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="33" splitType="Stretch">
 			<textField>
-				<reportElement key="" style="Zebra" x="30" y="0" width="140" height="30" uuid="f878fb78-978d-44b9-a25a-401b60357d8c"/>
+				<reportElement key="" style="Zebra" x="30" y="0" width="193" height="30" uuid="f878fb78-978d-44b9-a25a-401b60357d8c"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -201,35 +173,35 @@
 				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="Zebra" x="170" y="0" width="60" height="30" uuid="dad58ff7-89cf-4fb0-9c36-fe0df1388987"/>
+				<reportElement style="Zebra" x="223" y="0" width="80" height="30" uuid="dad58ff7-89cf-4fb0-9c36-fe0df1388987"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="9"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{periodoIngresso.nome}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="Zebra" x="230" y="0" width="50" height="30" uuid="84412bf5-4d15-41a1-baef-46572b072625"/>
+				<reportElement style="Zebra" x="303" y="0" width="99" height="30" uuid="84412bf5-4d15-41a1-baef-46572b072625"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="9"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{matricula}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="Zebra" x="280" y="0" width="74" height="30" uuid="ae1f9763-8345-41ee-a3c5-29533d24ed7f"/>
+				<reportElement style="Zebra" x="403" y="0" width="139" height="30" uuid="7480c8c0-fb99-4f68-821d-28037039facd"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -240,35 +212,7 @@
 					<font size="9"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{curso.nome}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="Zebra" x="354" y="0" width="96" height="30" uuid="c66a8b62-4ef0-4b23-bdbe-e008b4a963e0"/>
-				<box>
-					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font size="9"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{cargo}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="Zebra" x="450" y="0" width="100" height="30" uuid="7480c8c0-fb99-4f68-821d-28037039facd"/>
-				<box>
-					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font size="9"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{cpf}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
@@ -290,4 +234,19 @@
 			</staticText>
 		</band>
 	</pageFooter>
+	<lastPageFooter>
+		<band height="23">
+			<staticText>
+				<reportElement x="3" y="4" width="100" height="15" uuid="8c781e65-1a15-4fa6-8249-20b9af7db1a1"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Total de registros:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="103" y="4" width="410" height="15" uuid="d3ff471b-6c0f-4098-a37c-b3d1e3ccc371"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
 </jasperReport>

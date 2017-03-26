@@ -1,9 +1,8 @@
 package model.centroacademico;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import util.DateUtil;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
@@ -17,6 +16,8 @@ public class MovimentacaoFinanceira implements Serializable{
     private Double valor;
     private String justificativa;
     private Date data;
+
+    private String dataFormatada; //TODO: Fazer isso no próprio iReport (eu esqueci como faz e to sem vontade de procurar)
 
     public Date getData() {
         return data;
@@ -51,5 +52,14 @@ public class MovimentacaoFinanceira implements Serializable{
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    @Transient
+    public String getDataFormatada() {
+        return DateUtil.getDataFormatada(this.data);
+    }
+
+    public void setDataFormatada(String dataFormatada) {
+        this.dataFormatada = dataFormatada;
     }
 }

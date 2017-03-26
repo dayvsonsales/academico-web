@@ -1,15 +1,17 @@
 package controller.centroacademico;
 
 import controller.ControllerBase;
+import model.Meses;
 import model.Permissoes;
 import model.centroacademico.MovimentacaoFinanceira;
+import reports.impl.RelatorioFinanceiro;
 import repository.FinanceiroRepository;
+import util.DateUtil;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 /**
  * Created by Dayvson on 20/03/2017.
@@ -21,6 +23,9 @@ public class FinanceiroController extends ControllerBase {
     private MovimentacaoFinanceira financeiro;
     private FinanceiroRepository repo;
     private ArrayList<MovimentacaoFinanceira> movimentacoes;
+    private Meses mes;
+
+    private Meses[] meses = Meses.values();
 
     public FinanceiroController(){
         super(FacesContext.getCurrentInstance());
@@ -42,6 +47,18 @@ public class FinanceiroController extends ControllerBase {
 
     public void novo(){
         this.financeiro = new MovimentacaoFinanceira();
+    }
+
+    public void relatorio() {
+        try {
+            HashMap parametros = new HashMap();
+            Calendar cal = Calendar.getInstance();
+            parametros.put("FILTROS", DateUtil.getMesFormatado(mes.ordinal() + 1));
+            parametros.put("mes", mes.ordinal() + 1);
+            new RelatorioFinanceiro().gerarRelatorioFinanceiroPorMes(parametros);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public String salvar(){
@@ -85,5 +102,21 @@ public class FinanceiroController extends ControllerBase {
 
     public void setFinanceiroId(Integer financeiroId) {
         this.financeiroId = financeiroId;
+    }
+
+    public Meses getMes() {
+        return mes;
+    }
+
+    public void setMes(Meses mes) {
+        this.mes = mes;
+    }
+
+    public Meses[] getMeses() {
+        return meses;
+    }
+
+    public void setMeses(Meses[] meses) {
+        this.meses = meses;
     }
 }
