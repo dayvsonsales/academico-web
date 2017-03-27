@@ -14,7 +14,7 @@ import javax.persistence.Id;
 public class Disciplina {
 
     private Integer id;
-    private Integer codigo;
+    private String codigo;
     private String nome;
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,11 +36,11 @@ public class Disciplina {
         this.nome = nome;
     }
 
-    public Integer getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(Integer codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
