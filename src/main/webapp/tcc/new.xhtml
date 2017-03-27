@@ -105,7 +105,8 @@
                                         <div class="col-md-6">
                                             <label for="inputConvidados">Convidados</label> <br/>
                                             <h:selectManyListbox id="inputConvidados" styleClass="form-control select-multiple"
-                                                                 value="#{tccController.banca.convidados}">
+                                                                 value="#{tccController.banca.convidados}"
+                                                                 collectionType="java.util.ArrayList">
                                                 <f:converter converterId="convidadoConverter"/>
                                                 <f:selectItems value="#{convidadoController.convidados}"/>
                                             </h:selectManyListbox>
@@ -115,7 +116,8 @@
                                         <div class="col-md-6">
                                             <label for="inputProfessores">Professores</label> <br/>
                                             <h:selectManyListbox id="inputProfessores" styleClass="form-control select-multiple"
-                                                                 value="#{tccController.banca.professores}">
+                                                                 value="#{tccController.banca.professores}"
+                                                                 collectionType="java.util.ArrayList">
                                                 <f:converter converterId="servidorConverter"/>
                                                 <f:selectItems value="#{servidorController.servidors}"/>
                                             </h:selectManyListbox>

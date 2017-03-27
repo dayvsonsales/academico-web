@@ -121,7 +121,7 @@ public class Concurso implements Serializable {
         this.banca = banca;
     }
 
-    @ManyToMany(mappedBy = "concursos")
+    @ManyToMany(mappedBy = "concursos", cascade = CascadeType.ALL)
     public List<Participante> getParticipantes() {
         return participantes;
     }

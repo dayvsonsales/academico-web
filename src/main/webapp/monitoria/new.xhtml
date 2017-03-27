@@ -34,7 +34,8 @@
                         <div class="col-md-6">
                             <label for="inputMonitores">Monitores</label> <br/>
                             <h:selectManyListbox id="inputMonitores" styleClass="form-control select-multiple"
-                                             value="#{monitoriaController.monitoria.monitores}">
+                                                 value="#{monitoriaController.monitoria.monitores}"
+                                                 collectionType="java.util.ArrayList">
                                 <f:converter converterId="monitorConverter"/>
                                 <f:selectItems value="#{monitorController.monitores}"/>
                             </h:selectManyListbox>

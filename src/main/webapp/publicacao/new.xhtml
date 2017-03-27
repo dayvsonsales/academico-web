@@ -85,7 +85,8 @@
                         <div class="col-md-6">
                             <label for="inputAutores">Autores</label> <br/>
                             <h:selectManyListbox id="inputAutores" styleClass="form-control select-multiple"
-                                                 tabindex="9" value="#{publicacaoController.publicacao.autores}">
+                                                 tabindex="9" value="#{publicacaoController.publicacao.autores}"
+                                                 collectionType="java.util.ArrayList">
                                 <f:converter converterId="discenteConverter"/>
                                 <f:selectItems value="#{discenteController.discentes}"/>
                             </h:selectManyListbox>

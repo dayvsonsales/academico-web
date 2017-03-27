@@ -63,7 +63,7 @@ public class Discente {
     }
 
     @NotNull
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     public Curso getCurso() {
         return curso;
     }
@@ -73,7 +73,7 @@ public class Discente {
     }
 
     @NotNull
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     public Periodo getPeriodoIngresso() {
         return periodoIngresso;
     }
@@ -82,7 +82,7 @@ public class Discente {
         this.periodoIngresso = periodoIngresso;
     }
 
-
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

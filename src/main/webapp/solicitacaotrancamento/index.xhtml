@@ -37,7 +37,9 @@
                     </div>
                     <div class="form-group">
                         <p>Selecione as disciplinas que deseja trancar. Atenção: selecione apenas as matriculadas.</p>
-                        <h:selectManyListbox id="inputDisciplina" styleClass="form-control select-multiple" value="#{solicitacaoTrancamentoController.solicitacaoTrancamento.disciplinas}">
+                        <h:selectManyListbox id="inputDisciplina" styleClass="form-control select-multiple"
+                                             value="#{solicitacaoTrancamentoController.solicitacaoTrancamento.disciplinas}"
+                                             collectionType="java.util.ArrayList">
                             <f:converter converterId="disciplinaConverter" />
                             <f:selectItems value="#{disciplinaController.disciplinas}"/>
                         </h:selectManyListbox>

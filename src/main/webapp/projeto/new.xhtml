@@ -75,7 +75,8 @@
                         <div class="col-md-6">
                             <label for="inputIntegrantes">Integrantes</label> <br/>
                             <h:selectManyListbox id="inputIntegrantes" styleClass="form-control select-multiple"
-                                                 tabindex="8" value="#{projetoController.projeto.integrantes}">
+                                                 tabindex="8" value="#{projetoController.projeto.integrantes}"
+                                                 collectionType="java.util.ArrayList">
                                 <f:converter converterId="discenteConverter"/>
                                 <f:selectItems value="#{discenteController.discentes}"/>
                             </h:selectManyListbox>
@@ -85,7 +86,8 @@
                         <div class="col-md-6">
                             <label for="inputOrientadores">Orientadores</label> <br/>
                             <h:selectManyListbox id="inputOrientadores" styleClass="form-control select-multiple"
-                                                 tabindex="9" value="#{projetoController.projeto.orientadores}">
+                                                 tabindex="9" value="#{projetoController.projeto.orientadores}"
+                                                 collectionType="java.util.ArrayList">
                                 <f:converter converterId="servidorConverter"/>
                                 <f:selectItems value="#{servidorController.servidors}"/>
                             </h:selectManyListbox>

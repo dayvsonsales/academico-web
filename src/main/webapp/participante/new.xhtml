@@ -96,7 +96,8 @@
                             <div class="col-md-6 form-group">
                                 <label for="inputConcurso">Concursos</label> <br/>
                                 <h:selectManyListbox id="inputConcurso" styleClass="form-control select-multiple"
-                                                 value="#{participanteController.participante.concursos}">
+                                                     value="#{participanteController.participante.concursos}"
+                                                     collectionType="java.util.ArrayList">
                                     <f:converter converterId="concursoConverter"/>
                                     <f:selectItems value="#{concursoController.concursos}"/>
                                 </h:selectManyListbox>
