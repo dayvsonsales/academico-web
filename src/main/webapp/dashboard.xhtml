@@ -2,10 +2,32 @@
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:jsf="http://xmlns.jcp.org/jsf"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                xmlns:f="http://xmlns.jcp.org/jsf/core">
+                xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 
-<ui:define name="conteudo">
+    <ui:define name="titulo"> Dashboard </ui:define>
 
-</ui:define>
+    <ui:define name="conteudo">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-1">
+                <div class="small-box bg-green text-center">
+                    <div class="inner">
+                        <h3>#{ fn:length(discenteController.discentes) }</h3>
+                        <p>Alunos Cadastrados</p>
+                    </div>
+                    <a jsf:outcome="/discente/index" class="small-box-footer">Lista completa <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-md-offset-1">
+                <div class="small-box bg-red text-center">
+                    <div class="inner">
+                        <h3>#{ fn:length(servidorController.servidors) }</h3>
+                        <p>Servidores Cadastrados</p>
+                    </div>
+                    <a jsf:outcome="/servidor/index" class="small-box-footer">Lista completa <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </ui:define>
 
 </ui:composition>
