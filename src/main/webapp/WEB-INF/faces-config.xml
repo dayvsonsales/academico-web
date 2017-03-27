@@ -7,6 +7,10 @@
         <render-kit-factory>org.omnifaces.renderkit.Html5RenderKitFactory</render-kit-factory>
     </factory>
     <application>
+        <locale-config>
+            <supported-locale>pt-BR</supported-locale>
+        </locale-config>
+
         <resource-handler>org.omnifaces.resourcehandler.UnmappedResourceHandler</resource-handler>
     </application>
 </faces-config>
