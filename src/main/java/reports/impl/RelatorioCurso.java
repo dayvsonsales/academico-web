@@ -34,5 +34,4 @@ public class RelatorioCurso extends Relatorio {
 
         imprimirRelatorio();
     }
-
 }

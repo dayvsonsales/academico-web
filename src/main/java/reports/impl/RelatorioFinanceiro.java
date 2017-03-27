@@ -33,13 +33,8 @@ public class RelatorioFinanceiro extends Relatorio {
 
         List<MovimentacaoFinanceira> lista = new FinanceiroRepository().buscarPorMes((Integer) parametros.get("mes"));
 
-        for (MovimentacaoFinanceira m : lista){
-            System.out.println(m.getId());
-        }
-
         ds = new JRBeanCollectionDataSource(lista, false);
 
         imprimirRelatorio();
     }
-
 }

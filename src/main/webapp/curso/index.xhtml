@@ -42,9 +42,9 @@
                                                 <td>#{curso.codigo}</td>
                                                 <td>#{curso.nome}</td>
                                                 <td class="text-center">
-                                                    <h:commandButton target="_blank" class="btn btn-default" title="Relatórios Aluno" action="#{cursoController.relatorio(curso)}" >
+                                                    <h:commandLink target="_blank" class="btn btn-default" title="Relatórios Aluno" action="#{cursoController.relatorio(curso)}" >
                                                         <i class="fa fa-info" aria-hidden="true"></i>
-                                                    </h:commandButton>
+                                                    </h:commandLink>
                                                     <h:link class="btn btn-primary" outcome="new" title="Editar">
                                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                                         <f:param name="id" value="#{curso.id}"/>

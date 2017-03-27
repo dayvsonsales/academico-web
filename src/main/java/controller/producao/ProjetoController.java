@@ -2,13 +2,13 @@ package controller.producao;
 
 import controller.ControllerBase;
 import model.producao.Projeto;
-import model.producao.Publicacao;
+import reports.impl.RelatorioProducao;
 import repository.ProjetoRepository;
-import repository.PublicacaoRepository;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -48,6 +48,15 @@ public class ProjetoController extends ControllerBase {
             setParamAlert("ok-add");
         }
         return "/projeto/index?faces-redirect=true&alert=" + getParamAlert();
+    }
+
+    public void relatorio() {
+        try {
+            HashMap parametros = new HashMap();
+            new RelatorioProducao().gerarRelatorioProjetos(parametros);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public String remover(Projeto projeto) {

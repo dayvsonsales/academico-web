@@ -36,5 +36,4 @@ public class RelatorioMembro extends Relatorio {
 
         imprimirRelatorio();
     }
-
 }

@@ -10,18 +10,11 @@ import javax.persistence.Id;
  * Created by Dayvson on 13/03/2017.
  */
 @Entity
-public class Docente {
+public class Docente extends Servidor {
 
     private Integer id;
-    private String nome;
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    private ClasseDocente classe;
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -31,5 +24,13 @@ public class Docente {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public ClasseDocente getClasse() {
+        return classe;
+    }
+
+    public void setClasse(ClasseDocente classe) {
+        this.classe = classe;
     }
 }
