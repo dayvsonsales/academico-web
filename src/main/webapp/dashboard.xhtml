@@ -2,32 +2,54 @@
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:jsf="http://xmlns.jcp.org/jsf"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+                xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
 
     <ui:define name="titulo"> Dashboard </ui:define>
 
     <ui:define name="conteudo">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-1">
-                <div class="small-box bg-green text-center">
-                    <div class="inner">
-                        <h3>#{ fn:length(discenteController.discentes) }</h3>
-                        <p>Alunos Cadastrados</p>
+        <h:form>
+            <div class="row">
+                <div class="col-md-4 col-md-offset-1">
+                    <div class="col-md-12">
+                        <div class="small-box bg-green text-center">
+                            <div class="inner">
+                                <h3>#{ fn:length(discenteController.discentes) }</h3>
+                                <p>Alunos Cadastrados</p>
+                            </div>
+                            <a jsf:outcome="/discente/index" class="small-box-footer">Lista completa <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
                     </div>
-                    <a jsf:outcome="/discente/index" class="small-box-footer">Lista completa <i class="fa fa-arrow-circle-right"></i></a>
+
+                    <div class="col-md-12">
+                        <div class="small-box bg-red text-center">
+                            <div class="inner">
+                                <h3>#{ fn:length(servidorController.servidors) }</h3>
+                                <p>Servidores Cadastrados</p>
+                            </div>
+                            <a jsf:outcome="/servidor/index" class="small-box-footer">Lista completa <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-md-offset-1 text-center">
+                    <h4 class="text-left">% Alunos por curso</h4>
+                    <c:choose>
+                        <c:when test="${empty discenteController.discentes}">
+                            <div class="col-md-6 col-md-offset-5">
+                                <h4>Sem Registros!</h4>
+                            </div>
+                        </c:when>
+                        <c:otherwise>
+                            <input id="cursos" type="hidden" value="#{dashboardController.alunosPorCurso}" />
+                            <canvas id="grafico-cursos" width="220" height="220" />
+                        </c:otherwise>
+                    </c:choose>
                 </div>
             </div>
 
-            <div class="col-md-4 col-md-offset-1">
-                <div class="small-box bg-red text-center">
-                    <div class="inner">
-                        <h3>#{ fn:length(servidorController.servidors) }</h3>
-                        <p>Servidores Cadastrados</p>
-                    </div>
-                    <a jsf:outcome="/servidor/index" class="small-box-footer">Lista completa <i class="fa fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
-        </div>
+        </h:form>
     </ui:define>
 
 </ui:composition>

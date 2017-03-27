@@ -1,10 +1,13 @@
 package repository;
 
-import model.instituicional.Curso;
+import model.instituicional.AlunosPorCursoDto;
 import model.instituicional.Discente;
 
 import javax.persistence.NoResultException;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -39,5 +42,20 @@ public class DiscenteRepository extends RepositoryBase<Discente> {
         }finally {
             manager().close();
         }
+    }
+
+    public List<AlunosPorCursoDto> quantidadePorCurso() {
+        Query query = manager().createQuery("SELECT C.nome AS curso, count(D.id) AS quantidadeAlunos FROM Discente D INNER JOIN Curso C ON C.id = D.curso.id GROUP BY C.nome");
+        Iterator iterator = query.getResultList().iterator();
+
+        List<AlunosPorCursoDto> result = new ArrayList<AlunosPorCursoDto>();
+        while (iterator.hasNext()) {
+            Object[] tuple = (Object[]) iterator.next();
+
+            AlunosPorCursoDto alunosPorCurso = new AlunosPorCursoDto((String) tuple[0], (Long) tuple[1]);
+            result.add(alunosPorCurso);
+        }
+
+        return result;
     }
 }

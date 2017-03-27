@@ -49,6 +49,17 @@ $(document).ready(function () {
             }
         }
     });
+
+    $.getScript('http://www.chartjs.org/assets/Chart.js',function(){
+        var cursos = $("#cursos").val();
+
+        var data = JSON.parse(cursos)
+        var options = { animation: true };
+        var c = $('#grafico-cursos');
+        var ct = c.get(0).getContext('2d');
+
+        myNewChart = new Chart(ct).Doughnut(data, options);
+    });
 });
 
 //http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
