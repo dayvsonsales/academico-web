@@ -46,6 +46,25 @@
                             <h:inputText id="inputCargo" styleClass="form-control" value="#{servidorController.servidor.cargo}" />
                             <h:message for="inputCargo" errorClass="error" />
                         </div>
+
+                        <div class="row form-group">
+                            <div class="col-md-6">
+                                <label for="inputSituacao">Situação</label> <br/>
+                                <h:selectOneMenu id="inputSituacao" styleClass="form-control" value="#{servidorController.servidor.situacao}">
+                                    <f:selectItems value="#{servidorController.situacoes}" />
+                                </h:selectOneMenu>
+                                <h:message for="inputSituacao" errorClass="error" />
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="inputClasse">Classe Docente</label> <br/>
+                                <h:selectOneMenu id="inputClasse" styleClass="form-control" value="#{servidorController.classe}">
+                                    <f:selectItem itemValue="#{null}" itemLabel="Selecione apenas se for docente" />
+                                    <f:selectItems value="#{servidorController.classes}" />
+                                </h:selectOneMenu>
+                                <h:message for="inputClasse" errorClass="error" />
+                            </div>
+                        </div>
                     </div>
 
                     <div class="row form-group">

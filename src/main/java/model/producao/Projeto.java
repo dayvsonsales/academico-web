@@ -5,6 +5,7 @@ import model.instituicional.Servidor;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.validator.constraints.NotBlank;
+import util.DateUtil;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -30,6 +31,9 @@ public class Projeto {
     private List<Discente> integrantes;
     private List<Servidor> orientadores;
     private List <Publicacao> publicacoes;
+
+    private String periodoFormatado;
+    private Integer qtdIntegrantes;
 
     public Projeto() {
         this.integrantes = new ArrayList<Discente>();
@@ -137,6 +141,24 @@ public class Projeto {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    @Transient
+    public String getPeriodoFormatado() {
+        return DateUtil.getDataFormatada(this.dataInicio) + " - " + DateUtil.getDataFormatada(this.dataTermino);
+    }
+
+    public void setPeriodoFormatado(String periodoFormatado) {
+        this.periodoFormatado = periodoFormatado;
+    }
+
+    @Transient
+    public Integer getQtdIntegrantes() {
+        return this.integrantes.size() + this.orientadores.size();
+    }
+
+    public void setQtdIntegrantes(Integer qtdIntegrantes) {
+        this.qtdIntegrantes = qtdIntegrantes;
     }
 
     @Override

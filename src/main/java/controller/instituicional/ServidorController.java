@@ -1,7 +1,10 @@
 package controller.instituicional;
 
 import controller.ControllerBase;
+import model.instituicional.ClasseDocente;
+import model.instituicional.Docente;
 import model.instituicional.Servidor;
+import model.instituicional.SituacaoServidor;
 import repository.ServidorRepository;
 
 import javax.faces.bean.ManagedBean;
@@ -19,6 +22,11 @@ public class ServidorController extends ControllerBase {
     private Servidor servidor;
     private ServidorRepository repo;
     private ArrayList<Servidor> servidors;
+
+    private ClasseDocente classe;
+
+    private SituacaoServidor situacoes[] = SituacaoServidor.values();
+    private ClasseDocente classes[] = ClasseDocente.values();
 
     public ServidorController() {
         super(FacesContext.getCurrentInstance());
@@ -42,10 +50,20 @@ public class ServidorController extends ControllerBase {
     }
 
     public String salvar(){
-        if(repo.save(servidor) == null){
-            setParamAlert("err-add");
+        if(classe != null){
+            Docente serv = clonarServidorParaDocente(servidor);
+            serv.setClasse(classe);
+            if(repo.save(serv) == null){
+                setParamAlert("err-add");
+            }else{
+                setParamAlert("ok-add");
+            }
         }else{
-            setParamAlert("ok-add");
+            if(repo.save(servidor) == null){
+                setParamAlert("err-add");
+            }else{
+                setParamAlert("ok-add");
+            }
         }
         return "/servidor/index?faces-redirect=true&alert=" + getParamAlert();
     }
@@ -82,6 +100,40 @@ public class ServidorController extends ControllerBase {
 
     public void setServidorId(Integer servidorId) {
         this.servidorId = servidorId;
+    }
+
+    public SituacaoServidor[] getSituacoes() {
+        return situacoes;
+    }
+
+    public void setSituacoes(SituacaoServidor[] situacoes) {
+        this.situacoes = situacoes;
+    }
+
+    public ClasseDocente[] getClasses() {
+        return classes;
+    }
+
+    public void setClasses(ClasseDocente[] classes) {
+        this.classes = classes;
+    }
+
+    public ClasseDocente getClasse() {
+        return classe;
+    }
+
+    public void setClasse(ClasseDocente classe) {
+        this.classe = classe;
+    }
+
+    private Docente clonarServidorParaDocente(Servidor servidor){
+        Docente docente = new Docente();
+        docente.setNome(servidor.getNome());
+        docente.setCpf(servidor.getCpf());
+        docente.setCargo(servidor.getCargo());
+        docente.setSiape(servidor.getSiape());
+        docente.setSituacao(servidor.getSituacao());
+        return docente;
     }
 
 }

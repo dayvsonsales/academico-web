@@ -29,6 +29,8 @@ public class Publicacao {
 
     private Projeto projeto;
 
+    private String dataDePublicacaoFormatada;
+
     public Publicacao() {
         this.autores = new ArrayList<Discente>();
         this.projeto = new Projeto();
@@ -123,5 +125,14 @@ public class Publicacao {
 
     public void setProjeto(Projeto projeto) {
         this.projeto = projeto;
+    }
+
+    @Transient
+    public String getDataDePublicacaoFormatada() {
+        return dataDePublicacaoFormatada;
+    }
+
+    public void setDataDePublicacaoFormatada(String dataDePublicacaoFormatada) {
+        this.dataDePublicacaoFormatada = dataDePublicacaoFormatada;
     }
 }

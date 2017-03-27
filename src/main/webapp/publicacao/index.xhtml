@@ -17,6 +17,10 @@
                 <div class="box">
                     <div class="box-header">
                         <a jsf:outcome="/publicacao/new" class="pull-right btn btn-success">Novo Cadastro</a>
+                        <h:form>
+                            <h:commandButton value="Relatório Geral" styleClass="btn btn-success"
+                                             action="#{projetoController.relatorio}"/>
+                        </h:form>
                     </div>
 
                     <div class="box-body">

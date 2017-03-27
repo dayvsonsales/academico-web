@@ -19,6 +19,7 @@ public class Servidor implements Serializable {
     private String siape;
     private String cargo;
     private String cpf;
+    private SituacaoServidor situacao;
 
     private List<Banca> bancas;
 
@@ -32,7 +33,7 @@ public class Servidor implements Serializable {
         this.id = id;
     }
 
-    @NotBlank
+    @NotBlank(message = "Não pode estar vazio")
     public String getNome() {
         return nome;
     }
@@ -41,7 +42,7 @@ public class Servidor implements Serializable {
         this.nome = nome;
     }
 
-    @NotBlank
+    @NotBlank(message = "Não pode estar vazio")
     public String getSiape() {
         return siape;
     }
@@ -50,7 +51,7 @@ public class Servidor implements Serializable {
         this.siape = siape;
     }
 
-    @NotBlank
+    @NotBlank(message = "Não pode estar vazio")
     public String getCargo() {
         return cargo;
     }
@@ -59,7 +60,7 @@ public class Servidor implements Serializable {
         this.cargo = cargo;
     }
 
-    @NotBlank
+    @NotBlank(message = "Não pode estar vazio")
     @CPF
     public String getCpf() {
         return cpf;
@@ -76,6 +77,14 @@ public class Servidor implements Serializable {
 
     public void setBancas(List<Banca> bancas) {
         this.bancas = bancas;
+    }
+
+    public SituacaoServidor getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(SituacaoServidor situacao) {
+        this.situacao = situacao;
     }
 
     @Override

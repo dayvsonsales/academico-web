@@ -4,11 +4,13 @@ import controller.ControllerBase;
 
 import model.producao.Publicacao;
 
+import reports.impl.RelatorioProducao;
 import repository.PublicacaoRepository;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -38,6 +40,15 @@ public class PublicacaoController extends ControllerBase {
         } else {
             this.setTitulo("Editar Publicação");
             this.publicacao = repo.find(publicacaoId);
+        }
+    }
+
+    public void relatorio() {
+        try {
+            HashMap parametros = new HashMap();
+            new RelatorioProducao().gerarRelatorioPublicacao(parametros);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
