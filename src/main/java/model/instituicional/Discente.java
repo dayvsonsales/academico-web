@@ -1,10 +1,13 @@
 package model.instituicional;
 
+import model.biblioteca.Emprestimo;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Dayvson on 13/03/2017.
@@ -19,9 +22,12 @@ public class Discente {
     private Periodo periodoIngresso;
     private String cpf;
 
+    private List<Emprestimo> emprestimos;
+
     public Discente() {
         this.curso = new Curso();
         this.periodoIngresso = new Periodo();
+        this.emprestimos = new ArrayList<Emprestimo>();
     }
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -78,8 +84,18 @@ public class Discente {
         return periodoIngresso;
     }
 
+
     public void setPeriodoIngresso(Periodo periodoIngresso) {
         this.periodoIngresso = periodoIngresso;
+    }
+
+    @OneToMany
+    public List<Emprestimo> getEmprestimos() {
+        return emprestimos;
+    }
+
+    public void setEmprestimos(List<Emprestimo> emprestimos) {
+        this.emprestimos = emprestimos;
     }
 
     @Override

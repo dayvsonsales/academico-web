@@ -6,9 +6,9 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns:c="http://java.sun.com/jsp/jstl/core">
 
-    <ui:define name="titulo"> Monitorias </ui:define>
+    <ui:define name="titulo">Livros</ui:define>
     <ui:define name="breadcrumb-atual">
-        <li class="active"> Monitorias </li>
+        <li class="active">Livros</li>
     </ui:define>
 
     <ui:define name="conteudo">
@@ -16,12 +16,12 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <a jsf:outcome="/monitoria/new" class="pull-right btn btn-success">Novo Cadastro</a>
+                        <a jsf:outcome="/livro/new" class="pull-right btn btn-success">Novo Cadastro</a>
                     </div>
 
                     <div class="box-body">
                         <c:choose>
-                            <c:when test="${empty monitoriaController.monitorias}">
+                            <c:when test="${empty livroController.livros}">
                                 <div class="col-md-6 col-md-offset-5">
                                     <h4>Sem Registros!</h4>
                                 </div>
@@ -31,20 +31,26 @@
                                     <table id="table" class="table table-striped table-bordered">
                                         <thead>
                                         <tr>
-                                            <th>Disciplina</th>
+                                            <th>Código</th>
+                                            <th>Título</th>
+                                            <th>Autor</th>
+                                            <th>Tipo</th>
                                             <th class="table-actions"></th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <ui:repeat value="#{monitoriaController.monitorias}" var="monitoria">
+                                        <ui:repeat value="#{livroController.livros}" var="livro">
                                             <tr>
-                                                <td>#{monitoria.disciplina.nome}</td>
+                                                <td>#{livro.codigo}</td>
+                                                <td>#{livro.titulo}</td>
+                                                <td>#{livro.autor}</td>
+                                                <td>#{livro.tipo}</td>
                                                 <td class="text-center">
                                                     <h:link class="btn btn-primary" outcome="new" title="Editar">
                                                         <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                        <f:param name="id" value="#{monitoria.id}"/>
+                                                        <f:param name="id" value="#{livro.id}"/>
                                                     </h:link>
-                                                    <a jsf:onclick="return confirm('Tem certeza?')" jsf:action="#{monitoriaController.remover(monitoria)}"
+                                                    <a jsf:action="#{livroController.remover(livro)}"
                                                        title="Remover"
                                                        class="btn btn-danger">
                                                         <i class="fa fa-trash-o" aria-hidden="true"></i>

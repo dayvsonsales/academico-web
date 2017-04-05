@@ -71,6 +71,12 @@
                 <ul class="sidebar-menu">
                     <li class="header">Módulos</li>
 
+                    <li>
+                        <a jsf:outcome="/dashboard"><i class="fa fa-dashboard" aria-hidden="true"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+
                     <li class="treeview">
                         <a href="javascript:void(0)"><i class="fa fa-university" aria-hidden="true"></i>
                             <span>Instituicional</span>
@@ -136,10 +142,18 @@
                         </ul>
                     </li>
 
-                    <li>
-                        <a jsf:outcome="/monitoria/index"><i class="fa fa-users" aria-hidden="true"></i>
+                    <li class="treeview">
+                        <a href="javascript:void(0)"><i class="fa fa-users" aria-hidden="true"></i>
                             <span>Monitoria</span>
+                            <span class="pull-right-container">
+							  <i class="fa fa-angle-left pull-right"></i>
+							</span>
                         </a>
+
+                        <ul class="treeview-menu">
+                            <li><a jsf:outcome="/monitoria/index">Monitorias</a></li>
+                            <li><a jsf:outcome="/monitor/index">Monitores</a></li>
+                        </ul>
                     </li>
 
                     <li class="treeview">
@@ -167,6 +181,20 @@
                         <ul class="treeview-menu">
                             <li><a jsf:outcome="/projeto/index">Projetos</a></li>
                             <li><a jsf:outcome="/publicacao/index">Publicações</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="treeview">
+                        <a href="javascript:void(0)"><i class="fa fa-book" aria-hidden="true"></i>
+                            <span>Biblioteca</span>
+                            <span class="pull-right-container">
+							  <i class="fa fa-angle-left pull-right"></i>
+							</span>
+                        </a>
+
+                        <ul class="treeview-menu">
+                            <li><a jsf:outcome="/livro/index">Livros</a></li>
+                            <li><a jsf:outcome="/emprestimo/index">Empréstimos</a></li>
                         </ul>
                     </li>
                 </ul>
