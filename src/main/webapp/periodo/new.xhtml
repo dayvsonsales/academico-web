@@ -22,17 +22,17 @@
                 <h:form styleClass="col-md-8 col-md-offset-2">
                     <div class="form-group">
                         <label for="inputNome">Nome</label>
-                        <h:inputText id="inputNome" styleClass="form-control" value="#{periodoController.periodo.nome}" />
+                        <h:inputText id="inputNome" styleClass="form-control" tabindex="1" value="#{periodoController.periodo.nome}" />
                         <h:message for="inputNome" errorClass="error" />
                     </div>
 
                     <div class="row form-group">
                         <div class="col-md-6 text-right">
-                            <a class="btn btn-link" jsf:outcome="/periodo/index">Cancelar</a>
+                            <a class="btn btn-link" tabindex="3" jsf:outcome="/periodo/index">Cancelar</a>
                         </div>
 
                         <div class="col-md-6 text-left">
-                            <button type="submit" jsf:action="#{periodoController.salvar}" class="btn btn-success">Salvar</button>
+                            <button type="submit" tabindex="2" jsf:action="#{periodoController.salvar}" class="btn btn-success">Salvar</button>
                         </div>
                     </div>
                 </h:form>

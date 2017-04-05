@@ -32,14 +32,14 @@
                     <h3 style="margin-bottom: 25px; text-align: center;">Solicitação Trancamento Disciplina</h3>
                     <div class="form-group">
                         <label for="inputMatrícula">Matrícula</label>
-                        <h:inputText id="inputMatrícula" styleClass="form-control" value="#{solicitacaoTrancamentoController.matricula}"/>
+                        <h:inputText id="inputMatrícula" styleClass="form-control" tabindex="1" value="#{solicitacaoTrancamentoController.matricula}"/>
                         <h:message for="inputMatrícula" errorClass="error"/>
                     </div>
                     <div class="form-group">
                         <p>Selecione as disciplinas que deseja trancar. Atenção: selecione apenas as matriculadas.</p>
                         <h:selectManyListbox id="inputDisciplina" styleClass="form-control select-multiple"
                                              value="#{solicitacaoTrancamentoController.solicitacaoTrancamento.disciplinas}"
-                                             collectionType="java.util.ArrayList">
+                                             tabindex="2" collectionType="java.util.ArrayList">
                             <f:converter converterId="disciplinaConverter" />
                             <f:selectItems value="#{disciplinaController.disciplinas}"/>
                         </h:selectManyListbox>
@@ -52,11 +52,11 @@
                     <div class="form-group">
                         <label for="inputJustificativa"> Justificativa</label>
                         <textarea class="form-control" jsf:value="#{solicitacaoTrancamentoController.solicitacaoTrancamento.justificativa}" id="inputJustificativa" placeholder="Dê uma breve justificativa para o trancamento (máximo 140 caracteres)"
-                                  maxlength="140" rows="7" required="required"/>
+                                  tabindex="3" maxlength="140" rows="7" required="required"/>
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" jsf:action="#{solicitacaoTrancamentoController.salvar}" class="btn btn-success">Solicitar
+                        <button type="submit" tabindex="4" jsf:action="#{solicitacaoTrancamentoController.salvar}" class="btn btn-success">Solicitar
                         </button>
                     </div>
 

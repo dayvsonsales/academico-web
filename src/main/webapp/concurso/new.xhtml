@@ -23,20 +23,20 @@
                     <div class="row form-group">
                         <div class="form-group">
                             <label for="inputNome">Nome</label>
-                            <h:inputText id="inputNome" styleClass="form-control" value="#{concursoController.concurso.nome}" />
+                            <h:inputText id="inputNome" styleClass="form-control" tabindex="1" value="#{concursoController.concurso.nome}" />
                             <h:message for="inputNome" errorClass="error" />
                         </div>
 
                         <div class="row">
                             <div class="col-md-6 form-group">
                                 <label for="inputEdital">Edital</label>
-                                <h:inputText id="inputEdital" styleClass="form-control" value="#{concursoController.concurso.edital}" />
+                                <h:inputText id="inputEdital" styleClass="form-control" tabindex="2" value="#{concursoController.concurso.edital}" />
                                 <h:message for="inputEdital" errorClass="error" />
                             </div>
 
                             <div class="col-md-6 form-group">
                                 <label for="inputArea">Área de Estudo</label>
-                                <h:inputText id="inputArea" styleClass="form-control" value="#{concursoController.concurso.areaEstudo}" />
+                                <h:inputText id="inputArea" styleClass="form-control" tabindex="3" value="#{concursoController.concurso.areaEstudo}" />
                                 <h:message for="inputArea" errorClass="error" />
                             </div>
                         </div>
@@ -45,15 +45,14 @@
                             <div class="col-md-6 form-group">
                                 <label for="inputDataConcurso">Data do Concurso</label>
                                     <input id="inputDataConcurso" data-provide="datepicker" data-date-format="dd/mm/yyyy"
-                                           type="text" class="form-control" required="required"
-                                           jsf:converter="dataConverter"
-                                           jsf:value="#{concursoController.concurso.dataConcurso}"/>
+                                           type="text" class="form-control" required="required" tabindex="4"
+                                           jsf:converter="dataConverter" jsf:value="#{concursoController.concurso.dataConcurso}"/>
                                 <h:message for="inputDataConcurso" errorClass="error" />
                             </div>
 
                             <div class="col-md-6 form-group">
                                 <label for="inputModalidade">Modalidade</label>
-                                <h:inputText id="inputModalidade" styleClass="form-control" value="#{concursoController.concurso.modalidade}" />
+                                <h:inputText id="inputModalidade" styleClass="form-control" tabindex="5" value="#{concursoController.concurso.modalidade}" />
                                 <h:message for="inputModalidade" errorClass="error" />
                             </div>
                         </div>
@@ -62,18 +61,16 @@
                             <div class="col-md-6 form-group">
                                 <label for="inputDataInicio">Data de Início das Inscrições</label>
                                 <input id="inputDataInicio" data-provide="datepicker" data-date-format="dd/mm/yyyy"
-                                       type="text" class="form-control" required="required"
-                                       jsf:converter="dataConverter"
-                                       jsf:value="#{concursoController.concurso.dataInicioInscricao}"/>
+                                       type="text" class="form-control" required="required" tabindex="6"
+                                       jsf:converter="dataConverter" jsf:value="#{concursoController.concurso.dataInicioInscricao}"/>
                                 <h:message for="inputDataInicio" errorClass="error" />
                             </div>
 
                             <div class="col-md-6 form-group">
                                 <label for="inputDataTermino">Data de Término das Inscrições</label>
                                 <input id="inputDataTermino" data-provide="datepicker" data-date-format="dd/mm/yyyy"
-                                       type="text" class="form-control" required="required"
-                                       jsf:converter="dataConverter"
-                                       jsf:value="#{concursoController.concurso.dataTerminoInscricao}"/>
+                                       type="text" class="form-control" required="required" tabindex="7"
+                                       jsf:converter="dataConverter" jsf:value="#{concursoController.concurso.dataTerminoInscricao}"/>
                                 <h:message for="inputDataTermino" errorClass="error" />
                             </div>
                         </div>
@@ -81,7 +78,7 @@
                         <div class="row">
                             <div class="col-md-6 form-group">
                                 <label for="inputSupervisor">Supervisor</label>
-                                <h:selectOneMenu id="inputSupervisor" styleClass="form-control"
+                                <h:selectOneMenu id="inputSupervisor" styleClass="form-control" tabindex="8"
                                                  value="#{concursoController.concurso.supervisor}">
                                     <f:converter converterId="servidorConverter"/>
                                     <f:selectItems value="#{servidorController.servidors}"/>
@@ -91,9 +88,8 @@
 
                             <div class="col-md-6 form-group">
                                 <label for="inputBanca">Banca</label> <br/>
-                                <h:selectManyListbox id="inputBanca" styleClass="form-control select-multiple"
-                                                     value="#{concursoController.concurso.banca}"
-                                                     collectionType="java.util.ArrayList">
+                                <h:selectManyListbox id="inputBanca" styleClass="form-control select-multiple" tabindex="9"
+                                                     value="#{concursoController.concurso.banca}" collectionType="java.util.ArrayList">
                                     <f:converter converterId="servidorConverter"/>
                                     <f:selectItems value="#{servidorController.servidors}"/>
                                 </h:selectManyListbox>
@@ -104,11 +100,11 @@
 
                     <div class="row form-group">
                         <div class="col-md-6 text-right">
-                            <a class="btn btn-link" jsf:outcome="/concurso/index">Cancelar</a>
+                            <a class="btn btn-link" tabindex="11" jsf:outcome="/concurso/index">Cancelar</a>
                         </div>
 
                         <div class="col-md-6 text-left">
-                            <button type="submit" jsf:action="#{concursoController.salvar}" class="btn btn-success">Salvar</button>
+                            <button type="submit" tabindex="10" jsf:action="#{concursoController.salvar}" class="btn btn-success">Salvar</button>
                         </div>
                     </div>
                 </h:form>

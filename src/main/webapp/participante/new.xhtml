@@ -23,26 +23,26 @@
                     <div class="row form-group">
                         <div class="form-group">
                             <label for="inputNome">Nome</label>
-                            <h:inputText id="inputNome" styleClass="form-control" value="#{participanteController.participante.nome}" />
+                            <h:inputText id="inputNome" styleClass="form-control" tabindex="1" value="#{participanteController.participante.nome}" />
                             <h:message for="inputNome" errorClass="error" />
                         </div>
 
                         <div class="row">
                             <div class="col-md-4 form-group">
                                 <label for="inputCpf">CPF</label>
-                                <h:inputText id="inputCpf" styleClass="form-control cpf" value="#{participanteController.participante.cpf}" />
+                                <h:inputText id="inputCpf" styleClass="form-control cpf" tabindex="2" value="#{participanteController.participante.cpf}" />
                                 <h:message for="inputCpf" errorClass="error" />
                             </div>
 
                             <div class="col-md-4 form-group">
                                 <label for="inputRg">RG</label>
-                                <h:inputText id="inputRg" styleClass="form-control" value="#{participanteController.participante.rg}" />
+                                <h:inputText id="inputRg" styleClass="form-control" tabindex="3" value="#{participanteController.participante.rg}" />
                                 <h:message for="inputRg" errorClass="error" />
                             </div>
 
                             <div class="col-md-4 form-group">
                                 <label for="inputOrgao">Orgão Emissor</label>
-                                <h:inputText id="inputOrgao" styleClass="form-control" value="#{participanteController.participante.orgaoEmissorRG}" />
+                                <h:inputText id="inputOrgao" styleClass="form-control" tabindex="4" value="#{participanteController.participante.orgaoEmissorRG}" />
                                 <h:message for="inputOrgao" errorClass="error" />
                             </div>
                         </div>
@@ -50,7 +50,7 @@
                         <div class="row">
                             <div class="col-md-6 form-group">
                                 <label for="inputEmail">Email</label>
-                                <h:inputText id="inputEmail" styleClass="form-control" value="#{participanteController.participante.email}" />
+                                <h:inputText id="inputEmail" styleClass="form-control" tabindex="5" value="#{participanteController.participante.email}" />
                                 <h:message for="inputEmail" errorClass="error" />
                             </div>
 
@@ -58,7 +58,7 @@
                                 <label for="inputData">Data de Nascimento</label>
                                 <input id="inputData" data-provide="datepicker" data-date-format="dd/mm/yyyy"
                                        type="text" class="form-control" required="required"
-                                       jsf:converter="dataConverter"
+                                       jsf:converter="dataConverter" tabindex="6"
                                        jsf:value="#{participanteController.participante.dataNascimento}"/>
                                 <h:message for="inputData" errorClass="error" />
                             </div>
@@ -67,13 +67,13 @@
                         <div class="row">
                             <div class="col-md-8 form-group">
                                 <label for="inputNomeMae">Nome da Mãe</label>
-                                <h:inputText id="inputNomeMae" styleClass="form-control" value="#{participanteController.participante.nomeMae}" />
+                                <h:inputText id="inputNomeMae" styleClass="form-control" tabindex="7" value="#{participanteController.participante.nomeMae}" />
                                 <h:message for="inputNomeMae" errorClass="error" />
                             </div>
 
                             <div class="col-md-4 form-group">
                                 <label for="inputNaturalidade">Naturalidade</label>
-                                <h:inputText id="inputNaturalidade" styleClass="form-control" value="#{participanteController.participante.naturalidade}" />
+                                <h:inputText id="inputNaturalidade" styleClass="form-control" tabindex="8" value="#{participanteController.participante.naturalidade}" />
                                 <h:message for="inputNaturalidade" errorClass="error" />
                             </div>
                         </div>
@@ -81,13 +81,13 @@
                         <div class="row">
                             <div class="col-md-8 form-group">
                                 <label for="inputEndereco">Endereço</label>
-                                <h:inputText id="inputEndereco" styleClass="form-control" value="#{participanteController.participante.endereco}" />
+                                <h:inputText id="inputEndereco" styleClass="form-control" tabindex="9" value="#{participanteController.participante.endereco}" />
                                 <h:message for="inputEndereco" errorClass="error" />
                             </div>
 
                             <div class="col-md-4 form-group">
                                 <label for="inputTelefone">Telefone</label>
-                                <h:inputText id="inputTelefone" styleClass="form-control" value="#{participanteController.participante.telefone}" />
+                                <h:inputText id="inputTelefone" styleClass="form-control" tabindex="10" value="#{participanteController.participante.telefone}" />
                                 <h:message for="inputTelefone" errorClass="error" />
                             </div>
                         </div>
@@ -97,7 +97,7 @@
                                 <label for="inputConcurso">Concursos</label> <br/>
                                 <h:selectManyListbox id="inputConcurso" styleClass="form-control select-multiple"
                                                      value="#{participanteController.participante.concursos}"
-                                                     collectionType="java.util.ArrayList">
+                                                     tabindex="11" collectionType="java.util.ArrayList">
                                     <f:converter converterId="concursoConverter"/>
                                     <f:selectItems value="#{concursoController.concursos}"/>
                                 </h:selectManyListbox>
@@ -108,11 +108,11 @@
 
                     <div class="clearfix row form-group">
                         <div class="col-md-6 text-right">
-                            <a class="btn btn-link" jsf:outcome="/participante/index">Cancelar</a>
+                            <a class="btn btn-link" tabindex="13" jsf:outcome="/participante/index">Cancelar</a>
                         </div>
 
                         <div class="col-md-6 text-left">
-                            <button type="submit" jsf:action="#{participanteController.salvar}" class="btn btn-success">Salvar</button>
+                            <button type="submit" tabindex="12" jsf:action="#{participanteController.salvar}" class="btn btn-success">Salvar</button>
                         </div>
                     </div>
                 </h:form>

@@ -23,7 +23,7 @@
                     <div class="row form-group">
                         <div class="form-group">
                             <label for="inputJustificativa">Justificativa</label>
-                            <textarea id="inputJustificativa" class="form-control" required="required" rows="3"
+                            <textarea id="inputJustificativa" class="form-control" tabindex="1" required="required" rows="3"
                                       placeholder="Descreva aqui a justificativa do movimento financeiro"
                                       jsf:maxlength="256" jsf:value="#{financeiroController.financeiro.justificativa}"/>
                         </div>
@@ -31,16 +31,15 @@
                         <div class="row">
                             <div class="col-md-4 form-group">
                                 <label for="inputValor">Valor</label>
-                                <h:inputText id="inputValor" styleClass="form-control valor"
+                                <h:inputText id="inputValor" styleClass="form-control valor" tabindex="2"
                                              value="#{financeiroController.financeiro.valor}" maxlength="14" converter="javax.faces.Double"/>
                                 <h:message for="inputValor" errorClass="error"/>
                             </div>
                             <div class="col-md-4 form-group">
                                 <label for="inputData" class="col-lg-2 control-label">Data</label>
                                 <input required="required" id="inputData" data-provide="datepicker"
-                                       data-date-format="dd/mm/yyyy"
-                                       type="text" class="form-control"
-                                       jsf:converter="dataConverter"
+                                       data-date-format="dd/mm/yyyy" type="text" class="form-control"
+                                       tabindex="3" jsf:converter="dataConverter"
                                        jsf:value="#{financeiroController.financeiro.data}"/>
                             </div>
                         </div>
@@ -48,11 +47,11 @@
 
                         <div class="row form-group">
                             <div class="col-md-6 text-right">
-                                <a class="btn btn-link" jsf:outcome="/financeiro/index">Cancelar</a>
+                                <a class="btn btn-link" tabindex="5" jsf:outcome="/financeiro/index">Cancelar</a>
                             </div>
 
                             <div class="col-md-6 text-left">
-                                <button type="submit" jsf:action="#{financeiroController.salvar}"
+                                <button type="submit" tabindex="4" jsf:action="#{financeiroController.salvar}"
                                         class="btn btn-success">Salvar
                                 </button>
                             </div>

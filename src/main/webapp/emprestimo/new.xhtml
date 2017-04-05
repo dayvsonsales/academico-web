@@ -25,7 +25,7 @@
                         <div class="col-md-4">
                             <label for="inputLivro">Livro</label>
                             <h:selectOneMenu id="inputLivro" styleClass="form-control"
-                                             pt:tabindex="2" value="#{emprestimoController.emprestimo.livro}">
+                                             pt:tabindex="1" value="#{emprestimoController.emprestimo.livro}">
                                 <f:converter converterId="livroConverter"/>
                                 <f:selectItems value="#{livroController.livros}"/>
                             </h:selectOneMenu>
@@ -46,7 +46,7 @@
                             <label for="inputDataEmprestimo">Data de Empréstimo</label>
                             <h:inputText id="inputDataEmprestimo" class="form-control" converter="dataConverter"
                                          pt:data-provide="datepicker" pt:data-date-format="dd/mm/yyyy"
-                                         pt:tabindex="6" value="#{emprestimoController.emprestimo.dataEmprestimo}" />
+                                         pt:tabindex="3" value="#{emprestimoController.emprestimo.dataEmprestimo}" />
                             <h:message for="inputDataEmprestimo" errorClass="error" />
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                             <label for="inputDataVencimento">Data de Vencimento</label>
                             <h:inputText id="inputDataVencimento" class="form-control" converter="dataConverter"
                                          pt:data-provide="datepicker" pt:data-date-format="dd/mm/yyyy"
-                                         pt:tabindex="6" value="#{emprestimoController.emprestimo.dataVencimento}" />
+                                         pt:tabindex="4" value="#{emprestimoController.emprestimo.dataVencimento}" />
                             <h:message for="inputDataVencimento" errorClass="error" />
                         </div>
 
@@ -64,24 +64,24 @@
                             <label for="inputDataDevolucao">Data de Devolução</label>
                             <h:inputText id="inputDataDevolucao" class="form-control" converter="dataConverter"
                                          pt:data-provide="datepicker" pt:data-date-format="dd/mm/yyyy"
-                                         pt:tabindex="6" value="#{emprestimoController.emprestimo.dataDevolucao}" />
+                                         pt:tabindex="5" value="#{emprestimoController.emprestimo.dataDevolucao}" />
                             <h:message for="inputDataDevolucao" errorClass="error" />
                         </div>
 
                         <div class="col-md-4">
                             <label for="inputDevolvido">Devolvido? </label>
-                            <h:selectBooleanCheckbox id="inputDevolvido" value="#{emprestimoController.emprestimo.devolvido}"/>
+                            <h:selectBooleanCheckbox id="inputDevolvido" tabindex="6" value="#{emprestimoController.emprestimo.devolvido}"/>
                             <h:message for="inputDevolvido" errorClass="error"  />
                         </div>
                     </div>
 
                     <div class="row form-group">
                         <div class="col-md-6 text-right">
-                            <a class="btn btn-link" jsf:outcome="/emprestimo/index">Cancelar</a>
+                            <a class="btn btn-link" tabindex="8"  jsf:outcome="/emprestimo/index">Cancelar</a>
                         </div>
 
                         <div class="col-md-6 text-left">
-                            <button type="submit" jsf:action="#{emprestimoController.salvar}" class="btn btn-success">Salvar</button>
+                            <button type="submit" tabindex="7" jsf:action="#{emprestimoController.salvar}" class="btn btn-success">Salvar</button>
                         </div>
                     </div>
                 </h:form>

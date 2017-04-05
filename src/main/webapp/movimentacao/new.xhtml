@@ -23,7 +23,7 @@
                     <div class="row form-group">
                         <div class="col-md-6">
                             <label for="inputPatrimonio">Patrôminio</label>
-                            <h:selectOneMenu id="inputPatrimonio" styleClass="form-control"
+                            <h:selectOneMenu id="inputPatrimonio" styleClass="form-control" tabindex="1"
                                              value="#{movimentacaoController.movimentacao.patrimonio}">
                                 <f:converter converterId="patrimonioConverter"/>
                                 <f:selectItems value="#{patrimonioController.patrimonios}"/>
@@ -33,7 +33,7 @@
 
                         <div class="col-md-6">
                             <label for="inputSala">Sala</label>
-                            <h:selectOneMenu id="inputSala" styleClass="form-control" value="#{movimentacaoController.movimentacao.sala}">
+                            <h:selectOneMenu id="inputSala" styleClass="form-control" tabindex="2" value="#{movimentacaoController.movimentacao.sala}">
                                 <f:converter converterId="salaConverter"/>
                                 <f:selectItems value="#{salaController.salas}"/>
                             </h:selectOneMenu>
@@ -45,18 +45,18 @@
                         <div class="col-md-6">
                             <label for="inputData">Data</label>
                             <input id="inputData" data-provide="datepicker" data-date-format="dd/mm/yyyy"
-                                   type="text" class="form-control" required="required"
+                                   type="text" class="form-control" required="required" tabindex="3"
                                    jsf:converter="dataConverter" jsf:value="#{movimentacaoController.movimentacao.data}"/>
                         </div>
                     </div>
 
                     <div class="clearfix row form-group">
                         <div class="col-md-6 text-right">
-                            <a class="btn btn-link" jsf:outcome="/movimentacao/index">Cancelar</a>
+                            <a class="btn btn-link" tabindex="5" jsf:outcome="/movimentacao/index">Cancelar</a>
                         </div>
 
                         <div class="col-md-6 text-left">
-                            <button type="submit" jsf:action="#{movimentacaoController.salvar}" class="btn btn-success">Salvar</button>
+                            <button type="submit" tabindex="4" jsf:action="#{movimentacaoController.salvar}" class="btn btn-success">Salvar</button>
                         </div>
                     </div>
                 </h:form>

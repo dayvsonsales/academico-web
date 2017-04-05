@@ -18,12 +18,6 @@ public class Sala {
     private String numero;
     private Bloco bloco;
 
-    private List<Atividade> atividades;
-
-    public Sala() {
-        this.atividades = new ArrayList<Atividade>();
-    }
-
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     public Integer getId() {
@@ -60,16 +54,6 @@ public class Sala {
 
     public void setBloco(Bloco bloco) {
         this.bloco = bloco;
-    }
-
-
-    @OneToMany(mappedBy = "sala")
-    public List<Atividade> getAtividades() {
-        return atividades;
-    }
-
-    public void setAtividades(List<Atividade> atividades) {
-        this.atividades = atividades;
     }
 
     @Override

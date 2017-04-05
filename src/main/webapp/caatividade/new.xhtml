@@ -23,38 +23,37 @@
                     <div class="row form-group">
                         <div class="form-group">
                             <label for="inputLocal">Local</label>
-                            <h:inputText id="inputLocal" styleClass="form-control" value="#{centroAcademicoAtividadeController.centroAcademicoAtividade.local}" />
+                            <h:inputText id="inputLocal" styleClass="form-control" tabindex="1" value="#{centroAcademicoAtividadeController.centroAcademicoAtividade.local}" />
                             <h:message for="inputLocal" errorClass="error" />
                         </div>
 
                         <div class="row">
                             <div class="col-md-4 form-group">
                                 <label for="inputAssunto">Assunto</label>
-                                <h:inputText id="inputAssunto" styleClass="form-control" value="#{centroAcademicoAtividadeController.centroAcademicoAtividade.assunto}" maxlength="14" />
+                                <h:inputText id="inputAssunto" styleClass="form-control" tabindex="2" value="#{centroAcademicoAtividadeController.centroAcademicoAtividade.assunto}" maxlength="14" />
                                 <h:message for="inputAssunto" errorClass="error" />
                             </div>
 
                             <div class="col-md-8 form-group">
                                 <label for="inputData">Data</label>
                                 <input id="inputData" data-provide="datepicker" data-date-format="dd/mm/yyyy"
-                                       type="text" class="form-control"
-                                       jsf:converter="dataConverter"
+                                       type="text" class="form-control" tabindex="3" jsf:converter="dataConverter"
                                        jsf:value="#{centroAcademicoAtividadeController.centroAcademicoAtividade.data}"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputEmail"> Enviar Email? </label>
-                            <h:selectBooleanCheckbox id="inputEmail" value="#{centroAcademicoAtividadeController.enviarEmail}"/>
+                            <h:selectBooleanCheckbox id="inputEmail" tabindex="4" value="#{centroAcademicoAtividadeController.enviarEmail}"/>
                         </div>
                     </div>
 
                     <div class="row form-group">
                         <div class="col-md-6 text-right">
-                            <a class="btn btn-link" jsf:outcome="/caatividade/index">Cancelar</a>
+                            <a class="btn btn-link" tabindex="6" jsf:outcome="/caatividade/index">Cancelar</a>
                         </div>
 
                         <div class="col-md-6 text-left">
-                            <button type="submit" jsf:action="#{centroAcademicoAtividadeController.salvar}" class="btn btn-success">Salvar</button>
+                            <button type="submit" tabindex="5" jsf:action="#{centroAcademicoAtividadeController.salvar}" class="btn btn-success">Salvar</button>
                         </div>
                     </div>
                 </h:form>
