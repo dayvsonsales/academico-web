@@ -78,6 +78,8 @@ public abstract class ControllerBase implements Serializable {
     }
 
     public String getMessageAlert() {
+        if(messageAlert == null)
+            return "";
         return Base64.encodeBase64String(messageAlert.getBytes());
     }
 

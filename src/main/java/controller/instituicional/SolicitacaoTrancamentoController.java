@@ -34,7 +34,6 @@ public class SolicitacaoTrancamentoController extends ControllerBase {
     public void init() {
         if(this.solicitacaoTrancamentoId == null){
             novo();
-            this.setTitulo("Nova Solicitação de Trancamento");
         }else{
             this.solicitacaoTrancamento = repo.find(solicitacaoTrancamentoId);
         }
