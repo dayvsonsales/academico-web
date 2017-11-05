@@ -1,6 +1,5 @@
 package model.instituicional;
 
-import model.tcc.Tcc;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
@@ -15,8 +14,6 @@ public class Curso {
     private Integer id;
     private String codigo;
     private String nome;
-
-    private List<Tcc> tccs;
 
     private List<Discente> discentes;
 
@@ -46,15 +43,6 @@ public class Curso {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    @OneToMany
-    public List<Tcc> getTccs() {
-        return tccs;
-    }
-
-    public void setTccs(List<Tcc> tccs) {
-        this.tccs = tccs;
     }
 
     @OneToMany(mappedBy = "curso")

@@ -1,12 +1,10 @@
 package model.instituicional;
 
-import model.tcc.Banca;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * Created by Dayvson on 13/03/2017.
@@ -21,7 +19,6 @@ public class Servidor implements Serializable {
     private String cpf;
     private SituacaoServidor situacao;
 
-    private List<Banca> bancas;
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -68,15 +65,6 @@ public class Servidor implements Serializable {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
-    }
-
-    @ManyToMany
-    public List<Banca> getBancas() {
-        return bancas;
-    }
-
-    public void setBancas(List<Banca> bancas) {
-        this.bancas = bancas;
     }
 
     public SituacaoServidor getSituacao() {
